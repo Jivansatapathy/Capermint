@@ -1,0 +1,113 @@
+{
+  "hero": {
+    "title": "THE NEW GENERATION OF SPEED",
+    "subtitle": "WHERE SPEED MEETS STRATEGY"
+  },
+  "nav": [
+    "HOME",
+    "GAME FEATURES",
+    "POWERUPS",
+    "BLOG",
+    "SUPPORT"
+  ],
+  "about": {
+    "title": "THE RUNNER RUNNER STORY",
+    "text": "In a world where speed is everything, only the strategic survive. Join the ultimate competitive race across the neon city streets."
+  },
+  "features": [
+    {
+      "title": "HIGH SPEED RACING",
+      "description": "Experience the adrenaline of high-stakes racing in beautiful 3D environments."
+    },
+    {
+      "title": "POWERUP MASTERY",
+      "description": "Master shields, magnets, and blasters to gain the edge over your competition."
+    },
+    {
+      "title": "GLOBAL LEADERBOARDS",
+      "description": "Compete with players worldwide and claim your spot at the top of the rankings."
+    }
+  ],
+  "community": [
+    {
+      "title": "RUN THROUGH THE CITY",
+      "desc": "DASH THROUGH FAST-CHANGING STREETS FILLED WITH OBSTACALS TWISTS AND SURPRISES EVERY RUN IS DIFFERENT AND EVERY SECOND COUNTS.",
+      "image": "/assets/Right side mobile.png"
+    },
+    {
+      "title": "DODGE EVERYTHING IN YOUR WAY",
+      "desc": "JUMP SLIDE AND REACT FAST TO SURVIVE ONE WRONG MOVE AND THE RUN IS OVER.",
+      "image": "/assets/Left Side Mobile.png",
+      "reversed": true,
+      "gradientVariant": "2"
+    },
+    {
+      "title": "RUN THROUGH THE CITY",
+      "desc": "DASH THROUGH FAST-CHANGING STREETS FILLED WITH OBSTACALS TWISTS AND SURPRISES EVERY RUN IS DIFFERENT AND EVERY SECOND COUNTS.",
+      "image": "/assets/Right side mobile.png"
+    },
+    {
+      "title": "DODGE EVERYTHING IN YOUR WAY",
+      "desc": "JUMP SLIDE AND REACT FAST TO SURVIVE ONE WRONG MOVE AND THE RUN IS OVER.",
+      "image": "/assets/Left Side Mobile.png",
+      "reversed": true,
+      "gradientVariant": "2"
+    }
+  ],
+  "runners": {
+    "title": "MEET THE RUNNERS",
+    "subtitle": "FROM STREET ARTISTS TO FUTURISTIC RACERS, UNLOCK A UNIQUE ROSTER OF RUNNERS READY TO TAKE OVER THE CITY.",
+    "items": [
+      {
+        "name": "AUSTIN",
+        "desc": "QUICK CONFIDENT AND ALWAYS ON THE MOVE",
+        "modelImage": "/assets/model1.png",
+        "modelScale": "45"
+      },
+      {
+        "name": "MIKEY P",
+        "desc": "STREET SMART LAID BACK AND ALWAYS IN CONTROL",
+        "modelImage": "/assets/model2.png",
+        "modelScale": "55"
+      },
+      {
+        "name": "CAROLINA",
+        "desc": "STRONG FEARLESS AND HARD TO SLOW DOWN",
+        "modelImage": "/assets/model3.png",
+        "modelScale": "45"
+      }
+    ]
+  },
+  "powerups": {
+    "title": "POWER UP YOUR RUN",
+    "subtitle": "ONE PICKUP CAN CHANGE EVERYTHING",
+    "items": [
+      {
+        "name": "SHIELD",
+        "desc": "SURVIVE A HIT AND KEEP RUNNING",
+        "image": "/assets/Shield_Animation 1.png"
+      },
+      {
+        "name": "KEYS",
+        "desc": "SECOND CHANCES WHEN IT MATTERS MOST",
+        "image": "/assets/Key 1.png"
+      },
+      {
+        "name": "BLASTER",
+        "desc": "CLEAR THE PATH AHEAD FAST",
+        "image": "/assets/Blaster_animation 1.png"
+      },
+      {
+        "name": "MAGNET",
+        "desc": "PULL COINS STRAIGHT TO YOU",
+        "image": "/assets/magnet 1.png"
+      }
+    ]
+  },
+  "explore": {
+    "title": "EXPLORE THE WORLD OF RUNNER RUNNER",
+    "subtitle": "8 DIFFERENT WORLDS WAITING TO BE DISCOVERED",
+    "buttonText": "EXPLORE"
+  },
+  "score": "15"
+}
