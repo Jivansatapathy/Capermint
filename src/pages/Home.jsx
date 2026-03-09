@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import HeroSection2 from '../components/HeroSection2';
 import FeaturesSection from '../components/FeaturesSection';
+import GameModesSection from '../components/GameModesSection';
+import Section10 from '../components/Section10';
 import CharacterSection from '../components/CharacterSection';
 import CommunitySection from '../components/CommunitySection';
 import RunnersSection from '../components/RunnersSection';
 import PowerupsSection from '../components/PowerupsSection';
 import ExploreSection from '../components/ExploreSection';
 import StatsSection from '../components/StatsSection';
+import FinalSection from '../components/FinalSection';
 import Lenis from '@studio-freight/lenis';
 import contentData from '../../content.json';
 
@@ -26,7 +29,9 @@ const Home = () => {
         // Try to fetch content from backend; silently use defaults if unavailable
         axios.get('http://localhost:3000/api/content')
             .then(res => setContent(res.data))
-            .catch(() => { }); // use defaultContent already set
+            .catch(() => {
+                // Backend is locally offline; using content.json as fallback
+            });
 
         return () => lenis.destroy();
     }, []);
@@ -52,26 +57,9 @@ const Home = () => {
             <PowerupsSection content={content} />
             <ExploreSection content={content} />
 
-            <section className="section-padding" id="about">
-                <div className="container">
-                    <h2 className="section-title">{content.about.title}</h2>
-                    <p className="section-text">{content.about.text}</p>
-                </div>
-            </section>
-
-            <section className="section-padding" id="game-features">
-                <div className="container">
-                    <h2 className="section-title">GAME FEATURES</h2>
-                    <div className="features-grid">
-                        {content.features.map((f, i) => (
-                            <div key={i} className="feature-card">
-                                <h3>{f.title}</h3>
-                                <p>{f.description}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+            <GameModesSection />
+            <Section10 />
+            <FinalSection />
         </main>
     );
 };

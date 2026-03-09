@@ -11,7 +11,13 @@ function App() {
     useEffect(() => {
         axios.get('http://localhost:3000/api/content')
             .then(res => setNav(res.data.nav))
+<<<<<<< HEAD
             .catch(() => { }); // use defaultNav already set
+=======
+            .catch(() => {
+                // Backend is locally offline; using defaultNav
+            });
+>>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
     }, []);
 
     return (
