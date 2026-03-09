@@ -63,8 +63,8 @@ const Home = () => {
             <Section10 />
             <FinalSection />
             <TestimonialsSection />
-            <FeaturedArticlesSection content={content} />
             <CTASection />
+            <FeaturedArticlesSection content={content} />
         </main>
     );
 };
