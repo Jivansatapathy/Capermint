@@ -1827,15 +1827,30 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #000;
 }
 
-.final-bg {
+.final-slide {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   background-size: 100% 100%;
   background-position: center bottom;
   background-repeat: no-repeat;
-  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease;
+  transform: translateX(5%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.final-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
 }
 
 .final-overlay {
@@ -1846,6 +1861,72 @@ body {
   pointer-events: none;
 }
 
+/* Character Layer for Slide 2 */
+.final-character-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  /* Below text, above bg overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+@keyframes floatLeft {
+  0% {
+    transform: translateY(-50%) translatex(0px);
+  }
+
+  50% {
+    transform: translateY(-53%) translateX(10px);
+  }
+
+  100% {
+    transform: translateY(-47%) translateX(-5px);
+  }
+}
+
+@keyframes floatRight {
+  0% {
+    transform: translateY(-50%) translatex(0px);
+  }
+
+  50% {
+    transform: translateY(-48%) translateX(-10px);
+  }
+
+  100% {
+    transform: translateY(-53%) translateX(5px);
+  }
+}
+
+.final-char-left {
+  position: absolute;
+  left: 10%;
+  top: 45%;
+  height: clamp(300px, 50vh, 500px);
+  object-fit: contain;
+  animation: floatLeft 6s ease-in-out infinite;
+}
+
+.final-char-right {
+  position: absolute;
+  right: 10%;
+  top: 45%;
+  height: clamp(300px, 50vh, 500px);
+  object-fit: contain;
+  animation: floatRight 5s ease-in-out infinite alternate;
+}
+
+.final-game-logo {
+  position: absolute;
+  top: 15%;
+  height: clamp(100px, 15vw, 200px);
+  object-fit: contain;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
 .final-content {
   position: relative;
   z-index: 3;
@@ -1853,26 +1934,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: auto;
-  margin-bottom: 80px;
+  margin-bottom: 90px;
 }
 
 .final-title {
   font-family: var(--font-title);
-  font-size: clamp(3rem, 6vw, 5rem);
-  color: #48FF3F;
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
   letter-spacing: 2px;
   line-height: 1.1;
   margin-bottom: 10px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
 }
 
 .final-subtitle {
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
   color: #FFFFFF;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 1px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .final-store-buttons {
@@ -1894,4 +1975,62 @@ body {
 .final-store-buttons img {
   height: clamp(50px, 6vw, 65px);
   width: auto;
+}
+
+/* Custom Action Button */
+.final-action-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.final-action-button {
+  background-color: #FFFFFF;
+  padding: 15px 45px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.final-action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Pagination overrides */
+.final-pagination {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.final-pagination .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.final-pagination .dot-active {
+  background-color: #48FF3F;
+  transform: scale(1.2);
+}
+
+/* Ensure background image scaling handles properly on very wide screens too */
+@media (min-aspect-ratio: 16/9) {
+  .final-slide {
+    background-size: cover;
+  }
 }
