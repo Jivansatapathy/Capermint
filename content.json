@@ -109,5 +109,35 @@
     "subtitle": "8 DIFFERENT WORLDS WAITING TO BE DISCOVERED",
     "buttonText": "EXPLORE"
   },
-  "score": "15"
+  "score": "15",
+  "articles": {
+    "title": "FEATURED ARTICLES",
+    "subtitle": "NEWS UPDATES AND STORIES FROM RUNNER RUNNER",
+    "items": [
+      {
+        "id": "1",
+        "title": "NEW WINTER WORLD UPDATE: ICE CITY ARRIVES!",
+        "desc": "EXPLORE THE FROZEN STREETS OF ICE CITY WITH NEW OBSTACLES, POWER-UPS, AND EXCLUSIVE WINTER CHARACTERS. THE BIGGEST UPDATE OF THE YEAR IS HERE!...",
+        "date": "FEB 1, 2026",
+        "image": "/assets/articles/New Winter World Update_ Ice City Arrives!.png",
+        "link": "#"
+      },
+      {
+        "id": "2",
+        "title": "MEET THE TOP 10 PLAYERS OF JANUARY 2026",
+        "desc": "DISCOVER THE STRATEGIES AND STORIES BEHIND OUR TOP-PERFORMING RUNNERS. LEARN HOW THEY ACHIEVED RECORD-BREAKING SCORES AND DOMINATED THE LEADERBOARDS...",
+        "date": "JAN 28, 2026",
+        "image": "/assets/articles/Meet the Top 10 Players of January 2026.png",
+        "link": "#"
+      },
+      {
+        "id": "3",
+        "title": "5 PRO TIPS TO MASTER ENDLESS MODE",
+        "desc": "WANT TO RUN FURTHER AND SCORE HIGHER? OUR EXPERT PLAYERS SHARE THEIR SECRETS FOR SURVIVING LONGER IN ENDLESS MODE AND MAXIMIZING YOUR COIN COLLECTION...",
+        "date": "JAN 25, 2026",
+        "image": "/assets/articles/5 Pro Tips to Master Endless Mode.png",
+        "link": "#"
+      }
+    ]
+  }
 }
