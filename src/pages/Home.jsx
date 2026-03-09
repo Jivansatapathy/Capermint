@@ -11,6 +11,7 @@ import PowerupsSection from '../components/PowerupsSection';
 import ExploreSection from '../components/ExploreSection';
 import StatsSection from '../components/StatsSection';
 import TestimonialsSection from '../components/TestimonialsSection';
+import CTASection from '../components/CTASection';
 import FinalSection from '../components/FinalSection';
 import Lenis from '@studio-freight/lenis';
 import contentData from '../../content.json';
@@ -61,6 +62,7 @@ const Home = () => {
             <Section10 />
             <FinalSection />
             <TestimonialsSection />
+            <CTASection />
         </main>
     );
 };
