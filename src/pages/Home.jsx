@@ -57,10 +57,10 @@ const Home = () => {
             <RunnersSection content={content} />
             <PowerupsSection content={content} />
             <ExploreSection content={content} />
-            <TestimonialsSection />
             <GameModesSection />
             <Section10 />
             <FinalSection />
+            <TestimonialsSection />
         </main>
     );
 };
