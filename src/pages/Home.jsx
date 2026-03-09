@@ -14,6 +14,7 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import FeaturedArticlesSection from '../components/FeaturedArticlesSection';
 import CTASection from '../components/CTASection';
 import FinalSection from '../components/FinalSection';
+import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
 import contentData from '../../content.json';
 
@@ -40,32 +41,35 @@ const Home = () => {
     }, []);
 
     return (
-        <main>
-            <HeroSection2 content={content} />
-            <StatsSection />
-            <FeaturesSection />
-            <CharacterSection />
-            {content.community && content.community.map((item, idx) => (
-                <CommunitySection
-                    key={idx}
-                    number={item.number}
-                    title={item.title}
-                    desc={item.desc}
-                    image={item.image}
-                    reversed={item.reversed}
-                    gradientVariant={item.gradientVariant}
-                />
-            ))}
-            <RunnersSection content={content} />
-            <PowerupsSection content={content} />
-            <ExploreSection content={content} />
-            <GameModesSection />
-            <Section10 />
-            <FinalSection />
-            <TestimonialsSection />
-            <CTASection />
-            <FeaturedArticlesSection content={content} />
-        </main>
+        <>
+            <main>
+                <HeroSection2 content={content} />
+                <StatsSection />
+                <FeaturesSection />
+                <CharacterSection />
+                {content.community && content.community.map((item, idx) => (
+                    <CommunitySection
+                        key={idx}
+                        number={item.number}
+                        title={item.title}
+                        desc={item.desc}
+                        image={item.image}
+                        reversed={item.reversed}
+                        gradientVariant={item.gradientVariant}
+                    />
+                ))}
+                <RunnersSection content={content} />
+                <PowerupsSection content={content} />
+                <ExploreSection content={content} />
+                <GameModesSection />
+                <Section10 />
+                <FinalSection />
+                <TestimonialsSection />
+                <CTASection />
+                <FeaturedArticlesSection content={content} />
+            </main>
+            <Footer />
+        </>
     );
 };
 
