@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const ExploreSection = ({ content }) => {
-=======
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -72,29 +67,19 @@ const ExploreSection = ({ content }) => {
 
         return () => ctx.revert();
     }, []);
-
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
     if (!content || !content.explore) return null;
 
     const { title, subtitle, buttonText } = content.explore;
 
     return (
-<<<<<<< HEAD
-        <section className="explore-section">
-=======
         <section className="explore-section" ref={sectionRef}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
             <div className="explore-gradient-overlay"></div>
 
             <div className="explore-content">
                 <h2 className="explore-title">{title}</h2>
                 <h3 className="explore-subtitle">{subtitle}</h3>
 
-<<<<<<< HEAD
-                <button className="explore-button">
-=======
                 <button className="explore-button" ref={buttonRef}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
                     <span className="explore-btn-text">{buttonText}</span>
                     <span className="explore-btn-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

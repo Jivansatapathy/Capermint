@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const RunnersSection = ({ content }) => {
-=======
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
@@ -99,18 +94,12 @@ const RunnersSection = ({ content }) => {
 
         return () => ctx.revert();
     }, [content?.runners?.items?.length]);
-
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
     if (!content || !content.runners) return null;
 
     const { title, subtitle, items } = content.runners;
 
     return (
-<<<<<<< HEAD
-        <section className="runners-section">
-=======
         <section className="runners-section" ref={sectionRef}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
             <div className="runners-header">
                 <h2 className="runners-title">{title}</h2>
                 <p className="runners-subtitle">{subtitle}</p>

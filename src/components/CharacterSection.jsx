@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const CharacterSection = () => {
-    return (
-        <section className="character-section">
-            <div className="char-bg"></div>
-
-            <div className="char-content-wrapper">
-                {/* Character on the left */}
-                <div className="char-character">
-=======
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -114,16 +102,11 @@ const CharacterSection = () => {
             <div className="char-content-wrapper" style={{ perspective: '1000px' }}>
                 {/* Character on the left */}
                 <div className="char-character" ref={modelRef} style={{ transformStyle: 'preserve-3d' }}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
                     <img src="/assets/3d model.png" alt="Character" className="char-model-img" />
                 </div>
 
                 {/* Card stack in the center/right */}
-<<<<<<< HEAD
-                <div className="char-card-stack">
-=======
                 <div className="char-card-stack" ref={cardRef} style={{ transformStyle: 'preserve-3d' }}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
                     <div className="card-back">
                         <img src="/assets/backcard.png" alt="Back Card" />
                     </div>
@@ -148,19 +131,11 @@ const CharacterSection = () => {
                         <div className="card-coin coin-top">
                             <img src="/assets/Coin_top.png" alt="Coin Top" />
                         </div>
-<<<<<<< HEAD
-                    </div>
-
-                    {/* Bottom Coin below the card */}
-                    <div className="card-coin coin-bottom">
-                        <img src="/assets/Coin_bottom.png" alt="Coin Bottom" />
-=======
 
                         {/* Bottom Coin below the card (moved inside top container for Z-layering) */}
                         <div className="card-coin coin-bottom">
                             <img src="/assets/Coin_bottom.png" alt="Coin Bottom" />
                         </div>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
                     </div>
                 </div>
             </div>

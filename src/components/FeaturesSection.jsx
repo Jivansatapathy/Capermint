@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const FeaturesSection = () => {
-    return (
-        <section className="features-3d">
-=======
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -108,7 +101,6 @@ const FeaturesSection = () => {
 
     return (
         <section className="features-3d" ref={sectionRef}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
             <div className="features-container">
                 <div className="features-left">
                     <h2 className="features-heading">
@@ -126,17 +118,11 @@ const FeaturesSection = () => {
 
                 <div className="features-right">
                     <img
-<<<<<<< HEAD
-                        src="/assets/Mask group.png"
-                        alt="Game Screenshot"
-                        className="features-img"
-=======
                         ref={imgRef}
                         src="/assets/Mask group.png"
                         alt="Game Screenshot"
                         className="features-img"
                         style={{ transformStyle: 'preserve-3d' }}
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
                     />
                 </div>
             </div>

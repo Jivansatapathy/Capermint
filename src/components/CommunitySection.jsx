@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const CommunitySection = ({ title, desc, image, reversed, gradientVariant, number }) => {
-    return (
-        <section className={`community-section ${reversed ? 'community-reversed' : ''} ${gradientVariant ? `community-gradient-${gradientVariant}` : ''}`}>
-=======
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -65,7 +58,6 @@ const CommunitySection = ({ title, desc, image, reversed, gradientVariant, numbe
 
     return (
         <section ref={sectionRef} className={`community-section ${reversed ? 'community-reversed' : ''} ${gradientVariant ? `community-gradient-${gradientVariant}` : ''}`}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
             <div className="community-gradient-overlay"></div>
             <div className="community-content">
                 <div className="community-container">
@@ -75,11 +67,7 @@ const CommunitySection = ({ title, desc, image, reversed, gradientVariant, numbe
                         <p className="community-desc">{desc}</p>
                     </div>
                     <div className="community-image">
-<<<<<<< HEAD
-                        <img src={image} alt="Mobile Game Preview" />
-=======
                         <img ref={imgRef} src={image} alt="Mobile Game Preview" />
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
                     </div>
                 </div>
             </div>

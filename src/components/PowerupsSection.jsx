@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const PowerupsSection = ({ content }) => {
-=======
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
@@ -70,18 +65,12 @@ const PowerupsSection = ({ content }) => {
 
         return () => ctx.revert();
     }, []);
-
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
     if (!content || !content.powerups) return null;
 
     const { title, subtitle, items } = content.powerups;
 
     return (
-<<<<<<< HEAD
-        <section className="powerups-section">
-=======
         <section className="powerups-section" ref={sectionRef}>
->>>>>>> 4f0f341 (Updated GameModes and Section10 styling)
             <div className="powerups-content-wrapper">
                 <div className="powerups-header">
                     <h2 className="powerups-title">{title}</h2>
