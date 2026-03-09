@@ -10,6 +10,7 @@ import RunnersSection from '../components/RunnersSection';
 import PowerupsSection from '../components/PowerupsSection';
 import ExploreSection from '../components/ExploreSection';
 import StatsSection from '../components/StatsSection';
+import TestimonialsSection from '../components/TestimonialsSection';
 import FinalSection from '../components/FinalSection';
 import Lenis from '@studio-freight/lenis';
 import contentData from '../../content.json';
@@ -56,7 +57,7 @@ const Home = () => {
             <RunnersSection content={content} />
             <PowerupsSection content={content} />
             <ExploreSection content={content} />
-
+            <TestimonialsSection />
             <GameModesSection />
             <Section10 />
             <FinalSection />
