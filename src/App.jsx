@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import AdminPage from './pages/AdminPage';
 
 const defaultNav = ['HOME', 'GAME FEATURES', 'POWERUPS', 'BLOG', 'SUPPORT'];
 
@@ -17,10 +19,17 @@ function App() {
     }, []);
 
     return (
-        <>
-            <Navbar nav={nav} />
-            <Home />
-        </>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="*" element={
+                    <>
+                        <Navbar nav={nav} />
+                        <Home />
+                    </>
+                } />
+            </Routes>
+        </BrowserRouter>
     );
 }
 
