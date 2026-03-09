@@ -1903,20 +1903,22 @@ body {
 
 .final-char-left {
   position: absolute;
-  left: 10%;
-  top: 45%;
-  height: clamp(300px, 50vh, 500px);
+  left: 5%;
+  top: 50%;
+  height: clamp(400px, 70vh, 700px);
   object-fit: contain;
   animation: floatLeft 6s ease-in-out infinite;
+  z-index: 5;
 }
 
 .final-char-right {
   position: absolute;
-  right: 10%;
-  top: 45%;
-  height: clamp(300px, 50vh, 500px);
+  right: 5%;
+  top: 50%;
+  height: clamp(400px, 70vh, 700px);
   object-fit: contain;
   animation: floatRight 5s ease-in-out infinite alternate;
+  z-index: 5;
 }
 
 .final-game-logo {

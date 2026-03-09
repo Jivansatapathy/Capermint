@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FinalSection = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    const sectionRef = useRef(null);
 
     const slides = [
         {
@@ -27,6 +32,7 @@ const FinalSection = () => {
         }
     ];
 
+    // Slide interval
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentSlide(prev => (prev + 1) % slides.length);
@@ -34,8 +40,54 @@ const FinalSection = () => {
         return () => clearInterval(interval);
     }, [slides.length]);
 
+    // Scroll Animations
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            // Only animate the characters when scrolling into the section
+            // The characters are set to their final position in CSS, we animate them FROM above
+            gsap.from('.final-char-left', {
+                yPercent: -100, // Drop from high above
+                opacity: 0,
+                duration: 1.5,
+                ease: 'bounce.out',
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 60%', // Trigger when section is 40% into view
+                }
+            });
+
+            gsap.from('.final-char-right', {
+                yPercent: -100,
+                opacity: 0,
+                duration: 1.5,
+                ease: 'bounce.out',
+                delay: 0.2, // Slightly offset the right character
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 60%',
+                }
+            });
+
+            // Also pop in the logo
+            gsap.from('.final-game-logo', {
+                scale: 0,
+                rotation: -15,
+                opacity: 0,
+                duration: 1,
+                ease: 'back.out(2)',
+                delay: 0.5,
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: 'top 60%',
+                }
+            });
+        }, sectionRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="final-section">
+        <section className="final-section" ref={sectionRef}>
             {slides.map((slide, index) => (
                 <div
                     key={slide.id}
