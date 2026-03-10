@@ -2590,7 +2590,7 @@ body {
 .char-hero {
   position: relative;
   width: 100%;
-  min-height: 120vh;
+  min-height: 130vh;
   /* Background image full visibility */
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -2601,7 +2601,7 @@ body {
   justify-content: flex-start;
   text-align: left;
   color: #FFFFFF;
-  padding: 0 var(--px) 30vh;
+  padding: 0 var(--px) 37vh;
   /* Lift content UP from bottom */
   z-index: 10;
 }
@@ -2658,7 +2658,12 @@ body {
 
 /* AUSTIN (2nd section) - Overlaps Hero */
 .char-details-simple:nth-of-type(2) {
-  margin-top: -40vh;
+  min-height: 60vh;
+  /* Reduced from 80vh as requested */
+  margin-top: -48vh;
+  padding-bottom: 0px;
+  /* Reduced buffer before footer */
+  /* overflow: hidden; Removed to allow image breathing room */
   z-index: 20;
 }
 
@@ -2677,8 +2682,8 @@ body {
 .char-details-simple:nth-of-type(4) {
   margin-top: -40vh;
   z-index: 40;
-  min-height: 150vh;
-  padding-bottom: 200px;
+  min-height: 170vh;
+  padding-bottom: 250px;
 }
 
 /* LIZZY (5th section) - Overlaps Anthony */
@@ -2686,14 +2691,46 @@ body {
   margin-top: -45vh;
   z-index: 50;
   min-height: 120vh;
-  padding-bottom: 50px;
+  padding-bottom: 250px;
 }
 
 /* MIKEY (6th section) - Overlaps Lizzy */
 .char-details-simple:nth-of-type(6) {
-  margin-top: -30vh;
+  margin-top: -35vh;
   z-index: 60;
+  min-height: 80vh;
+  padding-bottom: 150px;
+}
+
+/* ZOEY (7th section) - Overlaps Mikey */
+.char-details-simple:nth-of-type(7) {
+  margin-top: -40vh;
+  z-index: 70;
+  min-height: 80vh;
+  padding-bottom: 150px;
+}
+
+/* DARNELL (8th section) - Overlaps Zoey */
+.char-details-simple:nth-of-type(8) {
+  margin-top: -45vh;
+  z-index: 80;
   min-height: 100vh;
+  padding-bottom: 250px;
+}
+
+/* CAROLINA (9th section) - Overlaps Darnell */
+.char-details-simple:nth-of-type(9) {
+  margin-top: -65vh;
+  z-index: 90;
+  min-height: 100vh;
+  padding-bottom: 200px;
+}
+
+/* MEGHA (10th section) - Overlaps Carolina */
+.char-details-simple:nth-of-type(10) {
+  margin-top: -50vh;
+  z-index: 100;
+  min-height: 60vh;
   padding-bottom: 150px;
 }
 
@@ -2754,7 +2791,11 @@ body {
 
 /* Individual Austin Styling (Section 2) */
 .char-img-austin {
-  max-width: 1100px;
+  max-width: 1400px;
+  width: 100%;
+  margin-right: 0%;
+  margin-top: -15vh;
+  z-index: 60;
 }
 
 /* Individual Samantha Styling (Section 3) */
@@ -2767,6 +2808,8 @@ body {
 /* Individual Anthony Styling (Section 4) */
 .char-img-anthony {
   max-width: 1500px;
+  width: 130%;
+  margin-right: -20%;
   margin-top: -40vh;
   z-index: 60;
 }
@@ -2774,6 +2817,8 @@ body {
 /* Individual Lizzy Styling (Section 5) */
 .char-img-lizzy {
   max-width: 1800px;
+  width: 140%;
+  margin-left: -25%;
   margin-top: -40vh;
   z-index: 70;
 }
@@ -2781,8 +2826,46 @@ body {
 /* Individual Mikey Styling (Section 6) */
 .char-img-mikey {
   max-width: 1800px;
+  width: 140%;
+  margin-right: -25%;
   margin-top: -30vh;
   z-index: 80;
+}
+
+/* Individual Zoey Styling (Section 7) */
+.char-img-zoey {
+  max-width: 1300px;
+  width: 100%;
+  margin-left: -5%;
+  margin-top: -30vh;
+  z-index: 90;
+}
+
+/* Individual Darnell Styling (Section 8) */
+.char-img-darnell {
+  max-width: 1800px;
+  width: 110%;
+  margin-right: -5%;
+  margin-top: -25vh;
+  z-index: 100;
+}
+
+/* Individual Carolina Styling (Section 9) */
+.char-img-carolina {
+  max-width: 1500px;
+  width: 80%;
+  margin-left: -5%;
+  margin-top: -30vh;
+  z-index: 110;
+}
+
+/* Individual Megha Styling (Section 10) */
+.char-img-megha {
+  max-width: 1300px;
+  width: 60%;
+  margin-right: 15%;
+  margin-top: -30vh;
+  z-index: 120;
 }
 
 
@@ -2851,6 +2934,26 @@ body {
   margin-top: 0vh;
 }
 
+/* Individual Zoey Card Styling */
+.char-card-zoey {
+  margin-top: 0vh;
+}
+
+/* Individual Darnell Card Styling */
+.char-card-darnell {
+  margin-top: 0vh;
+}
+
+/* Individual Carolina Card Styling */
+.char-card-carolina {
+  margin-top: 0vh;
+}
+
+/* Individual Megha Card Styling */
+.char-card-megha {
+  margin-top: 0vh;
+}
+
 .char-details-card.blue-card {
   filter: hue-rotate(190deg) saturate(1.5) brightness(0.9);
 }
@@ -2886,6 +2989,58 @@ body {
   background: linear-gradient(45deg, #FF4242 0%, #FF6B6B 100%) !important;
 
   /* Mask the gradient to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.magenta-card {
+  /* Vibrant Magenta to match Zoey's theme */
+  background: #C400AC !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.orange-card {
+  /* Vibrant Orange to match Darnell's theme */
+  background: #FF8A00 !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.dark-red-card {
+  /* Darker Red/Crimson to match Carolina's theme */
+  background: #E83A3A !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.lime-green-card {
+  /* Vibrant Lime Green to match Megha's theme */
+  background: #7ED900 !important;
+
+  /* Mask the grading to the shape of the card image */
   -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
   -webkit-mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;

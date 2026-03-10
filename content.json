@@ -220,6 +220,66 @@
         "cardBg": "/assets/characterasssets/Card bg.png",
         "reversed": false,
         "variant": "red"
+      },
+      {
+        "id": "zoey",
+        "characterName": "ZOEY",
+        "characterTitle": "MINIMALIST / FOCUSED",
+        "mainQuote": "FLOW WITH THE RUN.",
+        "personality": [
+          "CALM AND FOCUSED.",
+          "EVERY MOVEMENT IS CONTROLLED AND INTENTIONAL."
+        ],
+        "characterImage": "/assets/characterasssets/section7girl.png",
+        "sectionBg": "/assets/characterasssets/section7bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "magenta"
+      },
+      {
+        "id": "darnell",
+        "characterName": "DARNELL",
+        "characterTitle": "ENDURANCE STYLE / CHILL ENERGY",
+        "mainQuote": "KEEP MOVING. NO BREAKS.",
+        "personality": [
+          "SMOOTH AND STEADY.",
+          "BUILT FOR ENDURANCE AND CONSISTENCY."
+        ],
+        "characterImage": "/assets/characterasssets/section8boy.png",
+        "sectionBg": "/assets/characterasssets/section8bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "orange"
+      },
+      {
+        "id": "carolina",
+        "characterName": "CAROLINA",
+        "characterTitle": "BOLD STYLE / POWER PRESENCE",
+        "mainQuote": "LET'S TURN UP THE PACE.",
+        "personality": [
+          "STRONG & FEARLESS.",
+          "UNSTOPPABLE ONCE SHE GETS GOING."
+        ],
+        "characterImage": "/assets/characterasssets/section9girl.png",
+        "sectionBg": "/assets/characterasssets/section9bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "dark-red"
+      },
+      {
+        "id": "megha",
+        "characterName": "MEGHA",
+        "characterTitle": "ELEGANT STYLE / STRATEGIC",
+        "mainQuote": "ONE STEP AHEAD. ALWAYS.",
+        "personality": [
+          "SHARP INSTINCTS.",
+          "GRACEFUL CONFIDENCE."
+        ],
+        "characterImage": "/assets/characterasssets/section10girl.png",
+        "sectionBg": "/assets/characterasssets/section10bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "lime-green"
       }
     ]
   }
