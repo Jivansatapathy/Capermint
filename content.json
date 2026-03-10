@@ -139,5 +139,88 @@
         "link": "#"
       }
     ]
+  },
+  "charactersPage": {
+    "hero": {
+      "title": "MEET THE RUNNERS",
+      "subtitle": "EVERY RUNNER TELLS A DIFFERENT STORY. WHO ARE YOU WHEN YOU RUN?",
+      "bgImage": "/assets/characterasssets/BG photo.png"
+    },
+    "sections": [
+      {
+        "id": "austin",
+        "characterName": "AUSTIN",
+        "characterTitle": "STREET STYLE / COMPETITIVE",
+        "mainQuote": "I RUN TO WIN. ALWAYS.",
+        "personality": [
+          "FAST ENERGY, COMPETITIVE MINDSET.",
+          "ALWAYS CHASING THE NEXT CHALLENGE."
+        ],
+        "characterImage": "/assets/characterasssets/boysecondsection.png",
+        "sectionBg": "/assets/characterasssets/section2bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false
+      },
+      {
+        "id": "samantha",
+        "characterName": "SAMANTHA",
+        "characterTitle": "HIGH ENERGY / PLAYFUL",
+        "mainQuote": "LET’S MAKE THIS RUN FUN.",
+        "personality": [
+          "BOLD, CURIOUS, AND FULL OF ENERGY.",
+          "EVERY RUN FEELS LIKE AN ADVENTURE."
+        ],
+        "characterImage": "/assets/characterasssets/girlthirdsection.png",
+        "sectionBg": "/assets/characterasssets/section3bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "blue"
+      },
+      {
+        "id": "anthony",
+        "characterName": "ANTHONY",
+        "characterTitle": "CLASSIC STYLE / FOCUSED",
+        "mainQuote": "STAY SHARP. STAY AHEAD.",
+        "personality": [
+          "CLASSIC STYLE WITH A CALM FOCUS.",
+          "PRECISION OVER CHAOS."
+        ],
+        "characterImage": "/assets/characterasssets/Boysection4.png",
+        "sectionBg": "/assets/characterasssets/section4bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "teal"
+      },
+      {
+        "id": "lizzy",
+        "characterName": "LIZZY",
+        "characterTitle": "VIBRANT / EXPRESSIVE",
+        "mainQuote": "CATCH ME IF YOU CAN!",
+        "personality": [
+          "BRIGHT PERSONALITY WITH FEARLESS CONFIDENCE.",
+          "IMPOSSIBLE TO IGNORE."
+        ],
+        "characterImage": "/assets/characterasssets/girlsection5.png",
+        "sectionBg": "/assets/characterasssets/section5bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "purple"
+      },
+      {
+        "id": "mikey",
+        "characterName": "MIKEY P",
+        "characterTitle": "CONFIDENT / SMOOTH RUNNER",
+        "mainQuote": "RELAX. I'VE GOT THIS.",
+        "personality": [
+          "STREET-SMART AND LAID-BACK.",
+          "COOL UNDER PRESSURE, ALWAYS IN CONTROL."
+        ],
+        "characterImage": "/assets/characterasssets/mansection6.png",
+        "sectionBg": "/assets/characterasssets/sectiont6bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "red"
+      }
+    ]
   }
 }

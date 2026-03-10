@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #0f1b35;
   --yellow: #f5e642;
   --white: #ffffff;
@@ -6,10 +6,10 @@
   --font-body: 'Outfit', sans-serif;
   --nav-h: 70px;
 
-  /* ─── GLOBAL HORIZONTAL PADDING ────────────────────────────
+  /* â”€â”€â”€ GLOBAL HORIZONTAL PADDING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
      Use var(--px) on EVERY section / container / navbar.
-     Change here → updates everywhere automatically.
-  ─────────────────────────────────────────────────────────── */
+     Change here â†’ updates everywhere automatically.
+  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   --px: 137.5px;
   /* 1920 px screen (default / wide) */
 }
@@ -59,7 +59,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── NAVBAR ─────────────────────────────────── */
+/* â”€â”€â”€ NAVBAR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .navbar {
   position: fixed;
   top: 40px;
@@ -91,7 +91,7 @@ body {
   gap: 20px;
 }
 
-/* Logo wrapper — zero line-height removes the invisible baseline gap */
+/* Logo wrapper â€” zero line-height removes the invisible baseline gap */
 .logo {
   display: flex;
   line-height: 0;
@@ -208,7 +208,7 @@ body {
   padding: 0;
 }
 
-/* ─── HERO ─────────────────────────────────────── */
+/* â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .hero {
   position: relative;
   width: 100%;
@@ -238,7 +238,7 @@ body {
   z-index: 2;
 }
 
-/* ─── HERO CONTENT (title + subtitle) ─── */
+/* â”€â”€â”€ HERO CONTENT (title + subtitle) â”€â”€â”€ */
 .hero-content {
   position: relative;
   z-index: 10;
@@ -267,7 +267,7 @@ body {
   color: rgba(255, 255, 255, 0.75);
 }
 
-/* ─── FLOATING ASSETS ────────────────────── */
+/* â”€â”€â”€ FLOATING ASSETS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* 
   All assets are absolute within .hero.
   Positions chosen to exactly match the reference screenshot.
@@ -284,28 +284,28 @@ body {
   filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.55));
 }
 
-/* Coin – upper left */
+/* Coin â€“ upper left */
 .asset-coin {
   width: clamp(80px, 10vw, 130px);
   top: 28%;
   left: 7%;
 }
 
-/* 2x – mid left */
+/* 2x â€“ mid left */
 .asset-2x {
   width: clamp(90px, 11vw, 145px);
   top: 50%;
   left: 11%;
 }
 
-/* Shield – lower centre-left */
+/* Shield â€“ lower centre-left */
 .asset-shield {
   width: clamp(80px, 9vw, 115px);
   bottom: 17%;
   left: 28%;
 }
 
-/* Character / app-icon card – centre bottom */
+/* Character / app-icon card â€“ centre bottom */
 .asset-character {
   width: clamp(80px, 10vw, 130px);
   bottom: 10%;
@@ -315,28 +315,28 @@ body {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* Blaster – lower centre-right */
+/* Blaster â€“ lower centre-right */
 .asset-blaster {
   width: clamp(80px, 9vw, 120px);
   bottom: 18%;
   right: 27%;
 }
 
-/* Magnet – upper right */
+/* Magnet â€“ upper right */
 .asset-magnet {
   width: clamp(80px, 9vw, 115px);
   top: 27%;
   right: 8%;
 }
 
-/* Chest – mid-lower right */
+/* Chest â€“ mid-lower right */
 .asset-chest {
   width: clamp(75px, 9vw, 120px);
   top: 50%;
   right: 9%;
 }
 
-/* ─── SCORE WIDGET (top right corner) ─────── */
+/* â”€â”€â”€ SCORE WIDGET (top right corner) â”€â”€â”€â”€â”€â”€â”€ */
 .score-widget {
   position: fixed;
   top: 85px;
@@ -379,7 +379,7 @@ body {
   margin-top: 2px;
 }
 
-/* ─── SCROLL INDICATOR ───────────────────── */
+/* â”€â”€â”€ SCROLL INDICATOR â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .scroll-indicator {
   position: absolute;
   bottom: 28px;
@@ -416,7 +416,7 @@ body {
   }
 }
 
-/* ─── LOADING STATE ─────────────────────── */
+/* â”€â”€â”€ LOADING STATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .loading {
   height: 100vh;
   display: flex;
@@ -428,7 +428,7 @@ body {
   color: var(--yellow);
 }
 
-/* ─── BELOW-HERO SECTIONS ─────────────── */
+/* â”€â”€â”€ BELOW-HERO SECTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-padding {
   padding: 120px 0;
 }
@@ -488,7 +488,7 @@ body {
   line-height: 1.65;
 }
 
-/* ─── RESPONSIVE ─────────────────────────── */
+/* â”€â”€â”€ RESPONSIVE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 /* --px breakpoints are already declared at the top of the file (inside :root overrides).
    Add any layout-only breakpoints below. */
 @media (max-width: 900px) {
@@ -517,7 +517,7 @@ body {
   }
 }
 
-/* ─── STATS SECTION ───────────────────────────── */
+/* â”€â”€â”€ STATS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stats-section {
   min-height: 100vh;
   width: 100%;
@@ -646,7 +646,7 @@ body {
   }
 }
 
-/* ─── FEATURES 3D SECTION ──────────────────────── */
+/* â”€â”€â”€ FEATURES 3D SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .features-3d {
   position: relative;
   width: 100%;
@@ -802,7 +802,7 @@ body {
   }
 }
 
-/* ─── CHARACTER SECTION ──────────────────────── */
+/* â”€â”€â”€ CHARACTER SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .character-section {
   position: relative;
   width: 100%;
@@ -979,7 +979,7 @@ body {
   }
 }
 
-/* ─── COMMUNITY SECTION ──────────────────────── */
+/* â”€â”€â”€ COMMUNITY SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .community-section {
   position: relative;
   width: 100%;
@@ -1083,7 +1083,7 @@ body {
   transform: rotate(2deg) scale(1.02);
 }
 
-/* ─── RUNNERS SECTION ──────────────────────── */
+/* â”€â”€â”€ RUNNERS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .runners-section {
   background-color: #050A1A;
   padding: 100px var(--px);
@@ -1258,7 +1258,7 @@ body {
   }
 }
 
-/* ─── POWERUPS SECTION ───────────────────────── */
+/* â”€â”€â”€ POWERUPS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .powerups-section {
   position: relative;
   width: 100%;
@@ -1446,7 +1446,7 @@ body {
   }
 }
 
-/* ─── EXPLORE SECTION ───────────────────────── */
+/* â”€â”€â”€ EXPLORE SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .explore-section {
   position: relative;
   width: 100%;
@@ -1546,7 +1546,7 @@ body {
   height: clamp(20px, 2.5vw, 30px);
 }
 
-/* ─── SECTION 10 ───────────────────────────── */
+/* â”€â”€â”€ SECTION 10 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section10 {
   position: relative;
   width: 100%;
@@ -1716,7 +1716,7 @@ body {
   }
 }
 
-/* ─── GAME MODES SECTION ─────────────────────── */
+/* â”€â”€â”€ GAME MODES SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .game-modes-section {
   position: relative;
   width: 100%;
@@ -1818,7 +1818,7 @@ body {
   }
 }
 
-/* ─── TESTIMONIALS SECTION ──────────────────── */
+/* â”€â”€â”€ TESTIMONIALS SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .testimonials-section {
   background-color: #080D25;
   padding: 100px var(--px);
@@ -1935,7 +1935,7 @@ body {
   }
 }
 
-/* ─── FINAL SECTION ─────────────────────── */
+/* â”€â”€â”€ FINAL SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .final-section {
   position: relative;
   width: 100%;
@@ -2158,7 +2158,7 @@ body {
   }
 }
 
-/* ─── CTA SECTION ─────────────────────── */
+/* â”€â”€â”€ CTA SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .cta-section {
   background-color: #172553;
   padding: 60px var(--px);
@@ -2578,4 +2578,401 @@ body {
 
 .footer-legal a:hover {
   color: #FFFFFF;
+}
+
+/* 
+==========================================================================
+   CHARACTER PAGE STYLING
+========================================================================== 
+*/
+
+/* --- 1. HERO SECTION --- */
+.char-hero {
+  position: relative;
+  width: 100%;
+  min-height: 120vh;
+  /* Background image full visibility */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  /* Content near bottom */
+  justify-content: flex-start;
+  text-align: left;
+  color: #FFFFFF;
+  padding: 0 var(--px) 30vh;
+  /* Lift content UP from bottom */
+  z-index: 10;
+}
+
+.char-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  /* Subtle dark overlay */
+  z-index: 1;
+}
+
+.char-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.char-hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 8rem;
+  line-height: 0.9;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.char-hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+
+/* --- 2. SECTION OVERLAPS & LAYOUT --- */
+
+/* Base class for Austin and Samantha sections */
+.char-details-simple {
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 80px var(--px);
+  z-index: 20;
+}
+
+/* AUSTIN (2nd section) - Overlaps Hero */
+.char-details-simple:nth-of-type(2) {
+  margin-top: -40vh;
+  z-index: 20;
+}
+
+/* SAMANTHA (3rd section) - Overlaps Austin */
+.char-details-simple:nth-of-type(3) {
+  min-height: 60vh;
+  /* Reduced from 80vh as requested */
+  margin-top: -55vh;
+  padding-bottom: 200px;
+  /* Reduced buffer before footer */
+  z-index: 30;
+  /* overflow: hidden; Removed to allow image breathing room */
+}
+
+/* ANTHONY (4th section) - Overlaps Samantha */
+.char-details-simple:nth-of-type(4) {
+  margin-top: -40vh;
+  z-index: 40;
+  min-height: 150vh;
+  padding-bottom: 200px;
+}
+
+/* LIZZY (5th section) - Overlaps Anthony */
+.char-details-simple:nth-of-type(5) {
+  margin-top: -45vh;
+  z-index: 50;
+  min-height: 120vh;
+  padding-bottom: 50px;
+}
+
+/* MIKEY (6th section) - Overlaps Lizzy */
+.char-details-simple:nth-of-type(6) {
+  margin-top: -30vh;
+  z-index: 60;
+  min-height: 100vh;
+  padding-bottom: 150px;
+}
+
+/* Flex Container for Card + Image */
+.char-details-container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Flips layout for Samantha (Image Left, Card Right) */
+.char-details-container.reversed {
+  flex-direction: row-reverse;
+}
+
+.char-details-card-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.char-details-image-side {
+  flex: 1.5;
+  /* More room for character images */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.char-details-container.reversed .char-details-card-side {
+  justify-content: flex-end;
+}
+
+.char-details-container.reversed .char-details-image-side {
+  justify-content: flex-start;
+}
+
+
+/* --- 3. CHARACTER IMAGES --- */
+
+.char-details-character-img {
+  width: 110%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+  position: relative;
+  z-index: 50;
+  /* Cinematic shadow for depth */
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+}
+
+.char-details-character-img:hover {
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6)) brightness(1.1);
+}
+
+/* Individual Austin Styling (Section 2) */
+.char-img-austin {
+  max-width: 1100px;
+}
+
+/* Individual Samantha Styling (Section 3) */
+.char-img-samantha {
+  max-width: 1550px;
+  margin-top: -25vh;
+  /* Moved down from -55vh as requested */
+}
+
+/* Individual Anthony Styling (Section 4) */
+.char-img-anthony {
+  max-width: 1500px;
+  margin-top: -40vh;
+  z-index: 60;
+}
+
+/* Individual Lizzy Styling (Section 5) */
+.char-img-lizzy {
+  max-width: 1800px;
+  margin-top: -40vh;
+  z-index: 70;
+}
+
+/* Individual Mikey Styling (Section 6) */
+.char-img-mikey {
+  max-width: 1800px;
+  margin-top: -30vh;
+  z-index: 80;
+}
+
+
+/* --- 4. CONVERSATION CARD STYLING --- */
+
+.char-details-card {
+  width: 600px;
+  aspect-ratio: 1.35 / 1;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 60px 80px 100px 80px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  transition: scale 0.3s ease-out, translate 0.3s ease-out, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.char-details-card:hover {
+  scale: 1.02;
+  translate: 0 -5px;
+  filter: brightness(1.1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+/* Flipped card and content for reversed sections (Sections 3 and 5) */
+.char-details-container.reversed .char-details-card {
+  scale: -1 1;
+  /* Flips the card background horizontally */
+}
+
+.char-details-container.reversed .char-details-card:hover {
+  scale: -1.02 1.02;
+  /* Maintains flip on hover */
+  translate: 0 -5px;
+}
+
+.char-details-container.reversed .char-card-inner {
+  scale: -1 1;
+  /* Flips the inner text back to normal left-to-right */
+}
+
+/* Blue Variant for Samantha */
+/* Individual Austin Card Styling */
+.char-card-austin {
+  margin-top: -15vh;
+  /* Lift Austin's card for better visibility on scroll */
+}
+
+/* Individual Samantha Card Styling: Add styles below if needed */
+.char-card-samantha {
+  display: block;
+}
+
+/* Individual Anthony Card Styling */
+.char-card-anthony {
+  margin-top: 0vh;
+}
+
+/* Individual Lizzy Card Styling */
+.char-card-lizzy {
+  margin-top: 0vh;
+}
+
+/* Individual Mikey Card Styling */
+.char-card-mikey {
+  margin-top: 0vh;
+}
+
+.char-details-card.blue-card {
+  filter: hue-rotate(190deg) saturate(1.5) brightness(0.9);
+}
+
+.char-details-card.teal-card {
+  /* Linear Gradient matching user specs */
+  background: linear-gradient(50deg, #008493 13%, #00B7B7 100%) !important;
+
+  /* Mask the gradient to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.purple-card {
+  /* Vibrant Purple Gradient to match Lizzy's theme */
+  background: linear-gradient(45deg, #7B1EFA 0%, #A255FF 100%) !important;
+
+  /* Mask the gradient to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.red-card {
+  /* Vibrant Red Gradient to match Mikey's theme */
+  background: linear-gradient(45deg, #FF4242 0%, #FF6B6B 100%) !important;
+
+  /* Mask the gradient to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-card-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.char-card-quote {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.8rem;
+  line-height: 1;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.char-card-divider {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  margin-bottom: 15px;
+}
+
+.char-card-info {
+  margin-bottom: 10px;
+}
+
+.char-card-label {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.char-card-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.char-card-list li {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.char-card-footer {
+  margin-top: 0px;
+}
+
+.char-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+
+.char-card-subtext {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+
+/* --- 5. RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+  .char-hero-title {
+    font-size: 4rem;
+  }
+
+  .char-details-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .char-details-card {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
 }

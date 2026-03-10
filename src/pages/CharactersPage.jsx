@@ -1,0 +1,46 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import CharactersHero from '../components/CharactersHero';
+import CharacterDetails from '../components/CharacterDetails';
+import Footer from '../components/Footer';
+import Lenis from '@studio-freight/lenis';
+import contentData from '../../content.json';
+
+const CharactersPage = () => {
+    const [content, setContent] = useState(contentData);
+
+    useEffect(() => {
+        // Smooth scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        });
+        const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
+        requestAnimationFrame(raf);
+
+        // Fetch content from backend
+        axios.get('http://localhost:3000/api/content')
+            .then(res => setContent(res.data))
+            .catch(() => {
+                // Fallback to local data
+            });
+
+        return () => lenis.destroy();
+    }, []);
+
+    const sections = content?.charactersPage?.sections || [];
+
+    return (
+        <div className="characters-page">
+            <main>
+                <CharactersHero content={content} />
+                {sections.map((section) => (
+                    <CharacterDetails key={section.id} sectionData={section} />
+                ))}
+            </main>
+            <Footer />
+        </div>
+    );
+};
+
+export default CharactersPage;

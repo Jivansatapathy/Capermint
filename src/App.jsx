@@ -4,6 +4,7 @@ import axios from 'axios';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AdminPage from './pages/AdminPage';
+import CharactersPage from './pages/CharactersPage';
 
 const defaultNav = ['HOME', 'GAME FEATURES', 'POWERUPS', 'BLOG', 'SUPPORT'];
 
@@ -22,6 +23,12 @@ function App() {
         <BrowserRouter>
             <Routes>
                 <Route path="/admin" element={<AdminPage />} />
+                <Route path="/characters" element={
+                    <>
+                        <Navbar nav={nav} />
+                        <CharactersPage />
+                    </>
+                } />
                 <Route path="*" element={
                     <>
                         <Navbar nav={nav} />

@@ -37,10 +37,8 @@ app.use(bodyParser.json());
 app.use(express.static('public')); // Serve assets
 app.use(express.static('dist')); // Serve built frontend
 
-// Serve admin page
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'admin.html'));
-});
+// Backend API routes below
+
 
 // Get content
 app.get('/api/content', (req, res) => {
