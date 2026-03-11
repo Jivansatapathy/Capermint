@@ -1,0 +1,708 @@
+/* CHARACTER PAGE STYLING */
+
+/* --- 1. HERO SECTION --- */
+.char-hero {
+  position: relative;
+  width: 100%;
+  margin-top: -10px;
+  min-height: 130vh;
+  /* Background image full visibility */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  display: flex;
+  align-items: flex-end;
+  /* Content near bottom */
+  justify-content: flex-start;
+  text-align: left;
+  color: #FFFFFF;
+  padding: 0 var(--px) 37vh;
+  /* Lift content UP from bottom */
+  z-index: 10;
+}
+
+.char-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  /* Subtle dark overlay */
+  z-index: 1;
+}
+
+.char-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.char-hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(4rem, 8vw, 12rem);
+  line-height: 0.9;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.char-hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+
+/* --- 2. SECTION OVERLAPS & LAYOUT --- */
+
+/* Base class for Austin and Samantha sections */
+.char-details-simple {
+  position: relative;
+  width: 100%;
+  min-height: clamp(50vh, 800px, 1200px);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 80px var(--px);
+  z-index: 20;
+}
+
+/* AUSTIN (2nd section) - Overlaps Hero */
+.char-section-austin {
+  min-height: clamp(60vh, 900px, 1400px);
+  /* Reduced from 80vh as requested */
+  margin-top: clamp(-700px, -48vh, -335px);
+  padding-bottom: 120px;
+  /* Reduced buffer before footer */
+  /* overflow: hidden; Removed to allow image breathing room */
+}
+
+/* SAMANTHA (3rd section) - Overlaps Austin */
+.char-section-samantha {
+  min-height: clamp(60vh, 900px, 1400px);
+  /* Reduced from 80vh as requested */
+  margin-top: clamp(-800px, -55vh, -500px);
+  padding-bottom: 200px;
+  /* Reduced buffer before footer */
+  /* overflow: hidden; Removed to allow image breathing room */
+}
+
+/* ANTHONY (4th section) - Overlaps Samantha */
+.char-section-anthony {
+  margin-top: clamp(-600px, -40vh, -400px);
+  min-height: clamp(120vh, 1190px, 2500px);
+  padding-bottom: 250px;
+}
+
+/* LIZZY (5th section) - Overlaps Anthony */
+.char-section-lizzy {
+  margin-top: clamp(-650px, -45vh, -400px);
+  min-height: clamp(100vh, 1200px, 2000px);
+  padding-bottom: 350px;
+}
+
+/* MIKEY (6th section) - Overlaps Lizzy */
+.char-section-mikey {
+  margin-top: clamp(-600px, -40vh, -300px);
+  min-height: clamp(80vh, 1000px, 1500px);
+  padding-bottom: 150px;
+}
+
+/* ZOEY (7th section) - Overlaps Mikey */
+.char-section-zoey {
+  margin-top: clamp(-600px, -40vh, -300px);
+  min-height: clamp(80vh, 1300px, 1500px);
+  padding-bottom: 250px;
+}
+
+/* DARNELL (8th section) - Overlaps Zoey */
+.char-section-darnell {
+  margin-top: clamp(-650px, -45vh, -400px);
+  min-height: clamp(100vh, 1500px, 2000px);
+  padding-bottom: 250px;
+}
+
+/* CAROLINA (9th section) - Overlaps Darnell */
+.char-section-carolina {
+  margin-top: clamp(-900px, -65vh, -600px);
+  min-height: clamp(100vh, 1400px, 2000px);
+  padding-bottom: 200px;
+}
+
+/* MEGHA (10th section) - Overlaps Carolina */
+.char-section-megha {
+  margin-top: clamp(-750px, -50vh, -450px);
+  min-height: clamp(80vh, 1000px, 1500px);
+  padding-bottom: 250px;
+}
+
+/* NOVA (11th section) - Overlaps Megha */
+.char-section-nova {
+  margin-top: clamp(-900px, -65vh, -600px);
+  min-height: clamp(100vh, 1400px, 2000px);
+  padding-bottom: 100px;
+  background-size: cover !important;
+  background-position: center bottom !important;
+}
+
+/* DWIGHT (12th section) - Overlaps Nova */
+.char-section-dwight {
+  margin-top: clamp(-750px, -50vh, -450px);
+  min-height: clamp(80vh, 1400px, 1500px);
+  padding-bottom: 250px;
+}
+
+/* GROUP SHOT (Final 13th section) - Overlaps Dwight */
+.char-section-group {
+  position: relative;
+  width: 100%;
+  margin-top: clamp(-750px, -50vh, -450px);
+  min-height: clamp(80vh, 1000px, 1500px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  display: flex;
+  align-items: flex-end;
+  /* Push content toward bottom */
+  justify-content: center;
+  padding: 80px var(--px) 150px var(--px);
+  /* Extra padding on bottom for footer breathing room */
+  z-index: 150;
+}
+
+.char-group-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1400px;
+}
+
+.char-group-img {
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  object-fit: contain;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+}
+
+.char-group-text-layer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.char-group-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: #36EBFF;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  line-height: 1;
+}
+
+.char-group-subtitle {
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.char-group-text {
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+  color: #FFFFFF;
+  opacity: 0.9;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Flex Container for Card + Image */
+.char-details-container {
+  max-width: 1700px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+/* Flips layout for Samantha (Image Left, Card Right) */
+.char-details-container.reversed {
+  flex-direction: row-reverse;
+}
+
+.char-details-card-side {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.char-details-image-side {
+  flex: 1.5;
+  /* More room for character images */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.char-details-container.reversed .char-details-card-side {
+  justify-content: flex-end;
+}
+
+.char-details-container.reversed .char-details-image-side {
+  justify-content: flex-start;
+}
+
+
+/* --- 3. CHARACTER IMAGES --- */
+
+.char-details-character-img {
+  width: 110%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+  position: relative;
+  z-index: 50;
+  /* Cinematic shadow for depth */
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+}
+
+.char-details-character-img:hover {
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6)) brightness(1.1);
+}
+
+/* Individual Austin Styling (Section 2) */
+.char-img-austin {
+  max-width: max(1400px, 75vw);
+  width: 100%;
+  margin-right: 0%;
+  margin-top: -5vh;
+  z-index: 60;
+}
+
+/* Individual Samantha Styling (Section 3) */
+.char-img-samantha {
+  max-width: max(1550px, 80vw);
+  margin-top: -25vh;
+  /* Moved down from -55vh as requested */
+}
+
+/* Individual Anthony Styling (Section 4) */
+.char-img-anthony {
+  max-width: max(1500px, 80vw);
+  width: 130%;
+  margin-right: -20%;
+  margin-top: -40vh;
+  z-index: 60;
+}
+
+/* Individual Lizzy Styling (Section 5) */
+.char-img-lizzy {
+  max-width: max(1800px, 90vw);
+  width: 140%;
+  margin-left: -25%;
+  margin-top: -40vh;
+  z-index: 70;
+}
+
+/* Individual Mikey Styling (Section 6) */
+.char-img-mikey {
+  max-width: max(1800px, 90vw);
+  width: 140%;
+  margin-right: -25%;
+  margin-top: -30vh;
+  z-index: 80;
+}
+
+/* Individual Zoey Styling (Section 7) */
+.char-img-zoey {
+  max-width: max(1300px, 70vw);
+  width: 90%;
+  margin-left: -5%;
+  margin-top: -20vh;
+  z-index: 90;
+}
+
+/* Individual Darnell Styling (Section 8) */
+.char-img-darnell {
+  max-width: max(1800px, 90vw);
+  width: 110%;
+  margin-right: -5%;
+  margin-top: -20vh;
+  z-index: 100;
+}
+
+/* Individual Carolina Styling (Section 9) */
+.char-img-carolina {
+  max-width: max(1500px, 80vw);
+  width: 80%;
+  margin-left: 0%;
+  margin-top: -30vh;
+  z-index: 110;
+}
+
+/* Individual Megha Styling (Section 10) */
+.char-img-megha {
+  max-width: max(1300px, 70vw);
+  width: 50%;
+  margin-right: 15%;
+  margin-top: -20vh;
+  z-index: 120;
+}
+
+/* Individual Nova Styling (Section 11) */
+.char-img-nova {
+  max-width: max(1600px, 85vw);
+  width: 70%;
+  margin-left: -5%;
+  margin-top: -5vh;
+  z-index: 130;
+  margin-bottom: -5vh;
+  /* To push her down preventing gaps below */
+}
+
+/* Individual Dwight Styling (Section 12) */
+.char-img-dwight {
+  max-width: max(1300px, 70vw);
+  width: 100%;
+  margin-right: 15%;
+  margin-top: -20vh;
+  z-index: 140;
+}
+
+
+/* --- 4. CONVERSATION CARD STYLING --- */
+
+.char-details-card {
+  width: clamp(300px, 40vw, 850px);
+  aspect-ratio: 1.25 / 1;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: clamp(35px, 5vw, 60px) clamp(45px, 7vw, 90px) clamp(65px, 10vw, 130px) clamp(45px, 7vw, 90px);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  transition: scale 0.3s ease-out, translate 0.3s ease-out, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.char-details-card:hover {
+  scale: 1.02;
+  translate: 0 -5px;
+  filter: brightness(1.1) drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+}
+
+/* Flipped card and content for reversed sections (Sections 3 and 5) */
+.char-details-container.reversed .char-details-card {
+  scale: -1 1;
+  /* Flips the card background horizontally */
+}
+
+.char-details-container.reversed .char-details-card:hover {
+  scale: -1.02 1.02;
+  /* Maintains flip on hover */
+  translate: 0 -5px;
+}
+
+.char-details-container.reversed .char-card-inner {
+  scale: -1 1;
+  /* Flips the inner text back to normal left-to-right */
+}
+
+/* Blue Variant for Samantha */
+/* Individual Austin Card Styling */
+.char-card-austin {
+  margin-top: -15vh;
+  /* Lift Austin's card for better visibility on scroll */
+}
+
+/* Individual Samantha Card Styling: Add styles below if needed */
+.char-card-samantha {
+  display: block;
+}
+
+/* Individual Anthony Card Styling */
+.char-card-anthony {
+  margin-top: 0vh;
+}
+
+/* Individual Lizzy Card Styling */
+.char-card-lizzy {
+  margin-top: 0vh;
+}
+
+/* Individual Mikey Card Styling */
+.char-card-mikey {
+  margin-top: 0vh;
+}
+
+/* Individual Zoey Card Styling */
+.char-card-zoey {
+  margin-top: 0vh;
+}
+
+/* Individual Darnell Card Styling */
+.char-card-darnell {
+  margin-top: 0vh;
+}
+
+/* Individual Carolina Card Styling */
+.char-card-carolina {
+  margin-top: 0vh;
+}
+
+/* Individual Megha Card Styling */
+.char-card-megha {
+  margin-top: 0vh;
+}
+
+/* Individual Nova Card Styling */
+.char-card-nova {
+  margin-top: 0vh;
+}
+
+/* Individual Dwight Card Styling */
+.char-card-dwight {
+  margin-top: 0vh;
+}
+
+/* Individual Dwight Card Styling */
+.char-card-dwight {
+  margin-top: 0vh;
+}
+
+.char-details-card.blue-card {
+  filter: hue-rotate(190deg) saturate(1.5) brightness(0.9);
+}
+
+.char-details-card.teal-card {
+  /* Linear Gradient matching user specs */
+  background: linear-gradient(50deg, #008493 13%, #00B7B7 100%) !important;
+
+  /* Mask the gradient to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.purple-card {
+  /* Vibrant Purple Gradient to match Lizzy's theme */
+  background: linear-gradient(45deg, #7B1EFA 0%, #A255FF 100%) !important;
+
+  /* Mask the gradient to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.red-card {
+  /* Vibrant Red Gradient to match Mikey's theme */
+  background: linear-gradient(45deg, #FF4242 0%, #FF6B6B 100%) !important;
+
+  /* Mask the gradient to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.magenta-card {
+  /* Vibrant Magenta to match Zoey's theme */
+  background: #C400AC !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.orange-card {
+  /* Vibrant Orange to match Darnell's theme */
+  background: #FF8A00 !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.dark-red-card {
+  /* Darker Red/Crimson to match Carolina's theme */
+  background: #E83A3A !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.lime-green-card {
+  /* Vibrant Lime Green to match Megha's theme */
+  background: #7ED900 !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-details-card.neon-purple-card {
+  /* Vibrant Neon Purple to match Nova's theme */
+  background: #B026FF !important;
+
+  /* Mask the grading to the shape of the card image */
+  -webkit-mask-image: url('/assets/characterasssets/Card bg.png');
+  -webkit-mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url('/assets/characterasssets/Card bg.png');
+  mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+}
+
+.char-card-inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.char-card-quote {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+  line-height: 1;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.char-card-divider {
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.4);
+  margin-bottom: 15px;
+}
+
+.char-card-info {
+  margin-bottom: 10px;
+}
+
+.char-card-label {
+  font-size: clamp(0.7rem, 1.2vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.char-card-list {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.char-card-list li {
+  font-size: clamp(0.8rem, 1.5vw, 1.05rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.char-card-footer {
+  margin-top: 0px;
+}
+
+.char-card-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  letter-spacing: 1.5px;
+  margin-bottom: 2px;
+}
+
+.char-card-subtext {
+  font-size: clamp(0.55rem, 0.9vw, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  text-transform: uppercase;
+}
+
+
+/* --- 5. RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1024px) {
+  .char-hero-title {
+    font-size: 4rem;
+  }
+
+  .char-details-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .char-details-card {
+    width: 98%;
+    max-width: 700px;
+    margin: 0 auto;
+    aspect-ratio: auto;
+    height: auto;
+    min-height: min-content;
+    padding: 40px 30px 120px 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .char-details-card {
+    width: 100%;
+    max-width: none;
+    padding: 30px 15px 120px 15px;
+    min-height: auto;
+  }
+
+  .char-card-quote {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+  }
+
+  .char-card-label {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .char-card-list li {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+  }
+
+  .char-card-name {
+    font-size: 1.7rem;
+  }
+
+  .char-card-subtext {
+    font-size: 0.65rem;
+  }
+}

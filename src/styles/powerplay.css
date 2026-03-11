@@ -1,0 +1,1643 @@
+/*
+==========================================================================
+   POWERPLAY PAGE STYLING
+========================================================================== 
+*/
+
+.powerplay-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    position: relative;
+}
+
+/* --- 1. HERO SECTION --- */
+
+.powerplay-hero {
+    position: relative;
+    width: 100%;
+    height: 115vh;
+    /* Full viewport height + 15% to enlarge bg */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.powerplay-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/powerplay assets/herobg.png');
+    background-size: cover;
+    background-position: center top;
+    /* User request: rotate -4deg */
+    /* Added scale(1.15) to prevent empty corners bleeding after rotation */
+    transform: rotate(-4deg) scale(1.15);
+    transform-origin: center center;
+    z-index: 1;
+}
+
+.powerplay-hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Double Radial Gradient based on screenshot specs */
+    background:
+        radial-gradient(ellipse at center bottom,
+            rgba(4, 27, 56, 1) 0%,
+            rgba(4, 27, 56, 0.17) 45%,
+            rgba(4, 27, 56, 0.15) 82%,
+            rgba(4, 27, 56, 0.13) 88%,
+            rgba(4, 27, 56, 0.7) 98%),
+        radial-gradient(ellipse at center top,
+            rgba(4, 27, 56, 1) 0%,
+            rgba(4, 27, 56, 0.17) 45%,
+            rgba(4, 27, 56, 0.15) 82%,
+            rgba(4, 27, 56, 0.13) 88%,
+            rgba(4, 27, 56, 0.7) 98%);
+    z-index: 2;
+}
+
+/* Base style for hero assets */
+.pp-asset {
+    position: absolute;
+    bottom: 0;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+    object-fit: contain;
+    /* User request: maintain all images scaling identical to 4.png */
+    width: clamp(280px, 30vw, 480px);
+}
+
+/* ASSET 1: Far behind girl */
+.pp-asset-1 {
+    right: 25%;
+    bottom: 35%;
+    z-index: 11;
+}
+
+/* ASSET 2: Far right girl */
+.pp-asset-2 {
+    width: clamp(370px, 38vw, 610px);
+    /* Increased size slightly */
+    right: 7%;
+    /* Re-anchored to the right per request */
+    bottom: 18%;
+    /* Shifted higher upwards */
+    z-index: 12;
+}
+
+/* ASSET 3: Left lady */
+.pp-asset-3 {
+    left: 12%;
+    /* Pulled inward towards the center boy */
+    bottom: 25%;
+    z-index: 13;
+}
+
+/* SANDWICHED TEXT LAYER */
+.powerplay-hero-text {
+    position: absolute;
+    bottom: 23%;
+    left: 8%;
+    z-index: 25;
+    /* Sits above all character assets */
+    text-align: left;
+}
+
+.powerplay-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5.5vw, 6.5rem);
+    color: #FFFFFF;
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.powerplay-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.7rem, 1vw, 1.1rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ASSET 4: Center Boy (Top-most) */
+.pp-asset-4 {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+    z-index: 20;
+    /* Crosses over the text */
+}
+
+/* BOTTOM ACTION ROW */
+.powerplay-hero-action {
+    position: absolute;
+    bottom: 6%;
+    /* Increased from negative space to push button up and reveal background */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+}
+
+.powerplay-run-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.powerplay-run-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.powerplay-run-btn img {
+    width: clamp(180px, 20vw, 300px);
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.powerplay-hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+    /* Adjust based on need */
+    margin-top: -50px;
+}
+
+/* ==========================================================================
+   2. SURVIVE LONGER BANNER
+========================================================================== */
+
+.powerplay-survive-banner {
+    position: relative;
+    background-color: #FFBB00;
+    padding: 60px 0;
+    /* Increased height from 35px */
+    /* Decreased height */
+    /* Pulling the banner upward to overlap the hero gap */
+    margin-top: -20px;
+    z-index: 35;
+    overflow: hidden;
+    /* Scalloped top and bottom edges (Perfect 51% overlap tile method) */
+    -webkit-mask-image:
+        radial-gradient(circle at 15px 0%, transparent 15px, black 16px),
+        radial-gradient(circle at 15px 100%, transparent 15px, black 16px);
+    -webkit-mask-size: 30px 51%, 30px 51%;
+    -webkit-mask-repeat: repeat-x, repeat-x;
+    -webkit-mask-position: top, bottom;
+    mask-image:
+        radial-gradient(circle at 15px 0%, transparent 15px, black 16px),
+        radial-gradient(circle at 15px 100%, transparent 15px, black 16px);
+    mask-size: 30px 51%, 30px 51%;
+    mask-repeat: repeat-x, repeat-x;
+    mask-position: top, bottom;
+}
+
+.survive-bg-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 48%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150" preserveAspectRatio="none"><path d="M 0 0 L 45 75 L 0 150 L 45 150 L 90 75 L 45 0 Z" fill="%23FFFFFF" fill-opacity="0.2"/></svg>');
+    background-size: 100px 100%;
+    animation: moveArrowsRight 2s linear infinite;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, black 0%, black 95%, transparent 100%);
+}
+
+.survive-bg-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 48%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150" preserveAspectRatio="none"><path d="M 100 0 L 55 75 L 100 150 L 55 150 L 10 75 L 55 0 Z" fill="%23FFFFFF" fill-opacity="0.2"/></svg>');
+    background-size: 100px 100%;
+    animation: moveArrowsLeft 2s linear infinite;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to left, black 0%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to left, black 0%, black 95%, transparent 100%);
+}
+
+@keyframes moveArrowsRight {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100px 0;
+    }
+}
+
+@keyframes moveArrowsLeft {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -100px 0;
+    }
+}
+
+.survive-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.survive-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    color: #1b5ce5;
+    /* Strong blue */
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.survive-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.7rem, 1vw, 1.1rem);
+    font-weight: 800;
+    color: #1b5ce5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   LARGE DESKTOP (1392px+) RESPONSIVE SCALING
+========================================================================== */
+
+@media (min-width: 1392px) {
+    .powerplay-title {
+        font-size: clamp(6.5rem, 7vw, 9rem);
+    }
+
+    .powerplay-subtitle {
+        font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+    }
+
+    .powerplay-run-btn img {
+        width: clamp(280px, 22vw, 360px);
+        /* Slightly increased */
+    }
+}
+
+/* ==========================================================================
+   ULTRA WIDE (1920px+) RESPONSIVE FIXES
+========================================================================== */
+
+@media (min-width: 1920px) {
+    .powerplay-hero {
+        height: 120vh;
+        /* Allow slightly more room for large track rendering */
+    }
+
+    /* Lock all assets from aggressively filling 4k gaps */
+    .pp-asset {
+        width: clamp(350px, 25vw, 650px);
+    }
+
+    .pp-asset-1 {
+        right: 28%;
+        bottom: 35%;
+    }
+
+    .pp-asset-2 {
+        width: clamp(490px, 33vw, 810px);
+        /* Up-scaled for extreme width monitors */
+        right: 7%;
+        bottom: 25%;
+        /* Pushed up */
+    }
+
+    .pp-asset-3 {
+        left: 20%;
+        /* Pulled inward for ultra-wide setups */
+        bottom: 25%;
+    }
+
+    .powerplay-hero-text {
+        bottom: 25%;
+        left: 10%;
+    }
+
+    .pp-asset-4 {
+        bottom: 12%;
+    }
+}
+
+/* ==========================================================================
+   4. SHIELD SECTION
+========================================================================== */
+.powerplay-shield-section {
+    position: relative;
+    background-color: #4CA7FF;
+    min-height: 80vh;
+    padding: 120px var(--px) 150px;
+    /* More bottom padding for jagged border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 25;
+    /* Lowered from 30 */
+    /* Ensure it stays behind the yellow banner (z35) */
+    margin-top: -60px;
+    /* Pull it up to sit behind the scalloped banner */
+    overflow: hidden;
+}
+
+.powerplay-shield-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/section coin bg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    /* Subtle overlay */
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Jagged Border Removed from Shield section */
+
+
+.shield-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.shield-left {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.shield-main-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.3));
+    transform: rotate(-3deg);
+    transition: transform 0.5s ease;
+}
+
+.shield-main-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.shield-right {
+    flex: 1;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.shield-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.8;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    opacity: 0.4;
+    letter-spacing: -2px;
+}
+
+.shield-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.shield-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+    opacity: 1;
+}
+
+.shield-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    /* Increased from 1rem/1.4rem */
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 600px;
+}
+
+@media (max-width: 1024px) {
+    .shield-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .shield-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .shield-description {
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   5. BLASTER SECTION
+========================================================================== */
+.powerplay-blaster-section {
+    position: relative;
+    background-image: url('/assets/powerplay assets/section2bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    padding: 120px var(--px) 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+    /* Higher than Shield (25) */
+    margin-top: -60px;
+    /* Pull it up to overlap Shield */
+    overflow: hidden;
+}
+
+
+
+/* Removed ::before overlay as background image already contains coins */
+
+/* Top Jagged Border Removed from Blaster (handled by Shield bottom) */
+
+.blaster-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.blaster-left {
+    flex: 1;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.blaster-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.8;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    opacity: 0.4;
+    letter-spacing: -2px;
+}
+
+.blaster-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.blaster-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.blaster-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 600px;
+}
+
+.blaster-right {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blaster-main-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+    transform: rotate(3deg);
+    /* Mirrored rotation for balance */
+    transition: transform 0.5s ease;
+}
+
+.blaster-main-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+@media (max-width: 1024px) {
+    .blaster-container {
+        flex-direction: column-reverse;
+        /* Text on top for mobile blaster */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .blaster-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .blaster-description {
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   6. INVISIBILITY SECTION
+========================================================================== */
+.powerplay-invisibility-section {
+    position: relative;
+    background: linear-gradient(180deg, #73D203 0%, #0D880A 100%);
+    min-height: 80vh;
+    padding: 120px var(--px) 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 35;
+    /* Higher than Blaster (30) */
+    margin-top: -120px;
+    /* Pull it up more to show the pill heights */
+    overflow: hidden;
+
+    /* More Organic, Rounded Irregular Pill-Column Mask */
+    -webkit-mask-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 L0,8 C0,4 2,2 5,2 C8,2 10,4 10,8 L10,20 L13,20 L13,6 C13,2 16,0 19,0 C22,0 25,2 25,6 L25,20 L28,20 L28,10 C28,7 30,5 33,5 C36,5 38,7 38,10 L38,20 L42,20 L42,4 C42,1 45,-1 48,-1 C51,-1 54,1 54,4 L54,20 L58,20 L58,9 C58,6 60,4 63,4 C66,4 68,6 68,9 L68,20 L72,20 L72,2 C72,-1 75,-3 78,-3 C81,-3 84,-1 84,2 L84,20 L87,20 L87,7 C87,4 90,2 92,2 C94,2 96,4 96,7 L96,20 L100,20 L100,0 L100,20 L0,20 Z" fill="black"/></svg>'),
+        linear-gradient(black, black);
+    mask-image:
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0,20 L0,8 C0,4 2,2 5,2 C8,2 10,4 10,8 L10,20 L13,20 L13,6 C13,2 16,0 19,0 C22,0 25,2 25,6 L25,20 L28,20 L28,10 C28,7 30,5 33,5 C36,5 38,7 38,10 L38,20 L42,20 L42,4 C42,1 45,-1 48,-1 C51,-1 54,1 54,4 L54,20 L58,20 L58,9 C58,6 60,4 63,4 C66,4 68,6 68,9 L68,20 L72,20 L72,2 C72,-1 75,-3 78,-3 C81,-3 84,-1 84,2 L84,20 L87,20 L87,7 C87,4 90,2 92,2 C94,2 96,4 96,7 L96,20 L100,20 L100,0 L100,20 L0,20 Z" fill="black"/></svg>'),
+        linear-gradient(black, black);
+
+    -webkit-mask-size: 100% 100px, 100% 100%;
+    mask-size: 100% 100px, 100% 100%;
+
+    -webkit-mask-position: top center, center 99px;
+    mask-position: top center, center 99px;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    transform: translateY(-1px);
+}
+
+
+/* Coin Overlay */
+.powerplay-invisibility-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/section coin bg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    /* Match user request for visible coins */
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.invisibility-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.invisibility-left {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.invisibility-main-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+    transform: rotate(-3deg);
+    transition: transform 0.5s ease;
+}
+
+.invisibility-main-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.invisibility-right {
+    flex: 1;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.invisibility-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.8;
+    margin-bottom: 10px;
+    color: #8CFF00;
+    /* Vibrant green matching Invisibility logo style if needed, or white with opacity */
+    opacity: 0.4;
+    letter-spacing: -2px;
+}
+
+.invisibility-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.invisibility-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.invisibility-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 600px;
+}
+
+@media (max-width: 1024px) {
+    .invisibility-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .invisibility-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .invisibility-description {
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   7. REWARDS SECTION (Duplicate of Survive)
+========================================================================== */
+.powerplay-rewards-banner {
+    position: relative;
+    background-color: #FFBB00;
+    padding: 60px 0;
+    /* Increased height from 35px */
+    margin-top: -60px;
+    /* Overlap with Invisibility */
+    z-index: 40;
+    /* Higher than Invisibility (35) */
+    overflow: hidden;
+
+    /* Scalloped top and bottom edges */
+    -webkit-mask-image:
+        radial-gradient(circle at 15px 0%, transparent 15px, black 16px),
+        radial-gradient(circle at 15px 100%, transparent 15px, black 16px);
+    -webkit-mask-size: 30px 51%, 30px 51%;
+    -webkit-mask-repeat: repeat-x, repeat-x;
+    -webkit-mask-position: top, bottom;
+    mask-image:
+        radial-gradient(circle at 15px 0%, transparent 15px, black 16px),
+        radial-gradient(circle at 15px 100%, transparent 15px, black 16px);
+    mask-size: 30px 51%, 30px 51%;
+    mask-repeat: repeat-x, repeat-x;
+    mask-position: top, bottom;
+}
+
+.rewards-bg-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 48%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150" preserveAspectRatio="none"><path d="M 0 0 L 45 75 L 0 150 L 45 150 L 90 75 L 45 0 Z" fill="%23FFFFFF" fill-opacity="0.2"/></svg>');
+    background-size: 100px 100%;
+    animation: moveArrowsRight 2s linear infinite;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, black 0%, black 95%, transparent 100%);
+}
+
+.rewards-bg-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 48%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150" preserveAspectRatio="none"><path d="M 100 0 L 55 75 L 100 150 L 55 150 L 10 75 L 55 0 Z" fill="%23FFFFFF" fill-opacity="0.2"/></svg>');
+    background-size: 100px 100%;
+    animation: moveArrowsLeft 2s linear infinite;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to left, black 0%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to left, black 0%, black 95%, transparent 100%);
+}
+
+.rewards-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.rewards-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    color: #1b5ce5;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.rewards-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.7rem, 1vw, 1.1rem);
+    font-weight: 800;
+    color: #1b5ce5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   8. MAGNET SECTION
+========================================================================== */
+.powerplay-magnet-section {
+    position: relative;
+    background: linear-gradient(180deg, #B049E9 0%, #EF3BFF 100%);
+    min-height: 80vh;
+    padding: 120px var(--px) 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 30;
+    /* Behind Rewards (40) */
+    margin-top: -40px;
+    /* Reduced overlap for clean edge */
+    overflow: hidden;
+}
+
+.powerplay-magnet-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/section coin bg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.85;
+    /* Subtle coin pattern for purple */
+    z-index: 1;
+    pointer-events: none;
+}
+
+.magnet-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.magnet-left {
+    flex: 1;
+    color: #FFFFFF;
+}
+
+.magnet-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(6rem, 12vw, 15rem);
+    line-height: 0.8;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    opacity: 0.4;
+    letter-spacing: -2px;
+}
+
+.magnet-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.magnet-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+    opacity: 1;
+}
+
+.magnet-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    line-height: 1.4;
+    max-width: 600px;
+    font-weight: 500;
+}
+
+.magnet-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.magnet-main-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+    transform: rotate(-3deg);
+    transition: transform 0.5s ease;
+}
+
+.magnet-main-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+@media (max-width: 1024px) {
+    .magnet-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .magnet-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .magnet-description {
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   9. SCORE MULTIPLIER SECTION (2X & 4X)
+========================================================================== */
+.powerplay-score-section {
+    position: relative;
+    background-image: url('/assets/powerplay assets/section5bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 120px var(--px) 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 45;
+    margin-top: -120px;
+    overflow: hidden;
+}
+
+.score-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.score-visual {
+    flex: 1.2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.score-main-img {
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
+    transform: rotate(-5deg);
+}
+
+.score-content {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.score-main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(6rem, 15vw, 15rem);
+    color: #FFFFFF;
+    opacity: 0.35;
+    line-height: 0.8;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.score-main-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    color: #FFFFFF;
+    line-height: 1;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.score-horizontal-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.score-main-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.2vw, 1.4rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 800px;
+}
+
+@media (max-width: 1200px) {
+    .score-main-title {
+        font-size: 10rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .score-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .score-visual {
+        flex: none;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 40px;
+    }
+
+    .score-main-img {
+        max-width: 450px;
+    }
+
+    .score-content {
+        flex: none;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .score-horizontal-divider {
+        width: 150px;
+    }
+
+    .score-main-title {
+        font-size: 8rem;
+        opacity: 0.25;
+    }
+}
+
+/* ==========================================================================
+   10. MEGA COIN SECTION
+========================================================================== */
+.powerplay-megacoin-section {
+    position: relative;
+    background-image: url('/assets/powerplay assets/section6bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    padding: 120px var(--px) 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    margin-top: -100px;
+    overflow: hidden;
+}
+
+/* ==========================================================================
+   11. BONUS ZONE BANNER
+========================================================================== */
+.powerplay-bonus-zone-banner {
+    position: relative;
+    background-color: #FFBB00;
+    padding: 60px 0;
+    margin-top: -60px;
+    z-index: 55;
+    overflow: hidden;
+
+    /* Scalloped top and bottom edges */
+    -webkit-mask-image:
+        radial-gradient(circle at 15px 0%, transparent 15px, black 16px),
+        radial-gradient(circle at 15px 100%, transparent 15px, black 16px);
+    -webkit-mask-size: 30px 51%, 30px 51%;
+    -webkit-mask-repeat: repeat-x, repeat-x;
+    -webkit-mask-position: top, bottom;
+    mask-image:
+        radial-gradient(circle at 15px 0%, transparent 15px, black 16px),
+        radial-gradient(circle at 15px 100%, transparent 15px, black 16px);
+    mask-size: 30px 51%, 30px 51%;
+    mask-repeat: repeat-x, repeat-x;
+    mask-position: top, bottom;
+}
+
+.bonus-zone-bg-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 48%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150" preserveAspectRatio="none"><path d="M 0 0 L 45 75 L 0 150 L 45 150 L 90 75 L 45 0 Z" fill="%23FFFFFF" fill-opacity="0.2"/></svg>');
+    background-size: 100px 100%;
+    animation: moveArrowsRight 2s linear infinite;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to right, black 0%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, black 0%, black 95%, transparent 100%);
+}
+
+.bonus-zone-bg-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 48%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150" preserveAspectRatio="none"><path d="M 100 0 L 55 75 L 100 150 L 55 150 L 10 75 L 55 0 Z" fill="%23FFFFFF" fill-opacity="0.2"/></svg>');
+    background-size: 100px 100%;
+    animation: moveArrowsLeft 2s linear infinite;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to left, black 0%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to left, black 0%, black 95%, transparent 100%);
+}
+
+.bonus-zone-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.bonus-zone-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 7vw, 7.5rem);
+    color: #1b5ce5;
+    letter-spacing: 2px;
+    margin: 0;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.megacoin-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.megacoin-left {
+    flex: 1;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.megacoin-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.8;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    opacity: 0.4;
+    letter-spacing: -2px;
+}
+
+.megacoin-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.megacoin-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.megacoin-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 600px;
+}
+
+.megacoin-right {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.megacoin-main-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+    transform: rotate(-3deg);
+    transition: transform 0.5s ease;
+}
+
+.megacoin-main-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+@media (max-width: 1024px) {
+    .megacoin-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .megacoin-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .megacoin-description {
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   10. MEGA COIN SECTION
+========================================================================== */
+
+/* ==========================================================================
+   12. JUMPER SECTION
+========================================================================== */
+.powerplay-jumper-section {
+    position: relative;
+    background-image: url('/assets/powerplay assets/section7bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    padding: 120px var(--px) 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 45;
+    /* Lower than Bonus Banner (55) to slide underneath */
+    margin-top: -120px;
+    /* Pull up to slide under the Bonus banner */
+    overflow: hidden;
+}
+
+.jumper-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.jumper-left {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumper-main-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+    transform: rotate(-3deg);
+    transition: transform 0.5s ease;
+}
+
+.jumper-main-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.jumper-right {
+    flex: 1;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.jumper-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.8;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    opacity: 0.4;
+    letter-spacing: -2px;
+}
+
+.jumper-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.jumper-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.jumper-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 600px;
+}
+
+@media (max-width: 1024px) {
+    .jumper-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .jumper-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .jumper-description {
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   13. BONUS ROAD SECTION
+========================================================================== */
+.powerplay-bonusroad-section {
+    position: relative;
+    background-image: url('/assets/powerplay assets/section8bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+    padding: 120px var(--px) 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    /* Higher than Jumper (45) */
+    margin-top: -100px;
+    /* Overlap with Jumper */
+    overflow: hidden;
+}
+
+.bonusroad-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    gap: 60px;
+}
+
+.bonusroad-left {
+    flex: 1;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.bonusroad-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 10rem);
+    line-height: 0.8;
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    opacity: 0.4;
+    letter-spacing: -2px;
+}
+
+.bonusroad-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 4vw, 4.5rem);
+    line-height: 1;
+    margin-bottom: 25px;
+    color: #FFFFFF;
+}
+
+.bonusroad-divider {
+    width: 100%;
+    height: 4px;
+    background-color: #FFFFFF;
+    margin-bottom: 30px;
+}
+
+.bonusroad-description {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.4rem);
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 600px;
+}
+
+.bonusroad-right {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bonusroad-main-img {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
+    transform: rotate(3deg);
+    transition: transform 0.5s ease;
+}
+
+.bonusroad-main-img:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+@media (max-width: 1024px) {
+    .bonusroad-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .bonusroad-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bonusroad-description {
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+   14. POWERUP CHOICE SECTION
+========================================================================== */
+.powerplay-choice-section {
+    position: relative;
+    background-image: url('/assets/powerplay assets/section9bg.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 120px var(--px) 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 65;
+    /* Higher than Bonus Road (60) */
+    margin-top: -120px;
+    /* Pull up to overlap */
+    overflow: hidden;
+}
+
+.choice-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choice-visual {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 700px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice-hero-img {
+    height: 100%;
+    max-height: 750px;
+    width: auto;
+    z-index: 5;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+.choice-icon {
+    position: absolute;
+    width: clamp(120px, 15vw, 220px);
+    height: auto;
+    z-index: 6;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+/* Specific Positions - Encompassing the Hero */
+.icon-potion {
+    top: 15%;
+    left: -8%;
+    animation-delay: 0s;
+}
+
+.icon-2x {
+    top: 40%;
+    left: 0%;
+    animation-delay: 0.5s;
+}
+
+.icon-shield {
+    top: 65%;
+    left: 15%;
+    animation-delay: 1s;
+}
+
+.icon-magnet {
+    top: 15%;
+    right: -8%;
+    animation-delay: 0.2s;
+}
+
+.icon-4x {
+    top: 40%;
+    right: 0%;
+    animation-delay: 0.7s;
+}
+
+.icon-blaster {
+    top: 65%;
+    right: 15%;
+    animation-delay: 1.2s;
+}
+
+@keyframes floatIcon {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(3deg) scale(1.05);
+    }
+}
+
+.choice-content {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.choice-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 6vw, 6.5rem);
+    color: #4fe8ff;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.choice-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 3.5rem);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.choice-footer {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    .choice-visual {
+        height: 500px;
+    }
+
+    .choice-icon {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .choice-visual {
+        height: 400px;
+    }
+
+    .choice-icon {
+        width: 70px;
+    }
+
+    .icon-potion {
+        top: 5%;
+        left: 5%;
+    }
+
+    .icon-2x {
+        top: 30%;
+        left: 2%;
+    }
+
+    .icon-shield {
+        top: 55%;
+        left: 10%;
+    }
+
+    .icon-magnet {
+        top: 5%;
+        right: 5%;
+    }
+
+    .icon-4x {
+        top: 30%;
+        right: 2%;
+    }
+
+    .icon-blaster {
+        top: 55%;
+        right: 10%;
+    }
+}

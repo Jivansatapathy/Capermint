@@ -17,6 +17,7 @@ import FinalSection from '../components/FinalSection';
 import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
 import contentData from '../../content.json';
+import '../styles/home.css';
 
 const Home = () => {
     const [content, setContent] = useState(contentData);

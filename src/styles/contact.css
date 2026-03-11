@@ -1,0 +1,519 @@
+/* ==========================================================================
+   CONTACT PAGE STYLES (v2 - Image-based Layout)
+========================================================================== */
+
+.contact-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    padding: 120px var(--px) 60px;
+    color: #FFFFFF;
+    background:
+        linear-gradient(180deg, rgba(8, 13, 37, 0) 41%, rgba(8, 13, 37, 1) 100%),
+        radial-gradient(circle at center,
+            rgba(8, 13, 37, 1) 1%,
+            rgba(4, 27, 56, 0.17) 16%,
+            rgba(4, 27, 56, 0.15) 66%,
+            rgba(4, 27, 56, 0.13) 80%,
+            rgba(4, 27, 56, 0.8) 98%),
+        url('/assets/contactassets/contacthero.png');
+    background-size: cover;
+    background-position: center bottom;
+}
+
+.contact-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+}
+
+.contact-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 6.5rem);
+    line-height: 0.9;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.contact-hero-title span {
+    color: #FFD700;
+}
+
+.contact-hero-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.9rem, 1.2vw, 1.4rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.contact-hero-btn {
+    display: inline-block;
+    background-color: #87CEEB;
+    color: #080D25;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    padding: 12px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-hero-btn:hover {
+    background-color: #FFFFFF;
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   FORM SECTION (3-COLUMN HORIZONTAL)
+========================================================================== */
+.contact-form-section {
+    position: relative;
+    background-color: #080D25;
+    padding: 40px 0 0 0px;
+    /* Added top padding to bring boxes down */
+    overflow: visible;
+    /* Allow character to overlap hero */
+}
+
+.contact-form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1800px;
+    margin: 0 auto;
+    position: relative;
+    gap: -50px;
+    /* Force negative overlap if needed */
+}
+
+/* Left Column: Character */
+.contact-form-left {
+    flex: 0 0 auto;
+    z-index: 30;
+    /* Higher than blue (20) */
+}
+
+.contact-character-img {
+    height: 800px;
+    width: auto;
+    margin-top: -200px;
+    /* Adjusted to maintain overlap with new padding */
+    position: relative;
+    z-index: 100;
+    /* High enough to sit over the hero section */
+    filter: drop-shadow(20px 0 30px rgba(0, 0, 0, 0.5));
+}
+
+/* Middle Column: Blue Form */
+.contact-form-middle {
+    flex: 0 0 1000px;
+    /* Reduced from 1150px */
+    margin-left: -150px;
+    /* Reduced from -200px */
+    z-index: 20;
+}
+
+.contact-form-box {
+    width: 1000px;
+    height: 850px;
+    /* Reduced from 1150x1000 */
+    background-image: url('/assets/contactassets/bluebg.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    padding: 150px 150px 80px 100px;
+    /* Reduced padding */
+    gap: 20px;
+}
+
+/* Right Column: Purple Info */
+.contact-form-right {
+    flex: 0 0 550px;
+    /* Reduced from 650px */
+    margin-left: -150px;
+    /* Reduced from -180px */
+    z-index: 10;
+}
+
+.contact-info-box {
+    width: 550px;
+    height: 520px;
+    /* Reduced from 650x600 */
+    background-image: url('/assets/contactassets/purplebg.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 40px 40px 60px;
+    /* Reduced padding */
+    color: #FFFFFF;
+    text-align: left;
+}
+
+/* Typography and Inputs */
+.info-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem;
+    /* Reduced from 6rem */
+    margin-bottom: 15px;
+    line-height: 0.9;
+    letter-spacing: 2px;
+}
+
+.info-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    /* Reduced from 1.35rem */
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
+    max-width: 400px;
+    opacity: 0.5;
+    letter-spacing: 1px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-group label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    /* Reduced from 2.5rem */
+    color: #FFFFFF;
+    line-height: 1;
+    margin-bottom: 3px;
+}
+
+.form-group label span {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-left: 8px;
+    font-weight: 400;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: #032A5F;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 20px;
+    /* Reduced padding */
+    color: #FFFFFF;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    /* Reduced from 1.4rem */
+    font-weight: 600;
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    /* Reduced from 200px */
+    padding-top: 15px;
+    resize: none;
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    width: 100%;
+    appearance: none;
+}
+
+.select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFFFFF;
+}
+
+.form-submit-btn {
+    align-self: center;
+    background-color: #FFFF00;
+    color: #1b5ce5;
+    /* Using the primary blue color for text */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    /* Reduced from 2.5rem */
+    padding: 8px 50px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+}
+
+@media (max-width: 1600px) {
+    .contact-form-container {
+        transform: scale(0.85);
+        margin: -100px 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    .contact-form-container {
+        flex-direction: column;
+        transform: none;
+        margin: 0;
+        gap: 50px;
+    }
+
+    .contact-form-middle,
+    .contact-form-right {
+        margin-left: 0;
+        flex: 1;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .contact-form-box,
+    .contact-info-box {
+        width: 100%;
+        background-size: cover;
+        height: auto;
+        padding: 60px;
+    }
+}
+
+/* ==========================================================================
+   CONTACT SUPPORT SECTION
+========================================================================== */
+.contact-support-section {
+    background-color: #080D25;
+    padding: 40px 80px;
+}
+
+.contact-support-inner {
+    width: 100%;
+    text-align: center;
+}
+
+.support-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    margin: 0 auto 20px;
+    max-width: 1200px;
+    /* Title stays centered */
+}
+
+.support-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4FC3F7;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 auto 0;
+    max-width: 900px;
+    /* Subtitle stays centered */
+    line-height: 1.5;
+}
+
+.support-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+    /* Wider gap for wider cards */
+    margin-top: 80px;
+    max-width: 1400px;
+    /* Wider container */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.support-card {
+    position: relative;
+    border-radius: 20px;
+    min-height: 315px;
+    /* Flexible height but starts at original 315px */
+    height: auto;
+    padding: 110px 30px 40px;
+    /* Adjusted padding for better flow */
+    text-align: center;
+    border-width: 2px;
+    border-style: solid;
+    overflow: visible;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.support-card-icon {
+    position: absolute;
+    top: -80px;
+    /* Further above for larger icon */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    /* Increased from 140px */
+    height: 180px;
+}
+
+.support-card-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+}
+
+.support-card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    /* Slightly smaller to fit long emails */
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    overflow-wrap: anywhere;
+    /* Prevent long email truncation */
+    width: 100%;
+}
+
+.support-card-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.7;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+
+/* Shared card border config: inside, weight 2 + inner shadow */
+/* Using box-shadow to achieve inside border + inner shadow */
+
+/* Card 1 - Email: Brown #523A31, border #FFFF91 at 61% */
+.support-card--email {
+    background-color: #523A31;
+    border: none;
+    box-shadow:
+        inset 0 0 0 2px rgba(255, 255, 145, 0.61),
+        inset 0 4px 20px rgba(255, 255, 145, 0.2);
+}
+
+.support-card--email .support-card-title {
+    color: #F4FFB4;
+    /* Updated from #FFD700 */
+}
+
+/* Card 2 - Phone: Green #094C39, border #8CFF69 at 60% */
+.support-card--phone {
+    background-color: #094C39;
+    border: none;
+    box-shadow:
+        inset 0 0 0 2px rgba(140, 255, 105, 0.60),
+        inset 0 4px 20px rgba(140, 255, 105, 0.2);
+}
+
+.support-card--phone .support-card-title {
+    color: #8CFF69;
+}
+
+/* Card 3 - Chat: Purple #461287, border #FF91F8 at 60% */
+.support-card--chat {
+    background-color: #461287;
+    border: none;
+    box-shadow:
+        inset 0 0 0 2px rgba(255, 145, 248, 0.60),
+        inset 0 4px 20px rgba(255, 145, 248, 0.2);
+}
+
+.support-card--chat .support-card-title {
+    color: #FF87FD;
+    /* Updated title color */
+}
+
+@media (max-width: 900px) {
+    .support-cards {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 70px auto 0;
+    }
+
+    .support-card {
+        margin-top: 60px;
+    }
+}
+
+/* ==========================================================================
+   BACKGROUND OVERLAY SECTION
+   ========================================================================== */
+.contact-bg-overlay-section {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    /* Increased height as requested in earlier step */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.contact-bg-overlay-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-bg-overlay-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+.bg-overlay-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 6vw, 6.5rem);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.bg-overlay-subtitle {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0.9;
+}

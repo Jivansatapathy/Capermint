@@ -54,7 +54,7 @@ const CharacterDetails = ({ sectionData }) => {
     return (
         <section
             ref={sectionRef}
-            className={`char-details-simple ${reversed ? 'reversed' : ''}`}
+            className={`char-details-simple char-section-${sectionData.id} ${reversed ? 'reversed' : ''}`}
             style={{ backgroundImage: `url('${sectionBg}')` }}
         >
             <div className={`char-details-container ${reversed ? 'reversed' : ''}`}>

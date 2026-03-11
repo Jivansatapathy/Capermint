@@ -5,17 +5,23 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AdminPage from './pages/AdminPage';
 import CharactersPage from './pages/CharactersPage';
+import Powerplay from './pages/Powerplay';
+import Contact from './pages/Contact';
 
-const defaultNav = ['HOME', 'GAME FEATURES', 'POWERUPS', 'BLOG', 'SUPPORT'];
+const defaultNav = ['HOME', 'CHARACTERS', 'POWERUPS', 'BLOG', 'SUPPORT'];
 
 function App() {
-    const [nav, setNav] = useState(defaultNav);
+    const [content, setContent] = useState({ nav: defaultNav });
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/content')
-            .then(res => setNav(res.data.nav))
+            .then(res => {
+                if (res.data && Object.keys(res.data).length > 0) {
+                    setContent(res.data);
+                }
+            })
             .catch(() => {
-                // Backend is locally offline; using defaultNav
+                // Backend is locally offline
             });
     }, []);
 
@@ -25,13 +31,25 @@ function App() {
                 <Route path="/admin" element={<AdminPage />} />
                 <Route path="/characters" element={
                     <>
-                        <Navbar nav={nav} />
+                        <Navbar nav={content.nav} navbar={content.navbar} />
                         <CharactersPage />
+                    </>
+                } />
+                <Route path="/powerplay" element={
+                    <>
+                        <Navbar nav={content.nav} navbar={content.navbar} />
+                        <Powerplay />
+                    </>
+                } />
+                <Route path="/contact" element={
+                    <>
+                        <Navbar nav={content.nav} navbar={content.navbar} />
+                        <Contact />
                     </>
                 } />
                 <Route path="*" element={
                     <>
-                        <Navbar nav={nav} />
+                        <Navbar nav={content.nav} navbar={content.navbar} />
                         <Home />
                     </>
                 } />

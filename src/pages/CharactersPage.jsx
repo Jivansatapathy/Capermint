@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import CharactersHero from '../components/CharactersHero';
 import CharacterDetails from '../components/CharacterDetails';
+import CharactersGroupSection from '../components/CharactersGroupSection';
+import FinalSection from '../components/FinalSection';
 import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
 import contentData from '../../content.json';
+import '../styles/characters.css';
 
 const CharactersPage = () => {
     const [content, setContent] = useState(contentData);
@@ -37,6 +40,8 @@ const CharactersPage = () => {
                 {sections.map((section) => (
                     <CharacterDetails key={section.id} sectionData={section} />
                 ))}
+                <CharactersGroupSection />
+                <FinalSection />
             </main>
             <Footer />
         </div>

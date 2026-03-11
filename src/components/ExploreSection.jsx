@@ -61,8 +61,10 @@ const ExploreSection = ({ content }) => {
                 });
             };
 
-            btn.addEventListener('mousemove', handleMouseMove);
-            btn.addEventListener('mouseleave', handleMouseLeave);
+            if (btn) {
+                btn.addEventListener('mousemove', handleMouseMove);
+                btn.addEventListener('mouseleave', handleMouseLeave);
+            }
         }, sectionRef);
 
         return () => ctx.revert();

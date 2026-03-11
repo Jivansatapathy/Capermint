@@ -13,65 +13,73 @@ const app = express();
 const PORT = 3000;
 const CONTENT_PATH = path.join(__dirname, 'content.json');
 
-// Ensure articles directory exists
-const UPLOADS_DIR = path.join(__dirname, 'public', 'assets', 'articles');
-if (!fs.existsSync(UPLOADS_DIR)) {
-    fs.mkdirSync(UPLOADS_DIR, { recursive: true });
-}
-
-// Multer setup for image uploads
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, UPLOADS_DIR);
-    },
-    filename: (req, file, cb) => {
-        // Use original name or add timestamp to avoid collisions
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, uniqueSuffix + '-' + file.originalname);
-    }
+// Ensure upload directories exist
+const ARTICLES_DIR = path.join(__dirname, 'public', 'assets', 'articles');
+const UPLOADS_DIR  = path.join(__dirname, 'public', 'assets', 'uploads');
+[ARTICLES_DIR, UPLOADS_DIR].forEach(dir => {
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 });
-const upload = multer({ storage: storage });
+
+// Multer for article images
+const articleStorage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, ARTICLES_DIR),
+    filename:    (req, file, cb) => {
+        const u = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        cb(null, u + '-' + file.originalname);
+    },
+});
+const uploadArticle = multer({ storage: articleStorage });
+
+// Multer for generic uploads (contact images, powerplay images, etc.)
+const genericStorage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, UPLOADS_DIR),
+    filename:    (req, file, cb) => {
+        const u = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        cb(null, u + '-' + file.originalname);
+    },
+});
+const uploadGeneric = multer({ storage: genericStorage });
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static('public')); // Serve assets
-app.use(express.static('dist')); // Serve built frontend
+app.use(express.static('public'));
+app.use(express.static('dist'));
 
-// Backend API routes below
-
-
-// Get content
+// ── GET content ─────────────────────────────────────────────
 app.get('/api/content', (req, res) => {
     fs.readFile(CONTENT_PATH, 'utf8', (err, data) => {
-        if (err) {
-            return res.status(500).send('Error reading content');
-        }
+        if (err) return res.status(500).send('Error reading content');
         res.json(JSON.parse(data));
     });
 });
 
-// Update content
+// ── POST content (merged update) ────────────────────────────
 app.post('/api/content', (req, res) => {
-    const newContent = req.body;
-    fs.writeFile(CONTENT_PATH, JSON.stringify(newContent, null, 2), (err) => {
-        if (err) {
-            return res.status(500).send('Error saving content');
+    fs.readFile(CONTENT_PATH, 'utf8', (err, data) => {
+        let existing = {};
+        if (!err) {
+            try { existing = JSON.parse(data); } catch(e) {}
         }
-        res.send('Content updated successfully');
+        const updated = { ...existing, ...req.body };
+        fs.writeFile(CONTENT_PATH, JSON.stringify(updated, null, 2), (err) => {
+            if (err) return res.status(500).send('Error saving content');
+            res.send('Content updated successfully');
+        });
     });
 });
 
-// Upload image
-app.post('/api/upload', upload.single('image'), (req, res) => {
-    if (!req.file) {
-        return res.status(400).send('No file uploaded.');
-    }
+// ── Upload article image ─────────────────────────────────────
+app.post('/api/upload', uploadArticle.single('image'), (req, res) => {
+    if (!req.file) return res.status(400).send('No file uploaded.');
+    res.json({ url: `/assets/articles/${req.file.filename}` });
+});
 
-    // Return the public URL path for the uploaded image
-    const imageUrl = `/assets/articles/${req.file.filename}`;
-    res.json({ url: imageUrl });
+// ── Upload any image (contact, powerplay, etc.) ──────────────
+app.post('/api/upload-any', uploadGeneric.single('image'), (req, res) => {
+    if (!req.file) return res.status(400).send('No file uploaded.');
+    res.json({ url: `/assets/uploads/${req.file.filename}` });
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`✅  Server running at http://localhost:${PORT}`);
 });

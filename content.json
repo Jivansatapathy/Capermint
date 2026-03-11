@@ -5,11 +5,16 @@
   },
   "nav": [
     "HOME",
-    "GAME FEATURES",
+    "CHARACTERS",
     "POWERUPS",
     "BLOG",
     "SUPPORT"
   ],
+  "navbar": {
+    "logo": "/assets/uploads/1773215102444-142471305-Runnerlogo.png",
+    "googlePlay": "/assets/Google Store download button.png",
+    "appStore": "/assets/App Store download button.png"
+  },
   "about": {
     "title": "THE RUNNER RUNNER STORY",
     "text": "In a world where speed is everything, only the strategic survive. Join the ultimate competitive race across the neon city streets."
@@ -280,7 +285,156 @@
         "cardBg": "/assets/characterasssets/Card bg.png",
         "reversed": false,
         "variant": "lime-green"
+      },
+      {
+        "id": "nova",
+        "characterName": "NOVA",
+        "characterTitle": "NEON STYLE / HIGH IMPACT",
+        "mainQuote": "YOU CAN'T MISS ME.",
+        "personality": [
+          "BOLD & BRIGHT.",
+          "DESIGNED TO STAND OUT FROM THE CROWD."
+        ],
+        "characterImage": "/assets/characterasssets/section11girl.png",
+        "sectionBg": "/assets/characterasssets/section11bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "neon-purple"
+      },
+      {
+        "id": "dwight",
+        "characterName": "DWIGHT",
+        "characterTitle": "STRONG PRESENCE / LEADER ENERGY",
+        "mainQuote": "STAY STRONG. KEEP RUNNING.",
+        "personality": [
+          "POWERFUL PRESENCE WITH FOCUSED DETERMINATION.",
+          "BUILT TO LEAD. DRIVEN TO WIN."
+        ],
+        "characterImage": "/assets/characterasssets/section12boy.png",
+        "sectionBg": "/assets/characterasssets/section12bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "orange"
       }
     ]
+  },
+  "contactPage": {
+    "hero": {
+      "title": "WE'D LOVE TO HEAR FROM YOU!",
+      "subtitle": "GOT A QUESTION, FEEDBACK, OR NEED HELP? WE'RE HERE FOR YOU!",
+      "buttonText": "CONTACT US",
+      "characterImage": "/assets/contactassets/contactsection1img.png"
+    },
+    "infoBox": {
+      "title": "GET IN TOUCH",
+      "text": "PLEASE FILL OUT THE FORM BELOW, AND WE'LL GET BACK TO YOU AS SOON AS POSSIBLE."
+    },
+    "support": {
+      "title": "CONTACT OUR SUPPORT TEAM",
+      "subtitle": "IF YOU NEED PERSONALIZED ASSISTANCE, WE'RE HERE FOR YOU!",
+      "cards": [
+        {
+          "type": "email",
+          "icon": "/assets/contactassets/mail.png",
+          "title": "SUPPORT@RUNNERRUNNER.COM",
+          "desc": "Available 24/7 via the chat button at the bottom-right of the page. Need instant assistance? Chat with us anytime for quick help!"
+        },
+        {
+          "type": "phone",
+          "icon": "/assets/contactassets/phone.png",
+          "title": "+1 (555) 123-4567",
+          "desc": "Prefer to speak with someone? Call us during our support hours to get immediate help."
+        },
+        {
+          "type": "chat",
+          "icon": "/assets/contactassets/chat.png",
+          "title": "LIVE CHAT",
+          "desc": "Available 24/7 via the chat button at the bottom-right of the page. Need instant assistance? Chat with us anytime for quick help!"
+        }
+      ]
+    },
+    "bgSection": {
+      "title": "STAY CONNECTED",
+      "subtitle": "FOLLOW US FOR THE LATEST UPDATES",
+      "bgColor": "#080D25",
+      "overlayImage": "/assets/contactassets/conatctbgsection.png"
+    }
+  },
+  "powerplayPage": {
+    "hero": {
+      "title": "MASTER EVERY POWERUP",
+      "subtitle": "DISCOVER THE ABILITIES THAT WILL TAKE YOUR RUN TO THE NEXT LEVEL"
+    },
+    "sections": {
+      "survive": {
+        "title": "SURVIVE LONGER",
+        "subtitle": "WHEN THE PATH TURNS BRUTAL, THESE POWERS KEEP YOU MOVING."
+      },
+      "shield": {
+        "title": "SHIELD",
+        "subtitle": "ONE HIT. ZERO SLOWDOWN.",
+        "description": "ACTIVATE THE SHIELD TO ABSORB AN OBSTACLE WITHOUT BREAKING YOUR STREAK.",
+        "image": "/assets/powerplay assets/section1img.png"
+      },
+      "blaster": {
+        "title": "BLASTER",
+        "subtitle": "CLEAR THE WAY. KEEP THE SPEED.",
+        "description": "FIRE UP THE BLASTER AND DESTROY OBSTACLES IN YOUR WAY.",
+        "image": "/assets/powerplay assets/section2img.png"
+      },
+      "invisibility": {
+        "title": "INVISIBILITY",
+        "subtitle": "MAKE OBSTACLES DISAPPEAR.",
+        "description": "FOR A LIMITED TIME, OBSTACLES VANISH FROM YOUR PATH.",
+        "image": "/assets/powerplay assets/section3img.png"
+      },
+      "rewards": {
+        "title": "EARN REWARDS",
+        "subtitle": "THE FURTHER YOU RUN, THE MORE YOU EARN.",
+        "description": "COLLECT COINS AND UNLOCK EXCLUSIVE ITEMS.",
+        "image": "/assets/powerplay assets/section4img.png"
+      },
+      "magnet": {
+        "title": "MAGNET",
+        "subtitle": "PULL COINS FROM ANYWHERE.",
+        "description": "ACTIVATE THE MAGNET TO ATTRACT ALL COINS IN YOUR VICINITY.",
+        "image": "/assets/powerplay assets/magnetimg.png"
+      },
+      "score": {
+        "title": "2X & 4X",
+        "subtitle": "DOUBLE & QUADRUPLE YOUR SCORE.",
+        "description": "COLLECT THE 2X OR 4X POWER-UP AND WATCH YOUR SCORE MULTIPLY AS YOU RUN THROUGH THE TRACK. A QUICK WAY TO BOOST YOUR POINTS.",
+        "image": "/assets/powerplay assets/section5right.png"
+      },
+      "megaCoin": {
+        "title": "MEGA COIN",
+        "subtitle": "BIGGER PICKUPS. BIGGER REWARDS.",
+        "description": "GRAB MEGA COINS FOR AN INSTANT SCORE BOOST. ONE PICKUP, MASSIVE VALUE - PERFECT FOR CLIMBING THE LEADERBOARD FASTER.",
+        "image": "/assets/powerplay assets/section6img.png"
+      },
+      "bonusZone": {
+        "title": "BONUS ZONE",
+        "subtitle": "ENTER THE TREASURE ROOM.",
+        "description": "A SECRET AREA FILLED WITH COINS AND NO OBSTACLES.",
+        "image": "/assets/powerplay assets/bonuszone.png"
+      },
+      "jumper": {
+        "title": "JUMPER",
+        "subtitle": "LAUNCH INTO ADVANTAGE.",
+        "description": "HIT A JUMPER TO BOUNCE HIGH ABOVE THE TRACK AND ESCAPE TIGHT OBSTACLES. GAIN A BETTER VIEW, MORE BREATHING ROOM, AND A CHANCE TO GRAB REWARDS FROM ABOVE.",
+        "image": "/assets/powerplay assets/section7img.png"
+      },
+      "bonusRoad": {
+        "title": "BONUS ROAD",
+        "subtitle": "ENTER THE BONUS ROAD.",
+        "description": "FIND THE BONUS ROAD AND SHIFT INTO A HIGH-REWARD ROUTE FILLED WITH EXTRA COINS AND BIG SCORING OPPORTUNITIES.",
+        "image": "/assets/powerplay assets/section8img.png"
+      },
+      "choice": {
+        "title": "WHICH POWERUP WILL YOU CHOOSE?",
+        "subtitle": "THE RIGHT POWER AT THE RIGHT MOMENT CAN CHANGE EVERYTHING.",
+        "footer": "WHAT'S YOUR WINNING STRATEGY?"
+      }
+    }
   }
 }
