@@ -56,7 +56,8 @@ const HeroSection2 = ({ content }) => {
                 const xPercent = (clientX / window.innerWidth - 0.5);
                 const yPercent = (clientY / window.innerHeight - 0.5);
 
-                gsap.to('.hero-assets .asset', {
+                // Animate other assets normally
+                gsap.to('.hero-assets .asset:not(.asset-character)', {
                     x: xPercent * 40,
                     y: yPercent * 40,
                     rotateY: xPercent * 50,
@@ -67,6 +68,17 @@ const HeroSection2 = ({ content }) => {
                         amount: 0.1,
                         from: 'center'
                     }
+                });
+
+                // Specifically handle the centered character to preserve its translateX(-50%)
+                gsap.to('.hero-assets .asset-character', {
+                    x: xPercent * 20, // Subtler movement for the main character
+                    y: yPercent * 20,
+                    xPercent: -50, // Keep centered
+                    rotateY: xPercent * 30,
+                    rotateX: -yPercent * 30,
+                    duration: 1.5,
+                    ease: 'power3.out'
                 });
             };
 

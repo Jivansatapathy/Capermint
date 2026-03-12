@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import ScrollFloat from './ScrollFloat';
 
 const PowerupsSection = ({ content }) => {
     const sectionRef = useRef(null);
@@ -73,7 +74,16 @@ const PowerupsSection = ({ content }) => {
         <section className="powerups-section" ref={sectionRef}>
             <div className="powerups-content-wrapper">
                 <div className="powerups-header">
-                    <h2 className="powerups-title">{title}</h2>
+                    <ScrollFloat
+                        animationDuration={1}
+                        ease='back.inOut(2)'
+                        scrollStart='center bottom+=50%'
+                        scrollEnd='bottom bottom-=40%'
+                        stagger={0.03}
+                        containerClassName="powerups-title"
+                    >
+                        {title}
+                    </ScrollFloat>
                     <p className="powerups-subtitle">{subtitle}</p>
                 </div>
 

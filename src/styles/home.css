@@ -1056,7 +1056,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(42, 20, 141, 0.63);
+  background-color: #080D25;
   /* #2A148D at 63% opacity */
   padding: 100px var(--px);
   overflow: hidden;

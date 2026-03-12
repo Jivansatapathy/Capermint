@@ -47,14 +47,14 @@
       "gradientVariant": "2"
     },
     {
-      "title": "RUN THROUGH THE CITY",
-      "desc": "DASH THROUGH FAST-CHANGING STREETS FILLED WITH OBSTACALS TWISTS AND SURPRISES EVERY RUN IS DIFFERENT AND EVERY SECOND COUNTS.",
-      "image": "/assets/Right side mobile.png"
+      "title": "POWER UP YOUR RUN",
+      "desc": "GRAB BOOSTS SHIELDS AND BONUSES MID-RUNUSE THEM WISELY TO GO FURTHER AND SCORE HIGHER.",
+      "image": "/assets/Right Side 03.png"
     },
     {
-      "title": "DODGE EVERYTHING IN YOUR WAY",
-      "desc": "JUMP SLIDE AND REACT FAST TO SURVIVE ONE WRONG MOVE AND THE RUN IS OVER.",
-      "image": "/assets/Left Side Mobile.png",
+      "title": "BEAT YOUR BEST",
+      "desc": "CHALLENGE YOURSELF TO RUN FARTHER EVERY TIME CLIMB THE LEADERBOARD AND PROVE YOU'RE THE FASTEST.",
+      "image": "/assets/leftimg.png",
       "reversed": true,
       "gradientVariant": "2"
     }

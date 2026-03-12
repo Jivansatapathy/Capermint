@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SplitText from './SplitText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,18 +19,12 @@ const CommunitySection = ({ title, desc, image, reversed, gradientVariant, numbe
                 }
             });
 
-            tl.from('.community-title', {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out'
+            tl.from('.community-divider', {
+                scaleX: 0,
+                transformOrigin: 'left',
+                duration: 0.8,
+                ease: 'power2.inOut'
             })
-                .from('.community-divider', {
-                    scaleX: 0,
-                    transformOrigin: 'left',
-                    duration: 0.8,
-                    ease: 'power2.inOut'
-                }, '-=0.6')
                 .from('.community-desc', {
                     y: 30,
                     opacity: 0,
@@ -62,7 +57,19 @@ const CommunitySection = ({ title, desc, image, reversed, gradientVariant, numbe
             <div className="community-content">
                 <div className="community-container">
                     <div className="community-text">
-                        <h2 className="community-title">{title}</h2>
+                        <SplitText
+                            text={title}
+                            className="community-title"
+                            delay={50}
+                            duration={1.25}
+                            ease="power3.out"
+                            splitType="chars"
+                            from={{ opacity: 0, y: 40 }}
+                            to={{ opacity: 1, y: 0 }}
+                            threshold={0.05}
+                            rootMargin="-20px"
+                            tag="h2"
+                        />
                         <div className="community-divider"></div>
                         <p className="community-desc">{desc}</p>
                     </div>
