@@ -1,0 +1,116 @@
+/* ─── HOME TESTIMONIALS SECTION ──────────────────── */
+.home-testi-section {
+  background-color: #080D25;
+  padding: 100px var(--px);
+  color: #FFFFFF;
+}
+
+.home-testi-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.home-testi-title {
+  font-family: var(--font-title);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.home-testi-subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  color: #FFFFFF;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.home-testi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.home-testi-card {
+  background-color: #1E2548;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.home-testi-card:hover {
+  transform: translateY(-5px);
+}
+
+.home-testi-stars {
+  margin-bottom: 15px;
+  color: #FFD700;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.home-testi-stars .empty {
+  color: #4A5568;
+}
+
+.home-testi-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  flex-grow: 1;
+}
+
+.home-testi-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.home-testi-icon {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.home-testi-author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.home-testi-name {
+  font-family: var(--font-title);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  margin: 0 0 2px 0;
+}
+
+.home-testi-role {
+  font-size: 0.75rem;
+  color: #A0AEC0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1000px) {
+  .home-testi-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .home-testi-grid {
+    grid-template-columns: 1fr;
+  }
+}

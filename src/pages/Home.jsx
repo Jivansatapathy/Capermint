@@ -10,7 +10,7 @@ import RunnersSection from '../components/RunnersSection';
 import PowerupsSection from '../components/PowerupsSection';
 import ExploreSection from '../components/ExploreSection';
 import StatsSection from '../components/StatsSection';
-import TestimonialsSection from '../components/TestimonialsSection';
+import HomeTestimonials from '../components/HomeTestimonials';
 import FeaturedArticlesSection from '../components/FeaturedArticlesSection';
 import CTASection from '../components/CTASection';
 import FinalSection from '../components/FinalSection';
@@ -65,7 +65,7 @@ const Home = () => {
                 <GameModesSection />
                 <Section10 />
                 <FinalSection />
-                <TestimonialsSection />
+                <HomeTestimonials />
                 <CTASection />
                 <FeaturedArticlesSection content={content} />
             </main>

@@ -1,43 +1,47 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const FeaturedArticlesSection = ({ content }) => {
-    // Fallback safely if content or content.articles hasn't loaded
-    const articlesData = content?.articles || {
-        title: "FEATURED ARTICLES",
-        subtitle: "NEWS UPDATES AND STORIES FROM RUNNER RUNNER",
+    // Shared data source with the Blog page
+    const briefingsData = content?.briefings || {
+        title: "LATEST BRIEFINGS",
         items: []
     };
+
+    // Use a subset or all items for the featured section
+    const displayItems = (briefingsData.items || []).slice(0, 3);
 
     return (
         <section className="articles-section">
             <div className="articles-header">
-                <h2 className="articles-heading">{articlesData.title}</h2>
-                <p className="articles-subheading">{articlesData.subtitle}</p>
+                <h2 className="articles-heading">{briefingsData.title || "FEATURED ARTICLES"}</h2>
+                <p className="articles-subheading">NEWS UPDATES AND STORIES FROM RUNNER RUNNER</p>
             </div>
 
             <div className="articles-container">
-                {articlesData.items.map((article, idx) => (
-                    <div className="article-card" key={idx}>
+                {displayItems.length === 0 && <p style={{ color: 'rgba(255,255,255,0.5)', textAlign: 'center', width: '100%' }}>Stay tuned for the latest updates!</p>}
+                {displayItems.map((article, idx) => (
+                    <div className="article-card" key={article.id || idx}>
                         <div className="article-image-wrapper">
                             <img src={article.image} alt={article.title} className="article-image" />
                         </div>
                         <div className="article-content">
                             <h3 className="article-title">{article.title}</h3>
                             <p className="article-desc">{article.desc}</p>
-                            <p className="article-date">{article.date}</p>
-                            <a href={article.link || '#'} className="article-link">
+                            {article.date && <p className="article-date">{article.date}</p>}
+                            <Link to={`/blog/${article.id}`} className="article-link">
                                 READ MORE <span className="arrow">→</span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 ))}
             </div>
 
-            {articlesData.items.length > 0 && (
-                <div className="articles-footer">
+            <div className="articles-footer">
+                <Link to="/blog">
                     <button className="view-all-btn">VIEW ALL ARTICLES</button>
-                </div>
-            )}
+                </Link>
+            </div>
         </section>
     );
 };

@@ -51,6 +51,7 @@ const Footer = () => {
                         <ul>
                             <li><a href="#">DOWNLOAD</a></li>
                             <li><a href="#">FEATURES</a></li>
+                            <li><a href="/maps">MAPS</a></li>
                             <li><a href="#">UPDATES</a></li>
                             <li><a href="#">LEADERBOARDS</a></li>
                         </ul>

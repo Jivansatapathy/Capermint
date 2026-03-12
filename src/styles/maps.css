@@ -1,0 +1,165 @@
+/* ==========================================================================
+   MAPS PAGE STYLES
+========================================================================== */
+
+.maps-page {
+    background-color: #080D25;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.maps-hero {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    background:
+        radial-gradient(circle at center, #080D25 1%, rgba(4, 27, 56, 0.17) 16%, rgba(4, 27, 56, 0.15) 66%, rgba(4, 27, 56, 0.13) 80%, rgba(4, 27, 56, 0.8) 98%),
+        linear-gradient(180deg, rgba(8, 13, 37, 0) 36%, #080D25 89%),
+        url('/assets/maps/bgimg.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 120px;
+    z-index: 1;
+}
+
+.maps-hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    width: 100%;
+    text-align: center;
+}
+
+.maps-hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 12rem);
+    /* Significantly larger as per reference */
+    line-height: 0.8;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #94E9FF;
+    /* Light blue from reference image */
+    letter-spacing: -2px;
+}
+
+.maps-hero-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 3.5rem);
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+
+/* Section 2: Pure background image section */
+.maps-transition-section {
+    width: 100%;
+    height: 111vh;
+    background: url('/assets/maps/section1.png') no-repeat center center;
+    background-size: cover;
+}
+
+/* Section 3: Call-to-action section */
+.maps-cta-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 111vh;
+    background:
+        radial-gradient(circle at center, #080D25 1%, rgba(4, 27, 56, 0.17) 16%, rgba(4, 27, 56, 0.15) 66%, rgba(4, 27, 56, 0.13) 80%, rgba(4, 27, 56, 0.8) 98%),
+        linear-gradient(180deg, rgba(8, 13, 37, 0) 36%, #080D25 89%),
+        url('/assets/maps/section3bgimg.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.maps-cta-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.cta-mid-img {
+    max-width: 35%;
+    /* Adjusted for centered look */
+    height: auto;
+    z-index: 5;
+    transform: translateY(-80px);
+}
+
+.cta-text-content {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    z-index: 10;
+}
+
+.cta-main-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    color: #3CFFFF;
+    /* Light blue from image */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-subtitle-1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.9rem, 1.3vw, 1.4rem);
+    color: #FFFFFF;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.cta-subtitle-2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(0.7rem, 0.9vw, 1rem);
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+
+    .maps-hero,
+    .maps-transition-section,
+    .maps-cta-section {
+        min-height: 80vh;
+        height: 80vh;
+    }
+
+    .cta-mid-img {
+        max-width: 90%;
+    }
+
+    .cta-text-content {
+        bottom: 40px;
+    }
+}

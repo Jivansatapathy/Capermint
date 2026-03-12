@@ -11,6 +11,7 @@ import Testimonials from './pages/Testimonials';
 import Faq from './pages/Faq';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
+import Maps from './pages/Maps';
 
 const defaultNav = ['HOME', 'CHARACTERS', 'POWERUPS', 'BLOG', 'SUPPORT'];
 
@@ -61,6 +62,12 @@ function App() {
                     <>
                         <Navbar nav={content.nav} navbar={content.navbar} />
                         <Faq />
+                    </>
+                } />
+                <Route path="/maps" element={
+                    <>
+                        <Navbar nav={content.nav} navbar={content.navbar} />
+                        <Maps />
                     </>
                 } />
                 <Route path="/blog" element={

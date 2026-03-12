@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ nav, navbar }) => {
     const nb = navbar || {
@@ -27,9 +28,9 @@ const Navbar = ({ nav, navbar }) => {
         <nav className={`navbar ${!isVisible ? 'navbar-hidden' : ''}`}>
             <div className="nav-container">
                 {/* Logo */}
-                <div className="logo">
+                <Link to="/" className="logo">
                     <img src={nb.logo} alt="Runner Runner Logo" className="main-logo" />
-                </div>
+                </Link>
 
                 {/* Nav links – centred */}
                 <div className="nav-links">
