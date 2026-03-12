@@ -1,0 +1,199 @@
+.blog-detail-page {
+    background-color: #080D25;
+    min-height: 100vh;
+    color: #e6edf3;
+}
+
+.blog-detail-hero {
+    height: 70vh;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 5% 80px;
+}
+
+.blog-detail-hero-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #80E8FF;
+    text-decoration: none;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    transition: transform 0.2s;
+}
+
+.back-link:hover {
+    transform: translateX(-5px);
+}
+
+.blog-detail-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 1;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.blog-detail-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 1px;
+}
+
+.blog-detail-meta .separator {
+    color: #F9F506;
+}
+
+/* CONTENT SECTION */
+.blog-detail-content {
+    padding: 80px 5%;
+}
+
+.content-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+}
+
+.blog-content-image {
+    margin: 50px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.blog-content-image img {
+    width: 100%;
+    display: block;
+}
+
+.blog-content-link {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.blog-btn-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #F9F506;
+    color: #080D25;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.blog-btn-link:hover {
+    transform: scale(1.05);
+    background-color: #FFFFFF;
+}
+
+/* CTA SECTION */
+.more-briefings-cta {
+    padding: 100px 5%;
+    display: flex;
+    justify-content: center;
+}
+
+.cta-box {
+    background: linear-gradient(135deg, #121832 0%, #080D25 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    padding: 60px 40px;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.cta-box h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: #F9F506;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.cta-box p {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #FFFFFF;
+    margin-bottom: 40px;
+    opacity: 0.8;
+}
+
+.cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-actions img {
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cta-actions img:hover {
+    transform: scale(1.05);
+}
+
+.loading, .no-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: #80E8FF;
+}
+
+.no-data a {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 1px solid #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .blog-detail-hero {
+        height: 60vh;
+        padding-bottom: 40px;
+    }
+    
+    .blog-p {
+        font-size: 1.05rem;
+    }
+}

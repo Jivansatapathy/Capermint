@@ -10,12 +10,25 @@ const PowerplayChoiceSection = ({ content }) => {
     return (
         <section className="powerplay-choice-section">
             <div className="choice-container">
-                <h2 className="choice-title">{data.title}</h2>
-                <p className="choice-subtitle">{data.subtitle}</p>
                 <div className="choice-visual">
-                    {/* Placeholder for images/icons if any */}
+                    {/* Floating Powerup Icons */}
+                    <img src="/assets/powerplay assets/section9farleftimg.png" alt="Potion" className="choice-icon icon-potion" />
+                    <img src="/assets/powerplay assets/section9img2x.png" alt="2x" className="choice-icon icon-2x" />
+                    <img src="/assets/powerplay assets/section9imgshield.png" alt="Shield" className="choice-icon icon-shield" />
+                    
+                    {/* Central Hero */}
+                    <img src="/assets/powerplay assets/section9imgboy.png" alt="Runner" className="choice-hero-img" />
+                    
+                    <img src="/assets/powerplay assets/section9imgmagnet.png" alt="Magnet" className="choice-icon icon-magnet" />
+                    <img src="/assets/powerplay assets/section9img4x.png" alt="4x" className="choice-icon icon-4x" />
+                    <img src="/assets/powerplay assets/section9imgblaster.png" alt="Blaster" className="choice-icon icon-blaster" />
                 </div>
-                <p className="choice-footer-text">{data.footer}</p>
+
+                <div className="choice-content">
+                    <h2 className="choice-title">{data.title}</h2>
+                    <p className="choice-subtitle">{data.subtitle}</p>
+                    <p className="choice-footer">{data.footer}</p>
+                </div>
             </div>
         </section>
     );

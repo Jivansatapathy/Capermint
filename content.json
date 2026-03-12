@@ -436,5 +436,35 @@
         "footer": "WHAT'S YOUR WINNING STRATEGY?"
       }
     }
+  },
+  "blogSlides": [
+    {
+      "title": "MASTERS THE",
+      "highlight": "STREETS",
+      "subtitle": "THOUSANDS OF PLAYERS ARE DASHING THROUGH THE CITY. HERE IS WHY THEY CANNOT STOP RUNNING.",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    },
+    {
+      "title": "JOIN THE",
+      "highlight": "CHASE",
+      "subtitle": "EXPERIENCE THE ADRENALINE OF THE URBAN JUNGLE WITH OUR GLOBAL COMMUNITY.",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    },
+    {
+      "title": "GEAR",
+      "highlight": "UP",
+      "subtitle": "COLLECT EXCLUSIVE REWARDS AND POWER-UPS TO DOMINATE THE LEADERBOARDS.",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    },
+    {
+      "title": "FEEL THE",
+      "highlight": "SPEED",
+      "subtitle": "THE ULTIMATE RUNNING CHALLENGE AWAITS. ARE YOU READY TO RUN?",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    }
+  ],
+  "briefings": {
+    "title": "LATEST BRIEFINGS",
+    "items": []
   }
 }

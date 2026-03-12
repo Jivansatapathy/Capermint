@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #0f1b35;
   --yellow: #f5e642;
   --white: #ffffff;
@@ -313,7 +313,7 @@ body {
 }
 
 .footer-contact-email a {
-  color: #00E5FF;
+  color: #FFFFFF;
   text-decoration: none;
   font-size: 0.75rem;
   font-weight: 600;
