@@ -103,7 +103,7 @@ const HeroSection2 = ({ content }) => {
         ));
     };
 
-    const titleText = "THE ULTIMATE COMPETITIVE<br />RUNNER EXPERIENCE";
+    const titleText = content?.hero?.title || "THE ULTIMATE COMPETITIVE<br />RUNNER EXPERIENCE";
 
     return (
         <section id="home" ref={sectionRef} className="hero" style={{
@@ -115,7 +115,7 @@ const HeroSection2 = ({ content }) => {
                 ref={bgRef}
                 className="hero-bg"
                 style={{
-                    backgroundImage: "url('/assets/BG photo.png')",
+                    backgroundImage: `url('${content?.hero?.bg || '/assets/BG photo.png'}')`,
                     zIndex: 0
                 }}
             />
@@ -144,13 +144,13 @@ const HeroSection2 = ({ content }) => {
 
             {/* Floating assets */}
             <div className="hero-assets" style={{ zIndex: 8 }}>
-                <img src="/assets/coin.png" className="asset asset-coin" alt="Coin" style={{ width: '149px', height: '163px' }} />
-                <img src="/assets/2x 1.png" className="asset asset-2x" alt="2X" style={{ width: '233px', height: '233px' }} />
-                <img src="/assets/magnet 1.png" className="asset asset-magnet" alt="Magnet" style={{ width: '185px', height: '185px' }} />
-                <img src="/assets/Chest_1 2.png" className="asset asset-chest" alt="Chest" style={{ width: '225px', height: '187px', borderRadius: '16px' }} />
-                <img src="/assets/Shield_Animation 1.png" className="asset asset-shield" alt="Shield" style={{ width: '144px', height: '189px' }} />
-                <img src="/assets/New-Icon 1.png" className="asset asset-character" alt="Character" style={{ width: '180px', height: '180px', borderRadius: '20px' }} />
-                <img src="/assets/Blaster_animation 1.png" className="asset asset-blaster" alt="Blaster" style={{ width: '228px', height: '197px' }} />
+                <img src={content?.hero?.assets?.coin || "/assets/coin.png"} className="asset asset-coin" alt="Coin" style={{ width: '149px', height: '163px' }} />
+                <img src={content?.hero?.assets?.twoX || "/assets/2x 1.png"} className="asset asset-2x" alt="2X" style={{ width: '233px', height: '233px' }} />
+                <img src={content?.hero?.assets?.magnet || "/assets/magnet 1.png"} className="asset asset-magnet" alt="Magnet" style={{ width: '185px', height: '185px' }} />
+                <img src={content?.hero?.assets?.chest || "/assets/Chest_1 2.png"} className="asset asset-chest" alt="Chest" style={{ width: '225px', height: '187px', borderRadius: '16px' }} />
+                <img src={content?.hero?.assets?.shield || "/assets/Shield_Animation 1.png"} className="asset asset-shield" alt="Shield" style={{ width: '144px', height: '189px' }} />
+                <img src={content?.hero?.assets?.character || "/assets/New-Icon 1.png"} className="asset asset-character" alt="Character" style={{ width: '180px', height: '180px', borderRadius: '20px' }} />
+                <img src={content?.hero?.assets?.blaster || "/assets/Blaster_animation 1.png"} className="asset asset-blaster" alt="Blaster" style={{ width: '228px', height: '197px' }} />
             </div>
 
             {/* Scroll indicator */}

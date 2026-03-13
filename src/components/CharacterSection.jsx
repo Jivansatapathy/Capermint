@@ -4,10 +4,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CharacterSection = () => {
+const CharacterSection = ({ content }) => {
     const sectionRef = useRef(null);
     const modelRef = useRef(null);
     const cardRef = useRef(null);
+
+    const data = content?.characterSection || {
+        heading: "HEY RUNNER!",
+        subheading: "I'M SPEEDSTER AUSTIN.",
+        text: "THE CITY'S ALWAYS BEEN MY TURF, BUT NOW IT'S YOURS TO CONQUER.\nTHE STREETS ARE FULL OF OBSTACLES, POWER-UPS,\nAND ENDLESS CHALLENGES. ARE YOU FAST ENOUGH TO BEAT THEM ALL?",
+        modelImage: "/assets/3d model.png",
+        signatureImage: "/assets/Signature.png",
+        backCardImage: "/assets/backcard.png",
+        topCardImage: "/assets/topcard.png",
+        coinTopImage: "/assets/Coin_top.png",
+        coinBottomImage: "/assets/Coin_bottom.png"
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -102,39 +114,42 @@ const CharacterSection = () => {
             <div className="char-content-wrapper" style={{ perspective: '1000px' }}>
                 {/* Character on the left */}
                 <div className="char-character" ref={modelRef} style={{ transformStyle: 'preserve-3d' }}>
-                    <img src="/assets/3d model.png" alt="Character" className="char-model-img" />
+                    <img src={data.modelImage} alt="Character" className="char-model-img" />
                 </div>
 
                 {/* Card stack in the center/right */}
                 <div className="char-card-stack" ref={cardRef} style={{ transformStyle: 'preserve-3d' }}>
                     <div className="card-back">
-                        <img src="/assets/backcard.png" alt="Back Card" />
+                        <img src={data.backCardImage} alt="Back Card" />
                     </div>
 
                     <div className="card-top-container">
-                        <img src="/assets/topcard.png" alt="Top Card" className="card-top-bg" />
+                        <img src={data.topCardImage} alt="Top Card" className="card-top-bg" />
 
                         <div className="card-content">
-                            <h2 className="card-heading">HEY RUNNER!</h2>
-                            <h3 className="card-subheading">I'M SPEEDSTER AUSTIN.</h3>
+                            <h2 className="card-heading">{data.heading}</h2>
+                            <h3 className="card-subheading">{data.subheading}</h3>
                             <p className="card-text">
-                                THE CITY'S ALWAYS BEEN MY TURF, BUT NOW IT'S YOURS TO CONQUER.<br />
-                                THE STREETS ARE FULL OF OBSTACLES, POWER-UPS,<br />
-                                AND ENDLESS CHALLENGES. ARE YOU FAST ENOUGH TO BEAT THEM ALL?
+                                {data.text.split('\n').map((line, i) => (
+                                    <React.Fragment key={i}>
+                                        {line}
+                                        {i < data.text.split('\n').length - 1 && <br />}
+                                    </React.Fragment>
+                                ))}
                             </p>
                         </div>
                         <div className="card-signature">
-                            <img src="/assets/Signature.png" alt="Austin Signature" />
+                            <img src={data.signatureImage} alt="Signature" />
                         </div>
 
                         {/* Top Coin on the card */}
                         <div className="card-coin coin-top">
-                            <img src="/assets/Coin_top.png" alt="Coin Top" />
+                            <img src={data.coinTopImage} alt="Coin Top" />
                         </div>
 
                         {/* Bottom Coin below the card (moved inside top container for Z-layering) */}
                         <div className="card-coin coin-bottom">
-                            <img src="/assets/Coin_bottom.png" alt="Coin Bottom" />
+                            <img src={data.coinBottomImage} alt="Coin Bottom" />
                         </div>
                     </div>
                 </div>

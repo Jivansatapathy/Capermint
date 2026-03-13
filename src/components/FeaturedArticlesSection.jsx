@@ -15,7 +15,7 @@ const FeaturedArticlesSection = ({ content }) => {
         <section className="articles-section">
             <div className="articles-header">
                 <h2 className="articles-heading">{briefingsData.title || "FEATURED ARTICLES"}</h2>
-                <p className="articles-subheading">NEWS UPDATES AND STORIES FROM RUNNER RUNNER</p>
+                <p className="articles-subheading">{content?.articles?.subheading || "NEWS UPDATES AND STORIES FROM RUNNER RUNNER"}</p>
             </div>
 
             <div className="articles-container">
@@ -39,7 +39,7 @@ const FeaturedArticlesSection = ({ content }) => {
 
             <div className="articles-footer">
                 <Link to="/blog">
-                    <button className="view-all-btn">VIEW ALL ARTICLES</button>
+                    <button className="view-all-btn">{content?.articles?.viewAllText || "VIEW ALL ARTICLES"}</button>
                 </Link>
             </div>
         </section>

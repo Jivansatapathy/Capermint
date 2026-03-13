@@ -110,11 +110,15 @@ const RunnersSection = ({ content }) => {
                     <div key={index} className="runner-card-wrapper">
                         <div className="runner-card">
                             <div className="runner-card-bg">
-                                <img src="/assets/cardmask.png" alt="Card Background" />
+                                <img src={runner.cardBg || "/assets/cardmask.png"} alt="Card Background" />
                             </div>
                             <div
                                 className="runner-model"
-                                style={runner.modelScale ? { width: `${runner.modelScale}%` } : {}}
+                                style={{
+                                    width: runner.modelScale ? `${runner.modelScale}%` : undefined,
+                                    bottom: runner.modelBottom ? `${runner.modelBottom}px` : undefined,
+                                    top: runner.modelBottom ? 'auto' : undefined
+                                }}
                             >
                                 <img src={runner.modelImage} alt={runner.name} />
                             </div>

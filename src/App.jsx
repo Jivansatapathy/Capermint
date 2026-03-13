@@ -13,10 +13,12 @@ import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
 import Maps from './pages/Maps';
 
+import contentData from '../content.json';
+
 const defaultNav = ['HOME', 'CHARACTERS', 'POWERUPS', 'BLOG', 'SUPPORT'];
 
 function App() {
-    const [content, setContent] = useState({ nav: defaultNav });
+    const [content, setContent] = useState(contentData || { nav: defaultNav });
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/content')

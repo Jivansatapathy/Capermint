@@ -25,7 +25,7 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    padding-bottom: 120px;
+    padding-bottom: 60px;
     z-index: 1;
 }
 
@@ -39,19 +39,18 @@
 
 .maps-hero-title {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(4rem, 10vw, 12rem);
-    /* Significantly larger as per reference */
-    line-height: 0.8;
-    margin-bottom: 10px;
+    font-size: clamp(4rem, 12vw, 15rem);
+    line-height: 0.85;
+    margin-bottom: 5px;
     text-transform: uppercase;
     color: #94E9FF;
-    /* Light blue from reference image */
     letter-spacing: -2px;
 }
 
 .maps-hero-subtitle {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(1.5rem, 3vw, 3.5rem);
+    font-size: 32px;
+    margin-top: 5px;
     font-weight: 400;
     text-transform: uppercase;
     margin-bottom: 0;
@@ -59,15 +58,293 @@
     color: #FFFFFF;
 }
 
-/* Section 2: Pure background image section */
-.maps-transition-section {
-    width: 100%;
-    height: 111vh;
-    background: url('/assets/maps/section1.png') no-repeat center center;
-    background-size: cover;
+.maps-scroll-down {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-/* Section 3: Call-to-action section */
+.maps-scroll-down span {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+.scroll-arrow {
+    width: 30px;
+    height: 15px;
+    color: #FFFFFF;
+    opacity: 0.8;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(10px);
+    }
+
+    60% {
+        transform: translateY(5px);
+    }
+}
+
+/* Section 2: GSAP Horizontal Scroll Track */
+.maps-horizontal-scroll {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #080D25;
+}
+
+.scroll-track {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    will-change: transform;
+    overflow: visible;
+    /* CRITICAL for bridging images */
+}
+
+.scroll-slide {
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform;
+    overflow: visible;
+}
+
+.scroll-slide img {
+    display: none;
+    /* Legacy overlays removed */
+}
+
+/* Section 3: Cloud Transition Section */
+.maps-cloud-section {
+    position: relative;
+    width: 100%;
+    min-height: 140vh;
+    background-color: #FEE3EA;
+    overflow: visible;
+    padding-bottom: 200px;
+    z-index: 50;
+}
+
+.maps-spacer-section {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    background-color: #FEE3EA;
+    z-index: 45;
+}
+
+/* Section 4: Second Horizontal Scroll section (City) */
+.maps-second-horizontal-scroll {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #080D25;
+}
+
+.second-scroll-track {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    will-change: transform;
+}
+
+.second-scroll-slide {
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boy-character {
+    position: absolute;
+    top: 45%; /* Moved up from 50% */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15%; /* Reduced significantly from 45% */
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.boy-character img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.cloud-group-front,
+.cloud-group-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    will-change: transform, opacity;
+}
+
+.cloud-group-front {
+    margin-top: -480px;
+    z-index: 70;
+    /* Restored from 55 */
+}
+
+.cloud-group-back {
+    margin-top: -100px;
+    z-index: 40;
+}
+
+.cloud-group-front .cloud-bg-img,
+.cloud-group-back .cloud-bg-img {
+    width: 130vw;
+    /* Restored from 110vw */
+    height: auto;
+    object-fit: cover;
+    display: block !important;
+}
+
+.mara-character {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    /* Highest: On top of everyone */
+    width: 75%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    will-change: transform, opacity;
+}
+
+.mara-character img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Section 5: Water Transition Section */
+.maps-water-section {
+    position: relative;
+    width: 100%;
+    min-height: 120vh;
+    background-color: #0077BE; /* Light ocean blue */
+    overflow: hidden;
+    z-index: 35;
+}
+
+.water-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    filter: contrast(120%) brightness(90%);
+    z-index: 2;
+}
+
+.submarine-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%; /* Slightly larger for better visibility */
+    z-index: 10; /* Above water-overlay */
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.submarine-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    will-change: transform, opacity;
+}
+
+/* Section 6: Static Underwater Transition */
+.maps-underwater-static {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 30;
+}
+
+/* Section 7: Third Horizontal Scroll Section (Underwater) */
+.maps-third-horizontal-scroll {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #000B1A;
+    z-index: 40; /* Higher than water section */
+}
+
+.third-scroll-track {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    will-change: transform;
+    margin: 0;
+    padding: 0;
+}
+
+.third-scroll-slide {
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+/* Section 8: Call-to-action section */
 .maps-cta-section {
     position: relative;
     width: 100%;

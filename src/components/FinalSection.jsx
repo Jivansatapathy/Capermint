@@ -4,11 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FinalSection = () => {
+const FinalSection = ({ content }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const sectionRef = useRef(null);
 
-    const slides = [
+    const slides = content?.finalSection?.slides || [
         {
             id: 'slide1',
             bg: '/assets/sectionbg14.png',
@@ -16,6 +16,10 @@ const FinalSection = () => {
             title: 'THE RUN STARTS NOW!',
             titleColor: '#48FF3F',
             subtitle: 'EVERY RUN IS DIFFERENT EVERY SECOND COUNTS.',
+            storeButtons: {
+                googlePlay: "/assets/Google Store download button.png",
+                appStore: "/assets/App Store download button.png"
+            }
         },
         {
             id: 'slide2',
@@ -98,9 +102,9 @@ const FinalSection = () => {
 
                     {slide.type === 'characters' && (
                         <div className="final-character-layer">
-                            <img src={slide.leftChar} alt="NOVA" className="final-char-left" />
+                            <img src={slide.leftChar} alt="Character Left" className="final-char-left" />
                             <img src={slide.logo} alt="Runner Runner Logo" className="final-game-logo" />
-                            <img src={slide.rightChar} alt="Mara" className="final-char-right" />
+                            <img src={slide.rightChar} alt="Character Right" className="final-char-right" />
                         </div>
                     )}
 
@@ -111,10 +115,10 @@ const FinalSection = () => {
                         {slide.type === 'standard' ? (
                             <div className="final-store-buttons">
                                 <a href="#" target="_blank" rel="noopener noreferrer">
-                                    <img src="/assets/Google Store download button.png" alt="Google Play" />
+                                    <img src={slide.storeButtons?.googlePlay || "/assets/Google Store download button.png"} alt="Google Play" />
                                 </a>
                                 <a href="#" target="_blank" rel="noopener noreferrer">
-                                    <img src="/assets/App Store download button.png" alt="App Store" />
+                                    <img src={slide.storeButtons?.appStore || "/assets/App Store download button.png"} alt="App Store" />
                                 </a>
                             </div>
                         ) : (

@@ -12,6 +12,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = 3000;
 const CONTENT_PATH = path.join(__dirname, 'content.json');
+const RESPONSES_PATH = path.join(__dirname, 'responses.json');
 
 // Ensure upload directories exist
 const ARTICLES_DIR = path.join(__dirname, 'public', 'assets', 'articles');
@@ -45,11 +46,57 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(express.static('dist'));
 
+// Ensure responses.json exists
+if (!fs.existsSync(RESPONSES_PATH)) {
+    fs.writeFileSync(RESPONSES_PATH, JSON.stringify([], null, 2));
+}
+
 // ── GET content ─────────────────────────────────────────────
 app.get('/api/content', (req, res) => {
     fs.readFile(CONTENT_PATH, 'utf8', (err, data) => {
         if (err) return res.status(500).send('Error reading content');
         res.json(JSON.parse(data));
+    });
+});
+
+// ── GET responses ───────────────────────────────────────────
+app.get('/api/responses', (req, res) => {
+    fs.readFile(RESPONSES_PATH, 'utf8', (err, data) => {
+        if (err) return res.status(500).send('Error reading responses');
+        res.json(JSON.parse(data));
+    });
+});
+
+// ── DELETE response ─────────────────────────────────────────
+app.delete('/api/responses/:id', (req, res) => {
+    fs.readFile(RESPONSES_PATH, 'utf8', (err, data) => {
+        if (err) return res.status(500).send('Error');
+        let list = JSON.parse(data);
+        list = list.filter(r => r.id !== req.params.id);
+        fs.writeFile(RESPONSES_PATH, JSON.stringify(list, null, 2), (err) => {
+            if (err) return res.status(500).send('Error');
+            res.send('Deleted');
+        });
+    });
+});
+
+// ── POST contact submission ────────────────────────────────
+app.post('/api/contact', (req, res) => {
+    const submission = { 
+        id: Date.now().toString(), 
+        date: new Date().toISOString(),
+        ...req.body 
+    };
+    fs.readFile(RESPONSES_PATH, 'utf8', (err, data) => {
+        let list = [];
+        if (!err) {
+            try { list = JSON.parse(data); } catch(e) {}
+        }
+        list.push(submission);
+        fs.writeFile(RESPONSES_PATH, JSON.stringify(list, null, 2), (err) => {
+            if (err) return res.status(500).send('Error saving submission');
+            res.send('Submission saved');
+        });
     });
 });
 

@@ -4,10 +4,13 @@ import axios from 'axios';
 import Footer from '../components/Footer';
 import '../styles/blogDetail.css';
 
+import contentData from '../../content.json';
+
 const BlogDetail = () => {
     const { id } = useParams();
-    const [blog, setBlog] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const initialBlog = (contentData.briefings?.items || []).find(b => b.id === id);
+    const [blog, setBlog] = useState(initialBlog);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         axios.get('http://localhost:3000/api/content')

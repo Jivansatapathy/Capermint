@@ -1,29 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
+import axios from 'axios';
 import '../styles/faq.css';
-
-const faqData = [
-    {
-        question: "HOW DO I DOWNLOAD RUNNER RUNNER?",
-        answer: "YOU CAN DOWNLOAD RUNNER RUNNER DIRECTLY FROM OUR WEBSITE OR FROM YOUR PLATFORM'S APP STORE. IT'S COMPLETELY FREE TO PLAY, WITH OPTIONAL COSMETIC UPGRADES AVAILABLE IN-GAME."
-    },
-    {
-        question: "WHAT PLATFORMS ARE SUPPORTED?",
-        answer: "RUNNER RUNNER IS CURRENTLY AVAILABLE ON ANDROID AND IOS DEVICES. WE ARE ALSO WORKING ON A PC VERSION TO BE RELEASED SOON."
-    },
-    {
-        question: "ARE THERE IN-APP PURCHASES?",
-        answer: "YES, RUNNER RUNNER OFFERS OPTIONAL IN-APP PURCHASES FOR COSMETIC ITEMS LIKE CHARACTER SKINS, POWER-UPS, AND BATTLE PASSES. THESE DO NOT PROVIDE COMPETITIVE ADVANTAGES."
-    },
-    {
-        question: "HOW DOES MULTIPLAYER WORK?",
-        answer: "MULTIPLAYER IN RUNNER RUNNER ALLOWS YOU TO COMPETE AGAINST FRIENDS OR RANDOM PLAYERS WORLDWIDE IN REAL-TIME RACES. WINNING RACES EARNS YOU RANKING POINTS AND EXCLUSIVE REWARDS."
-    },
-    {
-        question: "CAN I PLAY OFFLINE?",
-        answer: "WHILE THE CORE MULTIPLAYER EXPERIENCE REQUIRES AN INTERNET CONNECTION, WE OFFER AN OFFLINE PRACTICE MODE WHERE YOU CAN HONE YOUR SKILLS ON VARIOUS TRACKS WITHOUT COMPETING AGAINST OTHERS."
-    }
-];
 
 const FaqArrrow = ({ isOpen }) => (
     <svg 
@@ -33,6 +11,8 @@ const FaqArrrow = ({ isOpen }) => (
         <path d="M6 9L12 15L18 9" stroke="#4B55C8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
+
+import contentData from '../../content.json';
 
 const StarIcon = ({ fill = 'none', className = '' }) => (
     <svg 
@@ -46,21 +26,15 @@ const StarIcon = ({ fill = 'none', className = '' }) => (
     </svg>
 );
 
-const RatingsSummary = () => {
-    const ratings = [
-        { stars: 5, percentage: 78 },
-        { stars: 4, percentage: 15 },
-        { stars: 3, percentage: 4 },
-        { stars: 2, percentage: 2 },
-        { stars: 1, percentage: 1 }
-    ];
-
+const RatingsSummary = ({ ratings }) => {
+    if (!ratings) return null;
+    
     return (
         <section className="ratings-section">
             <div className="ratings-card">
                 <div className="ratings-main-col">
                     <div className="ratings-header">
-                        <span className="rating-number">4.8</span>
+                        <span className="rating-number">{ratings.score}</span>
                         <span className="rating-out-of">OUT OF 5</span>
                     </div>
                     <div className="rating-stars-row">
@@ -75,11 +49,11 @@ const RatingsSummary = () => {
                              </div>
                         </div>
                     </div>
-                    <p className="ratings-count">BASED ON 12,450+ REVIEWS</p>
+                    <p className="ratings-count">BASED ON {ratings.totalReviews} REVIEWS</p>
                 </div>
 
                 <div className="ratings-bars-col">
-                    {ratings.map((r, i) => (
+                    {ratings.breakdown?.map((r, i) => (
                         <div key={i} className="rating-bar-row">
                             <span className="star-label">{r.stars}</span>
                             <div className="bar-container">
@@ -96,38 +70,50 @@ const RatingsSummary = () => {
 
 const Faq = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [content, setContent] = useState(contentData);
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        const fetchContent = async () => {
+            try {
+                const res = await axios.get('http://localhost:3000/api/content');
+                setContent(res.data);
+            } catch (err) {
+                console.error("Error fetching FAQ content:", err);
+            }
+        };
+        fetchContent();
     }, []);
 
     const toggleFaq = (index) => {
         setActiveIndex(activeIndex === index ? -1 : index);
     };
 
+    if (!content) return null;
+
+    const data = content.faqPage || {};
+    const hero = data.hero || {};
+    const questions = data.questions || [];
+
     return (
         <div className="faq-page">
             <section className="faq-hero-section">
-                {/* Background Layer with Blur */}
                 <div className="faq-hero-bg-container">
                     <div className="faq-hero-pill"></div>
                 </div>
 
-                {/* Left Question Icon */}
                 <img 
                     src="/assets/contactassets/questioniconleft.png" 
                     alt="Question" 
                     className="faq-hero-icon faq-icon-left" 
                 />
 
-                {/* Center Content */}
                 <div className="faq-hero-content">
-                    <h1 className="faq-hero-title">Got Questions?</h1>
-                    <h2 className="faq-hero-subtitle">We have answers.</h2>
-                    <button className="faq-contact-btn">Contact Us</button>
+                    <h1 className="faq-hero-title">{hero.title}</h1>
+                    <h2 className="faq-hero-subtitle">{hero.subtitle}</h2>
+                    <button className="faq-contact-btn">{hero.buttonText}</button>
                 </div>
 
-                {/* Right Question Icon */}
                 <img 
                     src="/assets/contactassets/questioniconright.png" 
                     alt="Question" 
@@ -137,7 +123,7 @@ const Faq = () => {
 
             <section className="faq-list-section">
                 <div className="faq-container">
-                    {faqData.map((item, index) => (
+                    {questions.map((item, index) => (
                         <div 
                             key={index} 
                             className={`faq-card ${activeIndex === index ? 'active' : ''}`}
@@ -155,7 +141,7 @@ const Faq = () => {
                 </div>
             </section>
 
-            <RatingsSummary />
+            <RatingsSummary ratings={data.ratings} />
             <Footer />
         </div>
     );

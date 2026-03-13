@@ -3,7 +3,7 @@ import Footer from '../components/Footer';
 import FinalSection from '../components/FinalSection';
 import '../styles/contact.css';
 
-const API = 'http://localhost:3000/api/content';
+import contentData from '../../content.json';
 
 const defaultContent = {
     hero: {
@@ -31,59 +31,62 @@ const defaultContent = {
 };
 
 const Contact = () => {
-    const [cp, setCp] = useState(defaultContent);
+    const [cp, setCp] = useState(contentData.contactPage || defaultContent);
     const [faqActive, setFaqActive] = useState(0);
     const [activeTab, setActiveTab] = useState('GAMEPLAY');
+    const [formData, setFormData] = useState({ name: '', email: '', subject: 'GENERAL INQUIRY', message: '' });
+    const [status, setStatus] = useState('');
 
-    const tabs = ['GAMEPLAY', 'EVENTS', 'GAME MODES', 'REWARDS'];
+    useEffect(() => {
+        fetch('http://localhost:3000/api/content')
+            .then(res => res.json())
+            .then(data => { 
+                if (data.contactPage) {
+                    setCp(data.contactPage); 
+                    if (data.contactPage.faqSection?.tabs?.length > 0) {
+                        setActiveTab(data.contactPage.faqSection.tabs[0]);
+                    }
+                }
+            })
+            .catch(() => { }); // use defaults if backend offline
+    }, []);
 
-    const allFaqs = {
-        'GAMEPLAY': [
-            { q: "WHAT PLATFORMS ARE SUPPORTED?", a: "YOU CAN DOWNLOAD RUNNER RUNNER DIRECTLY FROM OUR WEBSITE OR FROM YOUR PLATFORM'S APP STORE. IT'S COMPLETELY FREE TO PLAY." },
-            { q: "IS THERE CROSS-PLAY ENABLED?", a: "YES, PC, MOBILE, AND CONSOLE PLATFORMS ARE ALL FULLY SUPPORTED AND ENABLE CROSS-PLAY." },
-            { q: "ARE THERE IN-APP PURCHASES?", a: "YES, OPTIONAL COSMETIC ITEMS ARE AVAILABLE FOR PURCHASE IN-GAME." },
-            { q: "HOW DOES MULTIPLAYER WORK?", a: "YOU CAN COMPETE WITH OTHERS IN REAL-TIME MATCHES AND TOURNAMENTS." },
-            { q: "CAN I PLAY OFFLINE?", a: "NO, RUNNER RUNNER REQUIRES AN INTERNET CONNECTION TO SYNC SCORES AND MATCH WITH PLAYERS." }
-        ],
-        'EVENTS': [
-            { q: "WHEN DO SPECIAL EVENTS START?", a: "NEW EVENTS TYPICALLY START EVERY FIRST FRIDAY OF THE MONTH." },
-            { q: "DO EVENT ITEMS RETURN?", a: "SOME EXCLUSIVE ITEMS MAY RETURN DURING ANNIVERSARY CELEBRATIONS." },
-            { q: "HOW DO I PARTICIPATE IN TOURNAMENTS?", a: "YOU CAN SIGN UP FOR TOURNAMENTS THROUGH THE EVENTS TAB." },
-            { q: "ARE THERE LEADERBOARD REWARDS?", a: "TOP 10% OF PLAYERS EACH SEASON EARN EXCLUSIVE TITLES AND BANNERS." },
-            { q: "CAN I PLAY EVENTS OFFLINE?", a: "NO, EVENTS REQUiRE AN ACTIVE INTERNET CONNECTION." }
-        ],
-        'GAME MODES': [
-            { q: "WHAT IS SURVIVAL MODE?", a: "SURVIVAL MODE CHALLENGES YOU TO LAST AS LONG AS POSSIBLE AGAINST ENDLESS WAVES." },
-            { q: "CAN I PLAY WITH FRIENDS IN CO-OP?", a: "YES, CO-OP MODE SUPPORTS UP TO 4 PLAYERS IN A SINGLE SESSION." },
-            { q: "ARE THERE RANKED MATCHES?", a: "COMPETITIVE RANKED PLAY IS AVAILABLE FOR PLAYERS LEVEL 10 AND ABOVE." },
-            { q: "IS THERE A PRACTICE MODE?", a: "YES, YOU CAN TEST YOUR ABILITIES IN THE TRAINING RANGE OFFLINE." },
-            { q: "HOW DO I UNLOCK NEW MODES?", a: "NEW GAME MODES ARE EXPERIENCED AS YOU PROGRESS AND LEVEL UP." }
-        ],
-        'REWARDS': [
-            { q: "HOW DO I EARN COINS?", a: "COINS ARE EARNED BY COMPLETING MATCHES, DAILY CHALLENGES, AND LEVELING UP." },
-            { q: "WHAT IS THE BATTLE PASS?", a: "THE BATTLE PASS OFFERS A TIERED REWARD SYSTEM WITH EXCLUSIVE COSMETICS." },
-            { q: "HOW DO I CLAIM DAILY REWARDS?", a: "LOG IN EVERY DAY AND CLAIM YOUR REWARD FROM THE MAIN DASHBOARD." },
-            { q: "CAN I GIFT REWARDS TO FRIENDS?", a: "NO, ITEM GIFTING IS CURRENTLY NOT SUPPORTED IN THE GAME." },
-            { q: "DO REWARDS EXPIRE?", a: "UNCLAIMED EVENT REWARDS MAY EXPIRE SEVERAL DAYS AFTER THE EVENT ENDS." }
-        ]
-    };
+    const hero = cp.hero || defaultContent.hero;
+    const form = cp.form || { labels: {}, placeholders: {}, subjectOptions: [] };
+    const infoBox = cp.infoBox || defaultContent.infoBox;
+    const support = cp.support || defaultContent.support;
+    const faqSection = cp.faqSection || { tabs: [], allFaqs: {} };
+    const socialSection = cp.socialSection || { icons: [] };
+    const bg = cp.bgSection || {};
+    const icons = cp.icons || {};
 
-    const faqs = allFaqs[activeTab] || allFaqs['GAMEPLAY'];
+    const tabs = faqSection.tabs || [];
+    const faqs = (faqSection.allFaqs && faqSection.allFaqs[activeTab]) || [];
 
     useEffect(() => {
         setFaqActive(0);
     }, [activeTab]);
 
-    useEffect(() => {
-        fetch(API)
-            .then(res => res.json())
-            .then(data => { if (data.contactPage) setCp(data.contactPage); })
-            .catch(() => { }); // use defaults if backend offline
-    }, []);
-
-    const hero = cp.hero || defaultContent.hero;
-    const infoBox = cp.infoBox || defaultContent.infoBox;
-    const support = cp.support || defaultContent.support;
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('SENDING...');
+        try {
+            const res = await fetch('http://localhost:3000/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            if (res.ok) {
+                setStatus('SENT!');
+                setFormData({ name: '', email: '', subject: 'GENERAL INQUIRY', message: '' });
+                setTimeout(() => setStatus(''), 3000);
+            } else {
+                throw new Error('Failed');
+            }
+        } catch (e) {
+            setStatus('ERROR');
+        }
+    };
 
     return (
         <main className="contact-page">
@@ -91,7 +94,7 @@ const Contact = () => {
             <section className="contact-hero">
                 <div className="contact-hero-content">
                     <h1 className="contact-hero-title"
-                        dangerouslySetInnerHTML={{ __html: hero.title.replace(/YOU!/, '<span>YOU!</span>') }}
+                        dangerouslySetInnerHTML={{ __html: (hero.title || "").replace(/YOU!/, '<span>YOU!</span>') }}
                     />
                     <p className="contact-hero-subtitle">{hero.subtitle}</p>
                     <button className="contact-hero-btn">{hero.buttonText}</button>
@@ -106,32 +109,54 @@ const Contact = () => {
                     </div>
 
                     <div className="contact-form-middle">
-                        <form className="contact-form-box">
+                        <form className="contact-form-box" onSubmit={handleSubmit}>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label>RUNNER NAME <span>(REQUIRED)</span></label>
-                                    <input type="text" placeholder="YOUR NAME" required />
+                                    <label>{form.labels?.name || "RUNNER NAME"} <span>{form.labels?.requiredText || "(REQUIRED)"}</span></label>
+                                    <input 
+                                        type="text" 
+                                        placeholder={form.placeholders?.name || "YOUR NAME"} 
+                                        required 
+                                        value={formData.name}
+                                        onChange={e => setFormData({...formData, name: e.target.value})}
+                                    />
                                 </div>
                                 <div className="form-group">
-                                    <label>EMAIL ADDRESS <span>(REQUIRED)</span></label>
-                                    <input type="email" placeholder="YOU@EXAMPLE.COM" required />
+                                    <label>{form.labels?.email || "EMAIL ADDRESS"} <span>{form.labels?.requiredText || "(REQUIRED)"}</span></label>
+                                    <input 
+                                        type="email" 
+                                        placeholder={form.placeholders?.email || "YOU@EXAMPLE.COM"} 
+                                        required 
+                                        value={formData.email}
+                                        onChange={e => setFormData({...formData, email: e.target.value})}
+                                    />
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label>SUBJECT <span>(DROPDOWN OR TEXT FIELD)</span></label>
+                                <label>{form.labels?.subject || "SUBJECT"} <span>{form.labels?.subjectInfo || "(DROPDOWN OR TEXT FIELD)"}</span></label>
                                 <div className="select-wrapper">
-                                    <select defaultValue="GENERAL INQUIRY">
-                                        <option value="GENERAL INQUIRY">GENERAL INQUIRY</option>
-                                        <option value="SUPPORT">SUPPORT</option>
-                                        <option value="FEEDBACK">FEEDBACK</option>
+                                    <select 
+                                        value={formData.subject}
+                                        onChange={e => setFormData({...formData, subject: e.target.value})}
+                                    >
+                                        {(form.subjectOptions || ["GENERAL INQUIRY", "SUPPORT", "FEEDBACK"]).map(opt => (
+                                            <option key={opt} value={opt}>{opt}</option>
+                                        ))}
                                     </select>
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label>MESSAGE <span>(REQUIRED)</span></label>
-                                <textarea placeholder="ENTER MESSAGE..." required></textarea>
+                                <label>{form.labels?.message || "MESSAGE"} <span>{form.labels?.requiredText || "(REQUIRED)"}</span></label>
+                                <textarea 
+                                    placeholder={form.placeholders?.message || "ENTER MESSAGE..."} 
+                                    required
+                                    value={formData.message}
+                                    onChange={e => setFormData({...formData, message: e.target.value})}
+                                ></textarea>
                             </div>
-                            <button type="submit" className="form-submit-btn">SEND MESSAGE</button>
+                            <button type="submit" className="form-submit-btn" disabled={status === 'SENDING...'}>
+                                {status || form.buttonText || "SEND MESSAGE"}
+                            </button>
                         </form>
                     </div>
 
@@ -169,15 +194,15 @@ const Contact = () => {
                 <>
                     <section
                     className="contact-bg-overlay-section"
-                    style={{ backgroundColor: cp.bgSection.bgColor }}
+                    style={{ backgroundColor: bg.bgColor }}
                 >
                     <div
                         className="contact-bg-overlay-img"
-                        style={{ backgroundImage: `url(${cp.bgSection.overlayImage})` }}
+                        style={{ backgroundImage: `url(${bg.overlayImage})` }}
                     ></div>
                     <div className="contact-bg-overlay-content-wrapper">
                         <div className="contact-bg-overlay-centered-img">
-                            <img src="/assets/contactassets/Mask group.png" alt="Mask Group" className="contact-mask-base-img" />
+                            <img src={bg.maskGroup || "/assets/contactassets/Mask group.png"} alt="Mask Group" className="contact-mask-base-img" />
                             <div className="contact-mask-content-layout">
                                 <div className="contact-mask-left">
                                     {tabs.map(tab => (
@@ -198,12 +223,12 @@ const Contact = () => {
 
                                 <div className="contact-mask-right">
                                     <div className="cmask-faq-header-wrapper">
-                                        <img src="/assets/contactassets/questioniconleft.png" alt="Question Left" className="cmask-q-icon-left" />
+                                        <img src={icons.questionLeft || "/assets/contactassets/questioniconleft.png"} alt="Question Left" className="cmask-q-icon-left" />
                                         <div className="cmask-faq-title-group">
-                                            <h3 className="cmask-faq-title">NEED HELP RIGHT NOW?</h3>
-                                            <p className="cmask-faq-subtitle">CHECK OUT THE FREQUENTLY ASKED QUESTIONS</p>
+                                            <h3 className="cmask-faq-title">{faqSection.title || "NEED HELP RIGHT NOW?"}</h3>
+                                            <p className="cmask-faq-subtitle">{faqSection.subtitle || "CHECK OUT THE FREQUENTLY ASKED QUESTIONS"}</p>
                                         </div>
-                                        <img src="/assets/contactassets/questioniconright.png" alt="Question Right" className="cmask-q-icon-right" />
+                                        <img src={icons.questionRight || "/assets/contactassets/questioniconright.png"} alt="Question Right" className="cmask-q-icon-right" />
                                     </div>
                                     <div className="cmask-faq-box">
                                         {faqs.map((faq, i) => (
@@ -222,29 +247,19 @@ const Contact = () => {
                                     </div>
                                 </div>
                             </div>
-                            <img src="/assets/contactassets/girlimage.png" alt="Girl Character" className="contact-mask-girl-img" />
+                            <img src={bg.girlImage || "/assets/contactassets/girlimage.png"} alt="Girl Character" className="contact-mask-girl-img" />
                         </div>
                         <div className="contact-social-section">
-                            <h2 className="contact-social-title">CONNECT WITH US ON SOCIAL MEDIA</h2>
+                            <h2 className="contact-social-title">{socialSection.title || "CONNECT WITH US ON SOCIAL MEDIA"}</h2>
                             <p className="contact-social-desc">
-                                STAY UP-TO-DATE WITH THE LATEST NEWS, UPDATES, AND PROMOTIONS FROM RUNNER RUNNER BY FOLLOWING US ON SOCIAL MEDIA. JOIN THE CONVERSATION, SHARE YOUR EXPERIENCE, AND BE PART OF THE COMMUNITY!
+                                {socialSection.description}
                             </p>
                             <div className="contact-social-icons">
-                                <a href="#" className="social-icon-box" target="_blank" rel="noopener noreferrer">
-                                    <img src="/assets/contactassets/x.png" alt="X" />
-                                </a>
-                                <a href="#" className="social-icon-box" target="_blank" rel="noopener noreferrer">
-                                    <img src="/assets/contactassets/facebook.png" alt="Facebook" />
-                                </a>
-                                <a href="#" className="social-icon-box" target="_blank" rel="noopener noreferrer">
-                                    <img src="/assets/contactassets/tiktok.png" alt="TikTok" />
-                                </a>
-                                <a href="#" className="social-icon-box" target="_blank" rel="noopener noreferrer">
-                                    <img src="/assets/contactassets/instahram.png" alt="Instagram" />
-                                </a>
-                                <a href="#" className="social-icon-box" target="_blank" rel="noopener noreferrer">
-                                    <img src="/assets/contactassets/Youtube.png" alt="YouTube" />
-                                </a>
+                                {(socialSection.icons || []).map((s, idx) => (
+                                    <a key={idx} href={s.url || "#"} className="social-icon-box" target="_blank" rel="noopener noreferrer">
+                                        <img src={s.image} alt={s.platform} />
+                                    </a>
+                                ))}
                             </div>
                         </div>
                     </div>

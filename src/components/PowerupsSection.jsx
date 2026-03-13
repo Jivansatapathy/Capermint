@@ -91,7 +91,7 @@ const PowerupsSection = ({ content }) => {
                     {items.map((powerup, index) => (
                         <div key={index} className="powerup-card">
                             <div className="powerup-card-bg">
-                                <img src="/assets/card bg2.png" alt="Card Background" />
+                                <img src={powerup.cardBg || "/assets/card bg2.png"} alt="Card Background" />
                             </div>
                             <div className="powerup-image-wrapper">
                                 <img src={powerup.image} alt={powerup.name} />

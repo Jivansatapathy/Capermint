@@ -5,7 +5,7 @@ const PowerplayMagnetSection = ({ content }) => {
         title: "MAGNET",
         subtitle: "EVERY COIN COMES TO YOU.",
         description: "ACTIVATE THE MAGNET TO PULL NEARBY COINS STRAIGHT INTO YOUR PATH. NO MISSED REWARDS - JUST SMOOTH COLLECTION WHILE YOU STAY FOCUSED ON THE RUN.",
-        image: "/assets/powerplay assets/magnetimg.png"
+        image: "/assets/powerplay assets/section4img.png"
     };
     return (
         <section className="powerplay-magnet-section">

@@ -4,9 +4,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FeaturesSection = () => {
+const FeaturesSection = ({ content }) => {
     const sectionRef = useRef(null);
     const imgRef = useRef(null);
+
+    const data = content?.features3d || {
+        heading: "ENDLESS RUN!\nENDLESS FUN!",
+        description: "IN RUNNER RUNNER, THE CITY IS YOUR PLAYGROUND. RUN, DODGE, AND COLLECT POWER-UPS TO BEAT YOUR HIGH SCORE. SIMPLE TO PLAY, HARD TO PUT DOWN. ARE YOU FAST ENOUGH TO STAY AHEAD?",
+        buttonText: "EXPLORE IT",
+        image: "/assets/Mask group.png"
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -104,22 +111,24 @@ const FeaturesSection = () => {
             <div className="features-container">
                 <div className="features-left">
                     <h2 className="features-heading">
-                        ENDLESS RUN!<br />
-                        ENDLESS FUN!
+                        {data.heading.split('\n').map((line, i) => (
+                            <React.Fragment key={i}>
+                                {line}
+                                {i === 0 && <br />}
+                            </React.Fragment>
+                        ))}
                     </h2>
                     <div className="features-divider"></div>
                     <p className="features-desc">
-                        IN RUNNER RUNNER, THE CITY IS YOUR PLAYGROUND. RUN, DODGE,
-                        AND COLLECT POWER-UPS TO BEAT YOUR HIGH SCORE. SIMPLE TO
-                        PLAY, HARD TO PUT DOWN. ARE YOU FAST ENOUGH TO STAY AHEAD?
+                        {data.description}
                     </p>
-                    <button className="features-btn">EXPLORE IT</button>
+                    <button className="features-btn">{data.buttonText}</button>
                 </div>
 
                 <div className="features-right">
                     <img
                         ref={imgRef}
-                        src="/assets/Mask group.png"
+                        src={data.image}
                         alt="Game Screenshot"
                         className="features-img"
                         style={{ transformStyle: 'preserve-3d' }}

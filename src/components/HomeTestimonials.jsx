@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/homeTestimonials.css';
 
-const HomeTestimonials = () => {
-    const testimonials = [
+const HomeTestimonials = ({ content }) => {
+    const testimonials = content?.testimonials || [
         {
             rating: 5,
             text: `"RUNNER RUNNER IS ABSOLUTELY ADDICTIVE! THE GAMEPLAY IS SMOOTH, THE CHARACTERS ARE AMAZING, AND EVERY RUN FEELS FRESH. I CAN'T STOP PLAYING!"`,
@@ -50,8 +50,8 @@ const HomeTestimonials = () => {
     return (
         <section className="home-testi-section">
             <div className="home-testi-header">
-                <h2 className="home-testi-title">WHAT RUNNERS ARE SAYING</h2>
-                <p className="home-testi-subtitle">THOUGHTS FROM RUNNERS AROUND THE WORLD</p>
+                <h2 className="home-testi-title">{content?.testimonialsTitle || "WHAT RUNNERS ARE SAYING"}</h2>
+                <p className="home-testi-subtitle">{content?.testimonialsSubtitle || "THOUGHTS FROM RUNNERS AROUND THE WORLD"}</p>
             </div>
 
             <div className="home-testi-grid">

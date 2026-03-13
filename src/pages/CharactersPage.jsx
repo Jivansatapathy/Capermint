@@ -40,8 +40,8 @@ const CharactersPage = () => {
                 {sections.map((section) => (
                     <CharacterDetails key={section.id} sectionData={section} />
                 ))}
-                <CharactersGroupSection />
-                <FinalSection />
+                <CharactersGroupSection data={content?.charactersPage?.groupSection} />
+                <FinalSection content={content} />
             </main>
             <Footer />
         </div>

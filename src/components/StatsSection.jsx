@@ -4,21 +4,54 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const StatsSection = () => {
+const StatsSection = ({ content }) => {
     const sectionRef = useRef(null);
+
+    const statsItems = content?.stats?.items || [
+        {
+            target: 2,
+            suffix: 'M+',
+            title: "GAMES PLAYED",
+            subtitle: "RUNS COMPLETED BY PLAYERS\nAROUND THE WORLD.",
+            colorClass: 'color-cream',
+            bgClass: 'bg-yellow',
+            titleColorClass: 'color-brown'
+        },
+        {
+            target: 370,
+            suffix: 'K+',
+            title: "INSTALLS",
+            subtitle: "RUNNERS WHO HAVE JOINED\nTHE RUNNER RUNNER SO FAR.",
+            colorClass: 'color-light-green',
+            bgClass: 'bg-green',
+            titleColorClass: 'color-dark-green'
+        },
+        {
+            target: 75,
+            prefix: '$',
+            suffix: 'K+',
+            title: "PRIZES DISTRIBUTED",
+            subtitle: "REAL REWARDS EARNED THROUGH\nSPECIAL EVENTS",
+            colorClass: 'color-light-purple',
+            bgClass: 'bg-pink',
+            titleColorClass: 'color-purple'
+        },
+        {
+            target: 3,
+            suffix: 'K+',
+            title: "GAMES PLAYED EVERY DAY",
+            subtitle: "THE RUN NEVER STOPS",
+            colorClass: 'color-light-blue',
+            bgClass: 'bg-blue',
+            titleColorClass: 'color-dark-blue'
+        }
+    ];
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            const stats = [
-                { target: 2, suffix: 'M+', selector: '.stat-number-1' },
-                { target: 370, suffix: 'K+', selector: '.stat-number-2' },
-                { target: 75, prefix: '$', suffix: 'K+', selector: '.stat-number-3' },
-                { target: 3, suffix: 'K+', selector: '.stat-number-4' }
-            ];
-
-            stats.forEach((stat) => {
+            statsItems.forEach((stat, index) => {
                 const obj = { value: 0 };
-                const el = document.querySelector(stat.selector);
+                const el = document.querySelector(`.stat-number-${index + 1}`);
 
                 if (!el) return;
 
@@ -39,54 +72,31 @@ const StatsSection = () => {
         }, sectionRef);
 
         return () => ctx.revert();
-    }, []);
+    }, [statsItems]);
 
     return (
         <section id="stats" className="stats-section" ref={sectionRef}>
             <div className="stats-grid">
-
-                {/* 1. Games Played */}
-                <div className="stat-group stats-top-left">
-                    <span className="stat-number color-cream stat-number-1">0M+</span>
-                    <div className="stat-card bg-yellow">
-                        <h3 className="stat-title color-brown">GAMES PLAYED</h3>
-                        <p className="stat-subtitle color-brown">RUNS COMPLETED BY PLAYERS<br />AROUND THE WORLD.</p>
+                {statsItems.map((stat, idx) => (
+                    <div key={idx} className={`stat-group stats-${idx === 0 ? 'top-left' : idx === 1 ? 'top-right' : idx === 2 ? 'bottom-left' : 'bottom-right'}`}>
+                        <div className={idx !== 0 ? "stat-number-wrapper" : ""}>
+                            <span className={`stat-number ${stat.colorClass} stat-number-${idx + 1}`}>
+                                {stat.prefix || ''}0{stat.suffix || ''}
+                            </span>
+                        </div>
+                        <div className={`stat-card ${stat.bgClass}`}>
+                            <h3 className={`stat-title ${stat.titleColorClass}`}>{stat.title}</h3>
+                            <p className={`stat-subtitle ${stat.titleColorClass}`}>
+                                {stat.subtitle.split('\n').map((line, i) => (
+                                    <React.Fragment key={i}>
+                                        {line}
+                                        {i === 0 && stat.subtitle.includes('\n') && <br />}
+                                    </React.Fragment>
+                                ))}
+                            </p>
+                        </div>
                     </div>
-                </div>
-
-                {/* 2. Installs */}
-                <div className="stat-group stats-top-right">
-                    <div className="stat-number-wrapper">
-                        <span className="stat-number color-light-green stat-number-2">0K+</span>
-                    </div>
-                    <div className="stat-card bg-green">
-                        <h3 className="stat-title color-dark-green">INSTALLS</h3>
-                        <p className="stat-subtitle color-dark-green">RUNNERS WHO HAVE JOINED<br />THE RUNNER RUNNER SO FAR.</p>
-                    </div>
-                </div>
-
-                {/* 3. Prizes */}
-                <div className="stat-group stats-bottom-left">
-                    <div className="stat-number-wrapper">
-                        <span className="stat-number color-light-purple stat-number-3">$0K+</span>
-                    </div>
-                    <div className="stat-card bg-pink">
-                        <h3 className="stat-title color-purple">PRIZES DISTRIBUTED</h3>
-                        <p className="stat-subtitle color-purple">REAL REWARDS EARNED THROUGH<br />SPECIAL EVENTS</p>
-                    </div>
-                </div>
-
-                {/* 4. Daily Games */}
-                <div className="stat-group stats-bottom-right">
-                    <div className="stat-number-wrapper">
-                        <span className="stat-number color-light-blue stat-number-4">0K+</span>
-                    </div>
-                    <div className="stat-card bg-blue">
-                        <h3 className="stat-title color-dark-blue">GAMES PLAYED EVERY DAY</h3>
-                        <p className="stat-subtitle color-dark-blue">THE RUN NEVER STOPS</p>
-                    </div>
-                </div>
-
+                ))}
             </div>
         </section>
     );

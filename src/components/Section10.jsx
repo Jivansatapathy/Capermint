@@ -4,10 +4,19 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Section10 = () => {
+const Section10 = ({ content }) => {
     const sectionRef = useRef(null);
     const imgRef = useRef(null);
     const imgWrapperRef = useRef(null);
+
+    const data = content?.specialEvents || {
+        title: "SPECIAL EVENTS",
+        subtitle: "LIMITED TIME CHALLENGES WITH BIGGER REWARDS.\nEVERY EVENT BRINGS SOMETHING NEW!",
+        eventTitle: "CASH OUT EVENT IS LIVE",
+        eventDescription: "COMPLETE TASKS & RUN DURING THE EVENT CLIMB THE LEADERBOARD.\nTOP RUNNERS EARN REAL REWARDS.",
+        buttonText: "EXPLORE >",
+        image: "/assets/image.png"
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -109,10 +118,14 @@ const Section10 = () => {
         <section className="section10" ref={sectionRef}>
             {/* Top center header */}
             <div className="s10-header">
-                <h2 className="s10-title">SPECIAL EVENTS</h2>
+                <h2 className="s10-title">{data.title}</h2>
                 <p className="s10-subtitle">
-                    LIMITED TIME CHALLENGES WITH BIGGER REWARDS.<br />
-                    EVERY EVENT BRINGS SOMETHING NEW!
+                    {data.subtitle.split('\n').map((line, i) => (
+                        <React.Fragment key={i}>
+                            {line}
+                            {i < data.subtitle.split('\n').length - 1 && <br />}
+                        </React.Fragment>
+                    ))}
                 </p>
             </div>
 
@@ -120,12 +133,16 @@ const Section10 = () => {
             <div className="s10-body">
                 {/* Left: text content */}
                 <div className="s10-left">
-                    <h3 className="s10-event-title">CASH OUT EVENT IS LIVE</h3>
+                    <h3 className="s10-event-title">{data.eventTitle}</h3>
                     <p className="s10-event-desc">
-                        COMPLETE TASKS &amp; RUN DURING THE EVENT CLIMB THE LEADERBOARD.<br />
-                        TOP RUNNERS EARN REAL REWARDS.
+                        {data.eventDescription.split('\n').map((line, i) => (
+                            <React.Fragment key={i}>
+                                {line}
+                                {i < data.eventDescription.split('\n').length - 1 && <br />}
+                            </React.Fragment>
+                        ))}
                     </p>
-                    <button className="s10-btn">EXPLORE &nbsp;&gt;</button>
+                    <button className="s10-btn">{data.buttonText}</button>
                 </div>
 
                 {/* Right: masked image with 3D tilt parallax */}
@@ -133,8 +150,8 @@ const Section10 = () => {
                     <div className="s10-img-wrapper" ref={imgWrapperRef}>
                         <img
                             ref={imgRef}
-                            src="/assets/image.png"
-                            alt="Cash Out Event"
+                            src={data.image}
+                            alt="Special Event"
                             className="s10-img"
                             style={{ transformStyle: 'preserve-3d' }}
                         />
