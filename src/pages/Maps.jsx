@@ -18,8 +18,11 @@ const Maps = () => {
     const waterSectionRef = useRef(null);
     const thirdSectionRef = useRef(null);
     const thirdTrackRef = useRef(null);
+    const bottomCloudSectionRef = useRef(null);
+    const fourthSectionRef = useRef(null);
+    const fourthTrackRef = useRef(null);
     const [content, setContent] = useState(contentData);
-    
+
     const mp = content.mapPage || {
         hero: { title: "RUNNER RUNNER", subtitle: "EXPLORE OUR MAPS" },
         horizontalScroll: [],
@@ -42,31 +45,29 @@ const Maps = () => {
     }, []);
 
     useEffect(() => {
-        if (!mp.horizontalScroll || mp.horizontalScroll.length === 0) return;
-
         const section = sectionRef.current;
         const track = trackRef.current;
-        const items = track.querySelectorAll('.scroll-slide');
 
-        // Total width to scroll
-        const scrollDistance = track.scrollWidth - section.clientWidth;
+        if (section && track && mp.horizontalScroll && mp.horizontalScroll.length > 0) {
+            const scrollDistance = track.scrollWidth - section.clientWidth;
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                pin: true,
-                start: "top top",
-                end: () => `+=${track.scrollWidth}`,
-                scrub: 1,
-                invalidateOnRefresh: true,
-            }
-        });
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: section,
+                    pin: true,
+                    start: "top top",
+                    end: () => `+=${track.scrollWidth}`,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                }
+            });
 
-        // Move the track for a continuous sliding effect
-        tl.to(track, {
-            x: -scrollDistance,
-            ease: "none"
-        });
+            // Move the track for a continuous sliding effect
+            tl.to(track, {
+                x: -scrollDistance,
+                ease: "none"
+            });
+        }
 
         // Cloud Section Animations
         const cloudSection = cloudSectionRef.current;
@@ -164,19 +165,126 @@ const Maps = () => {
         if (thirdSection && thirdTrack) {
             const thirdScrollDistance = thirdTrack.scrollWidth - thirdSection.clientWidth;
 
-            gsap.to(thirdTrack, {
-                x: -thirdScrollDistance,
-                ease: "none",
+            // We use a timeline to sequence the horizontal scroll followed by the submarine exit
+            const thirdTimeline = gsap.timeline({
                 scrollTrigger: {
                     trigger: thirdSection,
                     pin: true,
                     start: "top top",
-                    end: () => `+=${thirdTrack.scrollWidth * 1.5}`, // Maintain slower scroll
+                    // Increase scroll distance slightly for the exit animation
+                    end: () => `+=${thirdTrack.scrollWidth * 1.5 + window.innerWidth}`,
                     scrub: 1.5,
                     invalidateOnRefresh: true,
                 }
             });
+
+            // 1. Scroll the track horizontally
+            thirdTimeline.to(thirdTrack, {
+                x: -thirdScrollDistance,
+                ease: "none",
+                // Make duration relative to distance for smooth scrubbing
+                duration: thirdScrollDistance
+            });
+
+            // 2. Submarine Exit Animation
+            // After track finishes moving, submarine goes to the right
+            const subExit = thirdTrack.querySelector('.submarine-img-2');
+            if (subExit) {
+                thirdTimeline.to(subExit, {
+                    x: '100vw', // Move it far right out of view
+                    ease: "power1.in",
+                    duration: thirdScrollDistance * 0.3 // Take 30% of the time to exit
+                });
+            }
         }
+
+        // Bottom Cloud Section Animations (After Vertical Image)
+        const bottomCloudSection = bottomCloudSectionRef.current;
+        if (bottomCloudSection) {
+            const bottomCloudGroupFront = bottomCloudSection.querySelector('.bottom-cloud-group-front');
+            const bottomCloudGroupBack = bottomCloudSection.querySelector('.bottom-cloud-group-back');
+            const bottomShip = bottomCloudSection.querySelector('.bottom-ship-character');
+
+            // Ship enters from the RIGHT and stops in the center
+            if (bottomShip) {
+                gsap.fromTo(bottomShip,
+                    { x: '100vw', opacity: 0 },
+                    {
+                        x: '0vw',
+                        opacity: 1,
+                        scrollTrigger: {
+                            trigger: bottomCloudSection,
+                            start: "top 80%",
+                            end: "top 20%",
+                            scrub: 2,
+                        }
+                    }
+                );
+
+                // Add a subtle floating/hovering effect
+                gsap.to(bottomShip, {
+                    y: "-20px",
+                    duration: 2,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "power1.inOut"
+                });
+            }
+
+            // Ensure clouds move up appropriately
+            if (bottomCloudGroupFront) {
+                gsap.fromTo(bottomCloudGroupFront,
+                    { y: '80vh', opacity: 0 },
+                    {
+                        y: '0vh',
+                        opacity: 1,
+                        scrollTrigger: {
+                            trigger: bottomCloudSection,
+                            start: "top 95%",
+                            end: "bottom center",
+                            scrub: 2.5,
+                        }
+                    }
+                );
+            }
+
+            if (bottomCloudGroupBack) {
+                gsap.fromTo(bottomCloudGroupBack,
+                    { y: '60vh', opacity: 0 },
+                    {
+                        y: '0vh',
+                        opacity: 0.8,
+                        scrollTrigger: {
+                            trigger: bottomCloudSection,
+                            start: "top 95%",
+                            end: "bottom center",
+                            scrub: 1.5,
+                        }
+                    }
+                );
+            }
+        }
+
+        // Fourth Horizontal Scroll Section Animations (Group 44)
+        const fourthSection = fourthSectionRef.current;
+        const fourthTrack = fourthTrackRef.current;
+        if (fourthSection && fourthTrack) {
+            // Using a timeline for consistency and better control
+            gsap.to(fourthTrack, {
+                x: () => -(fourthTrack.scrollWidth - window.innerWidth),
+                ease: "none",
+                scrollTrigger: {
+                    trigger: fourthSection,
+                    pin: true,
+                    start: "top top",
+                    end: () => `+=${fourthTrack.scrollWidth}`,
+                    scrub: 1,
+                    invalidateOnRefresh: true,
+                }
+            });
+        }
+
+        ScrollTrigger.refresh();
 
         return () => {
             if (ScrollTrigger.getAll().length > 0) {
@@ -282,10 +390,72 @@ const Maps = () => {
                         style={{ backgroundImage: `url(${mp.underwater2Image})` }}
                     >
                     </div>
+                    <div className="third-scroll-slide submarine-slide">
+                        <div className="water-overlay" style={{ backgroundImage: `url("${mp.waterImage}")` }}></div>
+                        <div className="submarine-container-2">
+                            <img src={mp.submarineImage} alt="Submarine Exit" className="submarine-img-2" />
+                        </div>
+                    </div>
                 </div>
             </section>
 
-            {/* Section 8: Call-to-action section */}
+            {/* Section 8: First Vertical Scroll Section (Group 84) */}
+            <section className="maps-vertical-section">
+                <img
+                    src="/assets/maps/horizontalscroll/Group%2084.png"
+                    alt="Map Continuation"
+                    className="vertical-section-img"
+                />
+            </section>
+
+            {/* Section 9: Bottom Cloud Transition Section */}
+            <section className="maps-bottom-cloud-section" ref={bottomCloudSectionRef}>
+                {/* Back Clouds (Lower z-index) */}
+                <div className="cloud-group-back bottom-cloud-group-back">
+                    <img src={mp.cloudGroup} alt="Clouds Back" className="cloud-bg-img" />
+                </div>
+
+                {/* Ship character entering from left */}
+                <div className="bottom-ship-character">
+                    <img src="/assets/maps/horizontalscroll/Ship%201%202.png" alt="Ship" />
+                </div>
+
+                {/* Front Clouds (Higher z-index) */}
+                <div className="cloud-group-front bottom-cloud-group-front">
+                    <img src={mp.cloudGroup} alt="Clouds Front" className="cloud-bg-img" />
+                </div>
+
+                {/* Overlap with blank spacer below */}
+                <div className="bottom-cloud-spacer-overlap">
+                    <img src={mp.cloudGroup} alt="Clouds Overlap" className="cloud-bg-img" />
+                </div>
+            </section>
+
+            {/* Spacer Section */}
+            <section className="maps-spacer-section"></section>
+
+            {/* Section 10 & 11: Final Horizontal Scroll Section (Group 85 -> Group 44 -> Group 40) */}
+            <section className="maps-fourth-horizontal-scroll" ref={fourthSectionRef}>
+                <div className="fourth-scroll-track" ref={fourthTrackRef}>
+                    <div
+                        className="fourth-scroll-slide"
+                        style={{ backgroundImage: `url("/assets/maps/horizontalscroll/Group 85.png")` }}
+                    >
+                    </div>
+                    <div
+                        className="fourth-scroll-slide"
+                        style={{ backgroundImage: `url("/assets/maps/horizontalscroll/Group 44 (1).png")` }}
+                    >
+                    </div>
+                    <div
+                        className="fourth-scroll-slide"
+                        style={{ backgroundImage: `url("/assets/maps/horizontalscroll/Group 40.png")` }}
+                    >
+                    </div>
+                </div>
+            </section>
+
+            {/* Section 12: Call-to-action section */}
             <section className="maps-cta-section">
                 <div className="maps-cta-content">
                     <img src={cta.midImage} alt="Runners" className="cta-mid-img" />

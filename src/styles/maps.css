@@ -350,7 +350,151 @@
     margin: 0;
 }
 
-/* Section 8: Call-to-action section */
+.submarine-container-2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.submarine-img-2 {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    will-change: transform, opacity;
+}
+
+/* Section 8: Vertical Scroll Section */
+.maps-vertical-section {
+    position: relative;
+    width: 100%;
+    /* No fixed height so it naturally scrolls according to image content */
+    background: #000B1A;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    z-index: 45;
+}
+
+.vertical-section-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Section 9: Bottom Cloud Transition Section */
+.maps-bottom-cloud-section {
+    position: relative;
+    width: 100%;
+    min-height: 120vh;
+    background-color: #FEE3EA;
+    overflow: visible;
+    /* To allow clouds to overlap the blank spacer below */
+    z-index: 50;
+}
+
+.bottom-cloud-spacer-overlap {
+    position: absolute;
+    bottom: -250px;
+    left: 0;
+    width: 100%;
+    z-index: 80;
+    pointer-events: none;
+}
+
+.bottom-cloud-group-front {
+    margin-top: 0 !important;
+    z-index: 70;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.bottom-cloud-group-back {
+    margin-top: 0 !important;
+    z-index: 40;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.bottom-ship-character {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    width: 60%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    will-change: transform;
+    opacity: 1 !important;
+}
+
+.bottom-ship-character img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Sections 10 & 11: Vertical Scroll Maps */
+.maps-vertical-section {
+    position: relative;
+    width: 100%;
+    background: #000B1A;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    z-index: 90;
+    /* Higher than cloud overlap (80) to cover bleed */
+}
+
+.vertical-section-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Section 11: Fourth Horizontal Scroll section */
+.maps-fourth-horizontal-scroll {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #080D25;
+}
+
+.fourth-scroll-track {
+    display: flex;
+    height: 100%;
+    width: fit-content;
+    will-change: transform;
+}
+
+.fourth-scroll-slide {
+    width: 100vw;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Section 12: Call-to-action section */
 .maps-cta-section {
     position: relative;
     width: 100%;
@@ -382,7 +526,6 @@
 
 .cta-mid-img {
     max-width: 35%;
-    /* Adjusted for centered look */
     height: auto;
     z-index: 5;
     transform: translateY(-80px);
@@ -403,7 +546,6 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(2rem, 5vw, 4.5rem);
     color: #3CFFFF;
-    /* Light blue from image */
     margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 1px;
