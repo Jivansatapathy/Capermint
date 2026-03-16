@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Footer from '../components/Footer';
 import FinalSection from '../components/FinalSection';
 import '../styles/contact.css';
@@ -36,6 +38,85 @@ const Contact = () => {
     const [activeTab, setActiveTab] = useState('GAMEPLAY');
     const [formData, setFormData] = useState({ name: '', email: '', subject: 'GENERAL INQUIRY', message: '' });
     const [status, setStatus] = useState('');
+    const containerRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+        const ctx = gsap.context(() => {
+            // Hero Animation
+            gsap.from('.contact-hero-content > *', {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.2,
+                ease: 'power3.out'
+            });
+
+            // Form Section Animation
+            gsap.from('.contact-form-container', {
+                scrollTrigger: {
+                    trigger: '.contact-form-section',
+                    start: 'top 80%',
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power3.out'
+            });
+
+            // Character Image Animation
+            gsap.from('.contact-character-img', {
+                scrollTrigger: {
+                    trigger: '.contact-form-section',
+                    start: 'top 70%',
+                },
+                x: -100,
+                opacity: 0,
+                duration: 1.5,
+                ease: 'elastic.out(1, 0.75)'
+            });
+
+            // Support Cards Animation
+            gsap.from('.support-card', {
+                scrollTrigger: {
+                    trigger: '.contact-support-section',
+                    start: 'top 80%',
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: 'power2.out'
+            });
+
+            // FAQ Section Animation
+            gsap.from('.contact-mask-content-layout', {
+                scrollTrigger: {
+                    trigger: '.contact-bg-overlay-section',
+                    start: 'top 70%',
+                },
+                scale: 0.95,
+                opacity: 0,
+                duration: 1,
+                ease: 'power2.out'
+            });
+
+            // Social Icons Animation
+            gsap.from('.social-icon-box', {
+                scrollTrigger: {
+                    trigger: '.contact-social-section',
+                    start: 'top 90%',
+                },
+                scale: 0,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'back.out(1.7)'
+            });
+        }, containerRef);
+
+        return () => ctx.revert();
+    }, []);
 
     useEffect(() => {
         fetch('http://localhost:3000/api/content')
@@ -89,7 +170,7 @@ const Contact = () => {
     };
 
     return (
-        <main className="contact-page">
+        <main className="contact-page" ref={containerRef}>
             {/* ── HERO ── */}
             <section className="contact-hero">
                 <div className="contact-hero-content">
@@ -268,7 +349,7 @@ const Contact = () => {
             </>
             )}
 
-            <Footer />
+            <Footer content={content} />
         </main>
     );
 };

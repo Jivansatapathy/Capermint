@@ -1,13 +1,18 @@
 import React from 'react';
 import '../styles/newsletterSection.css';
 
-const NewsletterSection = () => {
+const NewsletterSection = ({ content }) => {
+    const data = content?.newsletter || {
+        title: "DAILY INTEL DROP",
+        subtitle: "GET THE LATEST BLOG & NEWS DELIVERED STRAIGHT TO YOUR INBOX."
+    };
+
     return (
         <section className="newsletter-container">
             <div className="newsletter-box">
-                <h2 className="newsletter-title">DAILY INTEL DROP</h2>
+                <h2 className="newsletter-title">{data.title}</h2>
                 <p className="newsletter-subtitle">
-                    GET THE LATEST BLOG & NEWS DELIVERED STRAIGHT TO YOUR INBOX.
+                    {data.subtitle}
                 </p>
                 
                 <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>

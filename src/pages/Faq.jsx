@@ -142,7 +142,7 @@ const Faq = () => {
             </section>
 
             <RatingsSummary ratings={data.ratings} />
-            <Footer />
+            <Footer content={content} />
         </div>
     );
 };

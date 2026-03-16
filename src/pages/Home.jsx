@@ -45,9 +45,9 @@ const Home = () => {
         <>
             <main>
                 <HeroSection2 content={content} />
-                <StatsSection />
-                <FeaturesSection />
-                <CharacterSection />
+                <StatsSection content={content} />
+                <FeaturesSection content={content} />
+                <CharacterSection content={content} />
                 {content.community && content.community.map((item, idx) => (
                     <CommunitySection
                         key={idx}
@@ -62,14 +62,14 @@ const Home = () => {
                 <RunnersSection content={content} />
                 <PowerupsSection content={content} />
                 <ExploreSection content={content} />
-                <GameModesSection />
-                <Section10 />
-                <FinalSection />
-                <HomeTestimonials />
-                <CTASection />
+                <GameModesSection content={content} />
+                <Section10 content={content} />
+                <FinalSection content={content} />
+                <HomeTestimonials content={content} />
+                <CTASection content={content} />
                 <FeaturedArticlesSection content={content} />
             </main>
-            <Footer />
+            <Footer content={content} />
         </>
     );
 };

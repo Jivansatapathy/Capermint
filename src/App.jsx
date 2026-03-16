@@ -12,6 +12,7 @@ import Faq from './pages/Faq';
 import Blog from './pages/Blog';
 import BlogDetail from './pages/BlogDetail';
 import Maps from './pages/Maps';
+import AuthPage from './pages/AuthPage';
 
 import contentData from '../content.json';
 
@@ -21,21 +22,32 @@ function App() {
     const [content, setContent] = useState(contentData || { nav: defaultNav });
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/content')
+        const token = localStorage.getItem('adminToken');
+        const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
+        
+        axios.get('http://localhost:3000/api/content', config)
             .then(res => {
                 if (res.data && Object.keys(res.data).length > 0) {
                     setContent(res.data);
                 }
             })
             .catch(() => {
-                // Backend is locally offline
+                // Backend is locally offline or unauthorized
             });
     }, []);
+
+    const [isAuthed, setIsAuthed] = useState(!!localStorage.getItem('adminToken'));
+
+    const ProtectedRoute = ({ children }) => {
+        if (!isAuthed) return <AuthPage onLogin={() => setIsAuthed(true)} />;
+        return children;
+    };
 
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />
                 <Route path="/characters" element={
                     <>
                         <Navbar nav={content.nav} navbar={content.navbar} />

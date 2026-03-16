@@ -1,17 +1,21 @@
 import React from 'react';
 
 const CTASection = ({ content }) => {
-    const data = content?.cta || {
-        subtitle: "WANT TO STAY IN TOUCH?",
-        title: "FOLLOW US ON SOCIAL MEDIA",
-        description: "STAY UP-TO-DATE WITH THE LATEST IN RUNNER RUNNER.",
-        socialLinks: [
-            { label: "INSTAGRAM", icon: "/assets/socialiconsimg/Instagram.png", url: "#" },
-            { label: "FACEBOOK", icon: "/assets/socialiconsimg/Faceebook.png", url: "#" },
-            { label: "YOUTUBE", icon: "/assets/socialiconsimg/Youtube.png", url: "#" },
-            { label: "X", icon: "/assets/socialiconsimg/X.png", url: "#" },
-            { label: "THREAD", icon: "/assets/socialiconsimg/Threads.png", url: "#" }
-        ]
+    const rawData = content?.cta;
+    const defaultSocialLinks = [
+        { label: "INSTAGRAM", icon: "/assets/socialiconsimg/Instagram.png", url: "#" },
+        { label: "FACEBOOK", icon: "/assets/socialiconsimg/Faceebook.png", url: "#" },
+        { label: "YOUTUBE", icon: "/assets/socialiconsimg/Youtube.png", url: "#" },
+        { label: "X", icon: "/assets/socialiconsimg/X.png", url: "#" },
+        { label: "THREAD", icon: "/assets/socialiconsimg/Threads.png", url: "#" }
+    ];
+
+    const data = {
+        subtitle: rawData?.subtitle || "WANT TO STAY IN TOUCH?",
+        title: rawData?.title || "FOLLOW US ON SOCIAL MEDIA",
+        description: rawData?.description || "STAY UP-TO-DATE WITH THE LATEST IN RUNNER RUNNER.",
+        image: rawData?.image || "/assets/ctaimage.png",
+        socialLinks: rawData?.socialLinks || defaultSocialLinks
     };
 
     return (

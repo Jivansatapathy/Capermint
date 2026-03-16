@@ -43,7 +43,7 @@ const CharactersPage = () => {
                 <CharactersGroupSection data={content?.charactersPage?.groupSection} />
                 <FinalSection content={content} />
             </main>
-            <Footer />
+            <Footer content={content} />
         </div>
     );
 };

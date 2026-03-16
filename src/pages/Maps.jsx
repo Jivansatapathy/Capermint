@@ -18,22 +18,27 @@ const Maps = () => {
     const waterSectionRef = useRef(null);
     const thirdSectionRef = useRef(null);
     const thirdTrackRef = useRef(null);
-    const [mp, setMp] = useState(contentData.mapPage || {
+    const [content, setContent] = useState(contentData);
+    
+    const mp = content.mapPage || {
         hero: { title: "RUNNER RUNNER", subtitle: "EXPLORE OUR MAPS" },
         horizontalScroll: [],
-        cta: { 
-            title: "WHERE WILL YOU RUN NEXT?", 
+        cta: {
+            title: "WHERE WILL YOU RUN NEXT?",
             midImage: "/assets/maps/section3midimg.png"
         }
-    });
+    };
+    const hero = mp.hero || {};
+    const scrollData = mp.horizontalScroll || [];
+    const cta = mp.cta || {};
 
     useEffect(() => {
         fetch('http://localhost:3000/api/content')
             .then(res => res.json())
             .then(data => {
-                if (data.mapPage) setMp(data.mapPage);
+                setContent(data);
             })
-            .catch(() => {});
+            .catch(() => { });
     }, []);
 
     useEffect(() => {
@@ -83,12 +88,12 @@ const Maps = () => {
                 }
             }
         );
-        
+
         // Ensure clouds move up appropriately
-        gsap.fromTo(cloudGroupFront, 
+        gsap.fromTo(cloudGroupFront,
             { y: '50vh', opacity: 0 },
             {
-                y: '0vh', 
+                y: '0vh',
                 opacity: 1,
                 scrollTrigger: {
                     trigger: cloudSection,
@@ -180,9 +185,6 @@ const Maps = () => {
         };
     }, [mp.horizontalScroll]);
 
-    const hero = mp.hero || {};
-    const scrollData = mp.horizontalScroll || [];
-    const cta = mp.cta || {};
 
     return (
         <main className="maps-page">
@@ -190,7 +192,7 @@ const Maps = () => {
                 <div className="maps-hero-content">
                     <h1 className="maps-hero-title">{hero.title}</h1>
                     <p className="maps-hero-subtitle">{hero.subtitle}</p>
-                    
+
                     <div className="maps-scroll-down">
                         <span>SCROLL DOWN</span>
                         <div className="scroll-arrow">
@@ -206,9 +208,9 @@ const Maps = () => {
             <section className="maps-horizontal-scroll" ref={sectionRef}>
                 <div className="scroll-track" ref={trackRef}>
                     {scrollData.map((slide, i) => (
-                        <div 
-                            key={i} 
-                            className={`scroll-slide slide-${i+1}`}
+                        <div
+                            key={i}
+                            className={`scroll-slide slide-${i + 1}`}
                             style={{ backgroundImage: `url(${slide.bg})` }}
                         >
                             {/* Overlay images removed as they are now pre-cut into the background */}
@@ -242,13 +244,13 @@ const Maps = () => {
             <section className="maps-second-horizontal-scroll" ref={secondSectionRef}>
                 <div className="second-scroll-track" ref={secondTrackRef}>
                     {/* Slide 1: new.png */}
-                    <div 
+                    <div
                         className="second-scroll-slide"
                         style={{ backgroundImage: `url(${mp.newWithoutCloud})` }}
                     >
                     </div>
                     {/* Slide 2: new2.png + Boy character */}
-                    <div 
+                    <div
                         className="second-scroll-slide"
                         style={{ backgroundImage: `url(${mp.new2BgImage})` }}
                     >
@@ -270,12 +272,12 @@ const Maps = () => {
             {/* Section 7: Third Horizontal Scroll Section (Underwater) */}
             <section className="maps-third-horizontal-scroll" ref={thirdSectionRef}>
                 <div className="third-scroll-track" ref={thirdTrackRef}>
-                    <div 
+                    <div
                         className="third-scroll-slide"
                         style={{ backgroundImage: `url(${mp.underwaterImage})` }}
                     >
                     </div>
-                    <div 
+                    <div
                         className="third-scroll-slide"
                         style={{ backgroundImage: `url(${mp.underwater2Image})` }}
                     >
@@ -287,7 +289,7 @@ const Maps = () => {
             <section className="maps-cta-section">
                 <div className="maps-cta-content">
                     <img src={cta.midImage} alt="Runners" className="cta-mid-img" />
-                    
+
                     <div className="cta-text-content">
                         <h2 className="cta-main-title">{cta.title}</h2>
                         <p className="cta-subtitle-1">{cta.subtitle1}</p>
@@ -296,8 +298,8 @@ const Maps = () => {
                 </div>
             </section>
 
-            <FinalSection />
-            <Footer />
+            <FinalSection content={content} />
+            <Footer content={content} />
         </main>
     );
 };

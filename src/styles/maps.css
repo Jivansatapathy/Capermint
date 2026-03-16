@@ -189,10 +189,12 @@
 
 .boy-character {
     position: absolute;
-    top: 45%; /* Moved up from 50% */
+    top: 45%;
+    /* Moved up from 50% */
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 15%; /* Reduced significantly from 45% */
+    width: 15%;
+    /* Reduced significantly from 45% */
     z-index: 10;
     pointer-events: none;
     display: flex;
@@ -262,7 +264,8 @@
     position: relative;
     width: 100%;
     min-height: 120vh;
-    background-color: #0077BE; /* Light ocean blue */
+    background-color: #0077BE;
+    /* Light ocean blue */
     overflow: hidden;
     z-index: 35;
 }
@@ -286,8 +289,10 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 45%; /* Slightly larger for better visibility */
-    z-index: 10; /* Above water-overlay */
+    width: 45%;
+    /* Slightly larger for better visibility */
+    z-index: 10;
+    /* Above water-overlay */
     pointer-events: none;
     display: flex;
     justify-content: center;
@@ -318,7 +323,8 @@
     height: 100vh;
     overflow: hidden;
     background: #000B1A;
-    z-index: 40; /* Higher than water section */
+    z-index: 40;
+    /* Higher than water section */
 }
 
 .third-scroll-track {

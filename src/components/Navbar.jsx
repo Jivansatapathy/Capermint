@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ nav, navbar }) => {
     const nb = navbar || {
@@ -9,6 +9,8 @@ const Navbar = ({ nav, navbar }) => {
     };
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
+
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -34,16 +36,28 @@ const Navbar = ({ nav, navbar }) => {
 
                 {/* Nav links – centred */}
                 <div className="nav-links">
-                    {nav && nav.map((item, i) => {
-                        let linkPath = `#${item.toLowerCase().replace(/\s+/g, '-')}`;
+                    {(nav || []).map((item, i) => {
+                        let linkPath = `/#${item.toLowerCase().replace(/\s+/g, '-')}`;
                         if (item === 'HOME') linkPath = '/';
                         if (item === 'CHARACTERS') linkPath = '/characters';
                         if (item === 'POWERUPS') linkPath = '/powerplay';
+                        if (item === 'BLOG') linkPath = '/blog';
+                        if (item === 'SUPPORT') linkPath = '/contact';
+
+                        const isExternal = linkPath.startsWith('http') || linkPath.includes('#');
+                        
+                        if (isExternal && location.pathname === '/') {
+                            return (
+                                <a key={i} href={linkPath}>
+                                    {item}
+                                </a>
+                            );
+                        }
 
                         return (
-                            <a key={i} href={linkPath}>
+                            <Link key={i} to={linkPath}>
                                 {item}
-                            </a>
+                            </Link>
                         );
                     })}
                 </div>

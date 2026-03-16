@@ -71,7 +71,7 @@ const ExploreSection = ({ content }) => {
     }, []);
     if (!content || !content.explore) return null;
 
-    const { title, subtitle, buttonText } = content.explore;
+    const { title, subtitle, buttonText, buttonLink } = content.explore;
 
     return (
         <section className="explore-section" ref={sectionRef}>
@@ -81,7 +81,11 @@ const ExploreSection = ({ content }) => {
                 <h2 className="explore-title">{title}</h2>
                 <h3 className="explore-subtitle">{subtitle}</h3>
 
-                <button className="explore-button" ref={buttonRef}>
+                <button 
+                    className="explore-button" 
+                    ref={buttonRef}
+                    onClick={() => buttonLink && (window.location.href = buttonLink)}
+                >
                     <span className="explore-btn-text">{buttonText}</span>
                     <span className="explore-btn-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

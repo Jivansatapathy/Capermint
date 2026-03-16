@@ -9,13 +9,14 @@ const Section10 = ({ content }) => {
     const imgRef = useRef(null);
     const imgWrapperRef = useRef(null);
 
-    const data = content?.specialEvents || {
-        title: "SPECIAL EVENTS",
-        subtitle: "LIMITED TIME CHALLENGES WITH BIGGER REWARDS.\nEVERY EVENT BRINGS SOMETHING NEW!",
-        eventTitle: "CASH OUT EVENT IS LIVE",
-        eventDescription: "COMPLETE TASKS & RUN DURING THE EVENT CLIMB THE LEADERBOARD.\nTOP RUNNERS EARN REAL REWARDS.",
-        buttonText: "EXPLORE >",
-        image: "/assets/image.png"
+    const rawData = content?.specialEvents;
+    const data = {
+        title: rawData?.title || "SPECIAL EVENTS",
+        subtitle: rawData?.subtitle || "LIMITED TIME CHALLENGES WITH BIGGER REWARDS.\nEVERY EVENT BRINGS SOMETHING NEW!",
+        eventTitle: rawData?.eventTitle || "CASH OUT EVENT IS LIVE",
+        eventDescription: rawData?.eventDescription || "COMPLETE TASKS & RUN DURING THE EVENT CLIMB THE LEADERBOARD.\nTOP RUNNERS EARN REAL REWARDS.",
+        buttonText: rawData?.buttonText || "EXPLORE >",
+        image: rawData?.image || "/assets/image.png"
     };
 
     useEffect(() => {
@@ -120,10 +121,10 @@ const Section10 = ({ content }) => {
             <div className="s10-header">
                 <h2 className="s10-title">{data.title}</h2>
                 <p className="s10-subtitle">
-                    {data.subtitle.split('\n').map((line, i) => (
+                    {(data.subtitle || "").split('\n').map((line, i) => (
                         <React.Fragment key={i}>
                             {line}
-                            {i < data.subtitle.split('\n').length - 1 && <br />}
+                            {i < (data.subtitle || "").split('\n').length - 1 && <br />}
                         </React.Fragment>
                     ))}
                 </p>
@@ -135,10 +136,10 @@ const Section10 = ({ content }) => {
                 <div className="s10-left">
                     <h3 className="s10-event-title">{data.eventTitle}</h3>
                     <p className="s10-event-desc">
-                        {data.eventDescription.split('\n').map((line, i) => (
+                        {(data.eventDescription || "").split('\n').map((line, i) => (
                             <React.Fragment key={i}>
                                 {line}
-                                {i < data.eventDescription.split('\n').length - 1 && <br />}
+                                {i < (data.eventDescription || "").split('\n').length - 1 && <br />}
                             </React.Fragment>
                         ))}
                     </p>

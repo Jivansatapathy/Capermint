@@ -7,7 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 const StatsSection = ({ content }) => {
     const sectionRef = useRef(null);
 
-    const statsItems = content?.stats?.items || [
+    const rawItems = content?.stats?.items;
+    const defaultItems = [
         {
             target: 2,
             suffix: 'M+',
@@ -46,6 +47,11 @@ const StatsSection = ({ content }) => {
             titleColorClass: 'color-dark-blue'
         }
     ];
+
+    const statsItems = (rawItems || defaultItems).map(item => ({
+        ...item,
+        subtitle: item.subtitle || ""
+    }));
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -87,7 +93,7 @@ const StatsSection = ({ content }) => {
                         <div className={`stat-card ${stat.bgClass}`}>
                             <h3 className={`stat-title ${stat.titleColorClass}`}>{stat.title}</h3>
                             <p className={`stat-subtitle ${stat.titleColorClass}`}>
-                                {stat.subtitle.split('\n').map((line, i) => (
+                                {(stat.subtitle || "").split('\n').map((line, i) => (
                                     <React.Fragment key={i}>
                                         {line}
                                         {i === 0 && stat.subtitle.includes('\n') && <br />}

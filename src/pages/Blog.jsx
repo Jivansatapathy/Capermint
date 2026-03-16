@@ -122,8 +122,8 @@ const Blog = () => {
                 </div>
             </section>
             
-            <NewsletterSection />
-            <Footer />
+            <NewsletterSection content={content} />
+            <Footer content={content} />
         </main>
     );
 };

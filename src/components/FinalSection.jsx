@@ -8,7 +8,8 @@ const FinalSection = ({ content }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const sectionRef = useRef(null);
 
-    const slides = content?.finalSection?.slides || [
+    const rawSlides = content?.finalSection?.slides;
+    const defaultSlides = [
         {
             id: 'slide1',
             bg: '/assets/sectionbg14.png',
@@ -36,6 +37,8 @@ const FinalSection = ({ content }) => {
         }
     ];
 
+    const slides = rawSlides || defaultSlides;
+
     // Slide interval
     useEffect(() => {
         const interval = setInterval(() => {
@@ -48,43 +51,57 @@ const FinalSection = ({ content }) => {
     useEffect(() => {
         const ctx = gsap.context(() => {
             // Only animate the characters when scrolling into the section
-            // The characters are set to their final position in CSS, we animate them FROM above
-            gsap.from('.final-char-left', {
-                yPercent: -100, // Drop from high above
-                opacity: 0,
-                duration: 1.5,
-                ease: 'bounce.out',
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top 60%', // Trigger when section is 40% into view
+            // Use fromTo to ensure opacity 1 at the end and visibility even if triggered early
+            gsap.fromTo('.final-char-left', 
+                { yPercent: -50, opacity: 0 },
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: 'bounce.out',
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: 'top 95%',
+                    }
                 }
-            });
+            );
 
-            gsap.from('.final-char-right', {
-                yPercent: -100,
-                opacity: 0,
-                duration: 1.5,
-                ease: 'bounce.out',
-                delay: 0.2, // Slightly offset the right character
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top 60%',
+            gsap.fromTo('.final-char-right',
+                { yPercent: -50, opacity: 0 },
+                {
+                    yPercent: 0,
+                    opacity: 1,
+                    duration: 1.5,
+                    ease: 'bounce.out',
+                    delay: 0.2,
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: 'top 95%',
+                    }
                 }
-            });
+            );
 
-            // Also pop in the logo
-            gsap.from('.final-game-logo', {
-                scale: 0,
-                rotation: -15,
-                opacity: 0,
-                duration: 1,
-                ease: 'back.out(2)',
-                delay: 0.5,
-                scrollTrigger: {
-                    trigger: sectionRef.current,
-                    start: 'top 60%',
+            gsap.fromTo('.final-game-logo',
+                { scale: 0, rotation: -15, opacity: 0 },
+                {
+                    scale: 1,
+                    rotation: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: 'back.out(2)',
+                    delay: 0.5,
+                    scrollTrigger: {
+                        trigger: sectionRef.current,
+                        start: 'top 95%',
+                    }
                 }
-            });
+            );
+
+            // Force refresh after a short delay to account for Map pins
+            setTimeout(() => {
+                ScrollTrigger.refresh();
+                window.dispatchEvent(new Event('resize'));
+            }, 1000);
         }, sectionRef);
 
         return () => ctx.revert();
@@ -100,11 +117,11 @@ const FinalSection = ({ content }) => {
                 >
                     <div className="final-overlay"></div>
 
-                    {slide.type === 'characters' && (
+                    {index === currentSlide && slide.type === 'characters' && (
                         <div className="final-character-layer">
-                            <img src={slide.leftChar} alt="Character Left" className="final-char-left" />
-                            <img src={slide.logo} alt="Runner Runner Logo" className="final-game-logo" />
-                            <img src={slide.rightChar} alt="Character Right" className="final-char-right" />
+                            <img src={slide.leftChar} alt="Character Left" className="final-char-left" style={{ opacity: 1, willChange: 'transform, opacity' }} />
+                            <img src={slide.logo} alt="Runner Runner Logo" className="final-game-logo" style={{ opacity: 1, willChange: 'transform, opacity' }} />
+                            <img src={slide.rightChar} alt="Character Right" className="final-char-right" style={{ opacity: 1, willChange: 'transform, opacity' }} />
                         </div>
                     )}
 

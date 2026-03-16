@@ -8,11 +8,12 @@ const FeaturesSection = ({ content }) => {
     const sectionRef = useRef(null);
     const imgRef = useRef(null);
 
-    const data = content?.features3d || {
-        heading: "ENDLESS RUN!\nENDLESS FUN!",
-        description: "IN RUNNER RUNNER, THE CITY IS YOUR PLAYGROUND. RUN, DODGE, AND COLLECT POWER-UPS TO BEAT YOUR HIGH SCORE. SIMPLE TO PLAY, HARD TO PUT DOWN. ARE YOU FAST ENOUGH TO STAY AHEAD?",
-        buttonText: "EXPLORE IT",
-        image: "/assets/Mask group.png"
+    const rawData = content?.features3d;
+    const data = {
+        heading: rawData?.heading || "ENDLESS RUN!\nENDLESS FUN!",
+        description: rawData?.description || "IN RUNNER RUNNER, THE CITY IS YOUR PLAYGROUND. RUN, DODGE, AND COLLECT POWER-UPS TO BEAT YOUR HIGH SCORE. SIMPLE TO PLAY, HARD TO PUT DOWN. ARE YOU FAST ENOUGH TO STAY AHEAD?",
+        buttonText: rawData?.buttonText || "EXPLORE IT",
+        image: rawData?.image || "/assets/Mask group.png"
     };
 
     useEffect(() => {

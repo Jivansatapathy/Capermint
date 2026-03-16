@@ -1,26 +1,32 @@
 import React from 'react';
 
 const GameModesSection = ({ content }) => {
-    const data = content?.gameModes || {
-        title: "GAME MODES",
-        subtitle: "MORE THAN ONE WAY TO PLAY\nEACH MODE CHANGES HOW THE RUN FEELS",
-        items: [
-            {
-                title: "ENDLESS RUN",
-                description: "RUN AS FAR AS YOU CAN WITHOUT\nSTOPPING ONE MISTAKE ENDS IT ALL",
-                image: "/assets/vs mode 1.png"
-            },
-            {
-                title: "VS MODE",
-                description: "RACE AGAINST OTHERS IN REAL TIME\nONLY ONE RUNNER WINS",
-                image: "/assets/vs mode 2.png"
-            },
-            {
-                title: "RAID MODE",
-                description: "FACE INTENSE OBSTACLE ATTACKS\nSURVIVE THE CHAOS AND KEEP MOVING",
-                image: "/assets/vs mode 3.png"
-            }
-        ]
+    const rawData = content?.gameModes;
+    const defaultItems = [
+        {
+            title: "ENDLESS RUN",
+            description: "RUN AS FAR AS YOU CAN WITHOUT\nSTOPPING ONE MISTAKE ENDS IT ALL",
+            image: "/assets/vs mode 1.png"
+        },
+        {
+            title: "VS MODE",
+            description: "RACE AGAINST OTHERS IN REAL TIME\nONLY ONE RUNNER WINS",
+            image: "/assets/vs mode 2.png"
+        },
+        {
+            title: "RAID MODE",
+            description: "FACE INTENSE OBSTACLE ATTACKS\nSURVIVE THE CHAOS AND KEEP MOVING",
+            image: "/assets/vs mode 3.png"
+        }
+    ];
+
+    const data = {
+        title: rawData?.title || "GAME MODES",
+        subtitle: rawData?.subtitle || "MORE THAN ONE WAY TO PLAY\nEACH MODE CHANGES HOW THE RUN FEELS",
+        items: (rawData?.items || defaultItems).map(item => ({
+            ...item,
+            description: item.description || ""
+        }))
     };
 
     return (
@@ -29,10 +35,10 @@ const GameModesSection = ({ content }) => {
                 <div className="game-modes-header">
                     <h2 className="game-modes-title">{data.title}</h2>
                     <p className="game-modes-subtitle">
-                        {data.subtitle.split('\n').map((line, i) => (
+                        {(data.subtitle || "").split('\n').map((line, i) => (
                             <React.Fragment key={i}>
                                 {line}
-                                {i < data.subtitle.split('\n').length - 1 && <br />}
+                                {i < (data.subtitle || "").split('\n').length - 1 && <br />}
                             </React.Fragment>
                         ))}
                     </p>
@@ -47,10 +53,10 @@ const GameModesSection = ({ content }) => {
                             <div className="game-mode-content">
                                 <h3>{mode.title}</h3>
                                 <p>
-                                    {mode.description.split('\n').map((line, i) => (
+                                    {(mode.description || "").split('\n').map((line, i) => (
                                         <React.Fragment key={i}>
                                             {line}
-                                            {i < mode.description.split('\n').length - 1 && <br />}
+                                            {i < (mode.description || "").split('\n').length - 1 && <br />}
                                         </React.Fragment>
                                     ))}
                                 </p>

@@ -9,16 +9,17 @@ const CharacterSection = ({ content }) => {
     const modelRef = useRef(null);
     const cardRef = useRef(null);
 
-    const data = content?.characterSection || {
-        heading: "HEY RUNNER!",
-        subheading: "I'M SPEEDSTER AUSTIN.",
-        text: "THE CITY'S ALWAYS BEEN MY TURF, BUT NOW IT'S YOURS TO CONQUER.\nTHE STREETS ARE FULL OF OBSTACLES, POWER-UPS,\nAND ENDLESS CHALLENGES. ARE YOU FAST ENOUGH TO BEAT THEM ALL?",
-        modelImage: "/assets/3d model.png",
-        signatureImage: "/assets/Signature.png",
-        backCardImage: "/assets/backcard.png",
-        topCardImage: "/assets/topcard.png",
-        coinTopImage: "/assets/Coin_top.png",
-        coinBottomImage: "/assets/Coin_bottom.png"
+    const rawData = content?.characterSection;
+    const data = {
+        heading: rawData?.heading || "HEY RUNNER!",
+        subheading: rawData?.subheading || "I'M SPEEDSTER AUSTIN.",
+        text: rawData?.text || "THE CITY'S ALWAYS BEEN MY TURF, BUT NOW IT'S YOURS TO CONQUER.\nTHE STREETS ARE FULL OF OBSTACLES, POWER-UPS,\nAND ENDLESS CHALLENGES. ARE YOU FAST ENOUGH TO BEAT THEM ALL?",
+        modelImage: rawData?.modelImage || "/assets/3d model.png",
+        signatureImage: rawData?.signatureImage || "/assets/Signature.png",
+        backCardImage: rawData?.backCardImage || "/assets/backcard.png",
+        topCardImage: rawData?.topCardImage || "/assets/topcard.png",
+        coinTopImage: rawData?.coinTopImage || "/assets/Coin_top.png",
+        coinBottomImage: rawData?.coinBottomImage || "/assets/Coin_bottom.png"
     };
 
     useEffect(() => {
@@ -130,7 +131,7 @@ const CharacterSection = ({ content }) => {
                             <h2 className="card-heading">{data.heading}</h2>
                             <h3 className="card-subheading">{data.subheading}</h3>
                             <p className="card-text">
-                                {data.text.split('\n').map((line, i) => (
+                                {(data.text || "").split('\n').map((line, i) => (
                                     <React.Fragment key={i}>
                                         {line}
                                         {i < data.text.split('\n').length - 1 && <br />}

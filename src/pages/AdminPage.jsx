@@ -112,6 +112,14 @@ const PAGES = [
         ],
     },
     {
+        id: 'testimonialsPage',
+        label: 'Testimonials Page',
+        sections: [
+            { id: 'tp_hero', label: 'Hero Section', icon: 'layout' },
+            { id: 'tp_responses', label: 'User Submissions', icon: 'user' },
+        ],
+    },
+    {
         id: 'faq',
         label: 'FAQ Page',
         sections: [
@@ -225,7 +233,13 @@ const CSS = `
   .btn-outline { background: transparent; border: 1px solid #30363d; color: #8b949e; }
   .btn-outline:hover { border-color: #00E5FF; color: #00E5FF; background: rgba(0,229,255,0.05); }
   .txt-danger { color: #ff4757 !important; }
+  .adm-sb-logout { margin-bottom: 10px; padding: 0 10px; }
 `;
+
+const getAuthHeader = () => {
+    const token = localStorage.getItem('adminToken');
+    return token ? { 'Authorization': `Bearer ${token}` } : {};
+};
 
 // ─── TOAST ────────────────────────────────────────────────
 function Toast({ toasts }) {
@@ -809,7 +823,11 @@ const GenericUploadField = ({ label, value, onUpload, toast }) => {
         try {
             const fd = new FormData();
             fd.append('image', file);
-            const res = await fetch('http://localhost:3000/api/upload-any', { method: 'POST', body: fd });
+            const res = await fetch('http://localhost:3000/api/upload-any', { 
+                method: 'POST', 
+                headers: { ...getAuthHeader() },
+                body: fd 
+            });
             if (!res.ok) throw new Error('Upload failed');
             const { url } = await res.json();
             onUpload(url);
@@ -833,13 +851,85 @@ const GenericUploadField = ({ label, value, onUpload, toast }) => {
 };
 
 // ─── CONTACT PANEL ───────────────────────────────────────
+// ─── TESTIMONIAL RESPONSES PANEL ───────────────────────
+function TestimonialResponsesPanel({ toast }) {
+    const [list, setList] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const load = () => {
+        fetch('http://localhost:3000/api/get-testimonials', { headers: getAuthHeader() })
+            .then(r => r.json())
+            .then(d => { setList(d); setLoading(false); })
+            .catch(() => setLoading(false));
+    };
+
+    useEffect(() => { load(); }, []);
+
+    const del = async (id) => {
+        if(!confirm('Delete this testimonial submission?')) return;
+        await fetch(`http://localhost:3000/api/testimonials/${id}`, { 
+            method: 'DELETE',
+            headers: getAuthHeader()
+        });
+        toast('Deleted');
+        load();
+    };
+
+    if (loading) return <p>Loading testimonials...</p>;
+
+    return (
+        <div className="adm-card">
+            <div className="adm-card-hd"><div className="adm-card-title">User Submitted Testimonials ({list.length})</div><button className="btn btn-secondary btn-sm" onClick={load}>Refresh</button></div>
+            {list.length === 0 && <p style={{padding:20, color:'#8b949e'}}>No submissions yet.</p>}
+            <div className="responses-list">
+                {list.map(r => (
+                    <div key={r.id} className="art-row" style={{flexDirection:'column', alignItems:'flex-start', gap:10}}>
+                        <div style={{display:'flex', justifyContent:'space-between', width:'100%'}}>
+                            <div style={{display:'flex', alignItems:'center', gap:10}}>
+                                <span style={{color:'#00E5FF', fontWeight:700}}>{r.name}</span>
+                                <span style={{color:'#FFB800'}}>★ {r.rating}</span>
+                            </div>
+                            <button className="btn btn-danger btn-sm" onClick={() => del(r.id)}>{I.trash}</button>
+                        </div>
+                        <div style={{fontSize:'12px', color:'#8b949e'}}>{r.email} · {new Date(r.date).toLocaleString()}</div>
+                        <div style={{background:'rgba(0,0,0,0.2)', padding:10, borderRadius:5, width:'100%', fontSize:'13px', marginTop:5}}>
+                            {r.review}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function TestimonialsPagePanel({ data, update, section, toast }) {
+    const tp = data.testimonialsPage || {};
+    const hero = tp.hero || { title: '', subtitle: '' };
+
+    if (section === 'tp_responses') return <TestimonialResponsesPanel toast={toast} />;
+
+    return (
+        <div className="adm-card">
+            <div className="adm-card-hd"><div className="adm-card-title">Testimonials Page Hero</div></div>
+            <div className="adm-fg">
+                <label className="adm-lbl">Title (HTML allowed)</label>
+                <textarea className="adm-ta" value={hero.title} onChange={e => update('testimonialsPage', { ...tp, hero: { ...hero, title: e.target.value } })} />
+            </div>
+            <div className="adm-fg">
+                <label className="adm-lbl">Subtitle</label>
+                <input className="adm-inp" value={hero.subtitle} onChange={e => update('testimonialsPage', { ...tp, hero: { ...hero, subtitle: e.target.value } })} />
+            </div>
+        </div>
+    );
+}
+
 // ─── RESPONSES PANEL ─────────────────────────────
 function ResponsesPanel({ toast }) {
     const [list, setList] = useState([]);
     const [loading, setLoading] = useState(true);
 
     const load = () => {
-        fetch('http://localhost:3000/api/responses')
+        fetch('http://localhost:3000/api/responses', { headers: getAuthHeader() })
             .then(r => r.json())
             .then(d => { setList(d); setLoading(false); })
             .catch(() => setLoading(false));
@@ -849,7 +939,10 @@ function ResponsesPanel({ toast }) {
 
     const del = async (id) => {
         if(!confirm('Delete this submission?')) return;
-        await fetch(`http://localhost:3000/api/responses/${id}`, { method: 'DELETE' });
+        await fetch(`http://localhost:3000/api/responses/${id}`, { 
+            method: 'DELETE',
+            headers: getAuthHeader()
+        });
         toast('Deleted');
         load();
     };
@@ -1502,7 +1595,11 @@ function BriefingsPanel({ data, update, toast }) {
         try {
             const fd = new FormData();
             fd.append('image', form.file);
-            const res = await fetch(UPLOAD_API, { method: 'POST', body: fd });
+            const res = await fetch(UPLOAD_API, { 
+                method: 'POST', 
+                headers: { ...getAuthHeader() },
+                body: fd 
+            });
             if (!res.ok) throw new Error('Upload failed');
             const { url } = await res.json();
             update('briefings', { ...briefings, items: [...(briefings.items || []), { id: Date.now().toString(), title: form.title, desc: form.desc, videoLink: form.videoLink, image: url, content: [] }] });
@@ -1591,10 +1688,10 @@ export default function AdminPage() {
     }, []);
 
     useEffect(() => {
-        fetch(API)
+        fetch(API, { headers: getAuthHeader() })
             .then(r => r.json())
             .then(d => { setData(d); setLoading(false); })
-            .catch(() => { toast('Cannot connect to backend. Is server.js running?', 'error'); setLoading(false); });
+            .catch(() => { toast('Cannot connect to backend or unauthorized.', 'error'); setLoading(false); });
     }, []);
 
     const update = useCallback((key, value) => setData(d => ({ ...d, [key]: value })), []);
@@ -1604,7 +1701,14 @@ export default function AdminPage() {
     const saveAll = async () => {
         setSaving(true);
         try {
-            const res = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+            const res = await fetch(API, { 
+                method: 'POST', 
+                headers: { 
+                    'Content-Type': 'application/json',
+                    ...getAuthHeader()
+                }, 
+                body: JSON.stringify(data) 
+            });
             if (!res.ok) throw new Error('Server error');
             setLastSaved(new Date().toLocaleTimeString());
             toast('✓ Changes saved!');
@@ -1665,10 +1769,11 @@ export default function AdminPage() {
             case 'ppBonusRoad':
             case 'ppChoice':
                 return <PowerplayPanel data={data} update={update} section={activeSection} toast={toast} />;
-            case 'faqHero':
-            case 'faqQuestions':
             case 'faqRatings':
                 return <FaqPanel data={data} update={update} section={activeSection} toast={toast} />;
+            case 'tp_hero':
+            case 'tp_responses':
+                return <TestimonialsPagePanel data={data} update={update} section={activeSection} toast={toast} />;
             default: return null;
         }
     };
@@ -1734,6 +1839,9 @@ export default function AdminPage() {
                         </div>
                         <div className="adm-topbar-right">
                             {lastSaved && <span className="saved-txt">Saved {lastSaved}</span>}
+                            <button className="btn btn-danger" onClick={() => { localStorage.removeItem('adminToken'); localStorage.removeItem('adminUser'); window.location.href = '/auth'; }}>
+                                Logout
+                            </button>
                             <button className="btn btn-primary" onClick={saveAll} disabled={saving}>
                                 {I.save}&nbsp;{saving ? 'Saving…' : 'Save Changes'}
                             </button>
