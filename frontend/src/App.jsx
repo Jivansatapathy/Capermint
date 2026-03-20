@@ -16,7 +16,7 @@ import AuthPage from './pages/AuthPage';
 
 import contentData from '../content.json';
 
-const defaultNav = ['HOME', 'CHARACTERS', 'POWERUPS', 'BLOG', 'SUPPORT'];
+const defaultNav = ['HOME', 'CHARACTERS', 'POWERUPS', 'MAPS', 'SUPPORT'];
 
 function App() {
     const [content, setContent] = useState(contentData || { nav: defaultNav });

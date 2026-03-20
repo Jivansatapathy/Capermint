@@ -41,8 +41,11 @@ const Navbar = ({ nav, navbar }) => {
                         if (item === 'HOME') linkPath = '/';
                         if (item === 'CHARACTERS') linkPath = '/characters';
                         if (item === 'POWERUPS') linkPath = '/powerplay';
+                        if (item === 'MAPS') linkPath = '/maps';
                         if (item === 'BLOG') linkPath = '/blog';
                         if (item === 'SUPPORT') linkPath = '/contact';
+                        if (item === 'TESTIMONIALS') linkPath = '/testimonials';
+                        if (item === 'FAQ') linkPath = '/faq';
 
                         const isExternal = linkPath.startsWith('http') || linkPath.includes('#');
                         
