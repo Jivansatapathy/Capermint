@@ -5,10 +5,9 @@ import Footer from '../components/Footer';
 import TestimonialsSection from '../components/TestimonialsSection';
 import '../styles/testimonials.css';
 
-import contentData from '../../content.json';
 
 const Testimonials = () => {
-    const content = contentData;
+    const content = {};
     const stats = content?.testimonialsPage?.stats || [
         {
             icon: "/assets/Testimonial/11.png",

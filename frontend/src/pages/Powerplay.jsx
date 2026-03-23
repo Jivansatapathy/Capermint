@@ -16,11 +16,10 @@ import PowerplayBonusRoadSection from '../components/PowerplayBonusRoadSection';
 import PowerplayChoiceSection from '../components/PowerplayChoiceSection';
 import FinalSection from '../components/FinalSection';
 import Lenis from '@studio-freight/lenis';
-import contentData from '../../content.json';
 import '../styles/powerplay.css';
 
 const Powerplay = () => {
-    const [content, setContent] = useState(contentData);
+    const [content, setContent] = useState({});
 
     useEffect(() => {
         // Smooth scroll

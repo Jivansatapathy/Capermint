@@ -7,7 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import contentData from '../../content.json';
 
 const Maps = () => {
     const sectionRef = useRef(null);
@@ -21,7 +20,7 @@ const Maps = () => {
     const bottomCloudSectionRef = useRef(null);
     const fourthSectionRef = useRef(null);
     const fourthTrackRef = useRef(null);
-    const [content, setContent] = useState(contentData);
+    const [content, setContent] = useState({});
 
     const mp = content.mapPage || {
         hero: { title: "RUNNER RUNNER", subtitle: "EXPLORE OUR MAPS" },

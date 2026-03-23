@@ -14,12 +14,11 @@ import BlogDetail from './pages/BlogDetail';
 import Maps from './pages/Maps';
 import AuthPage from './pages/AuthPage';
 
-import contentData from '../content.json';
 
 const defaultNav = ['HOME', 'CHARACTERS', 'POWERUPS', 'MAPS', 'SUPPORT'];
 
 function App() {
-    const [content, setContent] = useState(contentData || { nav: defaultNav });
+    const [content, setContent] = useState({ nav: defaultNav });
 
     useEffect(() => {
         const token = localStorage.getItem('adminToken');

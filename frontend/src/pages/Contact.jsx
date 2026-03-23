@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import FinalSection from '../components/FinalSection';
 import '../styles/contact.css';
 
-import contentData from '../../content.json';
 
 const defaultContent = {
     hero: {
@@ -33,7 +32,7 @@ const defaultContent = {
 };
 
 const Contact = () => {
-    const [cp, setCp] = useState(contentData.contactPage || defaultContent);
+    const [cp, setCp] = useState(defaultContent);
     const [faqActive, setFaqActive] = useState(0);
     const [activeTab, setActiveTab] = useState('GAMEPLAY');
     const [formData, setFormData] = useState({ name: '', email: '', subject: 'GENERAL INQUIRY', message: '' });

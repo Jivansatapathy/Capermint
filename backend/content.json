@@ -1,1 +1,969 @@
-{}
+{
+  "hero": {
+    "title": "THE ULTIMATE COMPETITIVE<br />RUNNER EXPERIENCE",
+    "subtitle": "WHERE SPEED MEETS STRATEGY",
+    "bg": "/assets/BG photo.png",
+    "assets": {
+      "coin": "/assets/coin.png",
+      "twoX": "/assets/2x 1.png",
+      "magnet": "/assets/magnet 1.png",
+      "chest": "/assets/Chest_1 2.png",
+      "shield": "/assets/Shield_Animation 1.png",
+      "character": "/assets/New-Icon 1.png",
+      "blaster": "/assets/Blaster_animation 1.png"
+    }
+  },
+  "nav": [
+    "HOME",
+    "CHARACTERS",
+    "POWERUPS",
+    "BLOG",
+    "SUPPORT"
+  ],
+  "navbar": {
+    "logo": "/assets/uploads/1773215102444-142471305-Runnerlogo.png",
+    "googlePlay": "/assets/Google Store download button.png",
+    "appStore": "/assets/App Store download button.png"
+  },
+  "about": {
+    "title": "THE RUNNER RUNNER STORY",
+    "text": "In a world where speed is everything, only the strategic survive. Join the ultimate competitive race across the neon city streets."
+  },
+  "stats": {
+    "items": [
+      {
+        "target": 2,
+        "suffix": "M+",
+        "title": "GAMES PLAYED",
+        "subtitle": "RUNS COMPLETED BY PLAYERS\nAROUND THE WORLD.",
+        "colorClass": "color-cream",
+        "bgClass": "bg-yellow",
+        "titleColorClass": "color-brown"
+      },
+      {
+        "target": 370,
+        "suffix": "K+",
+        "title": "INSTALLS",
+        "subtitle": "RUNNERS WHO HAVE JOINED\nTHE RUNNER RUNNER SO FAR.",
+        "colorClass": "color-light-green",
+        "bgClass": "bg-green",
+        "titleColorClass": "color-dark-green"
+      },
+      {
+        "target": 75,
+        "prefix": "$",
+        "suffix": "K+",
+        "title": "PRIZES DISTRIBUTED",
+        "subtitle": "REAL REWARDS EARNED THROUGH\nSPECIAL EVENTS",
+        "colorClass": "color-light-purple",
+        "bgClass": "bg-pink",
+        "titleColorClass": "color-purple"
+      },
+      {
+        "target": 3,
+        "suffix": "K+",
+        "title": "GAMES PLAYED EVERY DAY",
+        "subtitle": "THE RUN NEVER STOPS",
+        "colorClass": "color-light-blue",
+        "bgClass": "bg-blue",
+        "titleColorClass": "color-dark-blue"
+      }
+    ]
+  },
+  "features3d": {
+    "heading": "ENDLESS RUN!\nENDLESS FUN!",
+    "description": "IN RUNNER RUNNER, THE CITY IS YOUR PLAYGROUND. RUN, DODGE, AND COLLECT POWER-UPS TO BEAT YOUR HIGH SCORE. SIMPLE TO PLAY, HARD TO PUT DOWN. ARE YOU FAST ENOUGH TO STAY AHEAD?",
+    "buttonText": "EXPLORE IT",
+    "image": "/assets/Mask group.png"
+  },
+  "community": [
+    {
+      "number": "01",
+      "title": "RUN THROUGH THE CITY",
+      "desc": "DASH THROUGH FAST-CHANGING STREETS FILLED WITH OBSTACALS TWISTS AND SURPRISES EVERY RUN IS DIFFERENT AND EVERY SECOND COUNTS.",
+      "image": "/assets/Right side mobile.png"
+    },
+    {
+      "number": "02",
+      "title": "DODGE EVERYTHING IN YOUR WAY",
+      "desc": "JUMP SLIDE AND REACT FAST TO SURVIVE ONE WRONG MOVE AND THE RUN IS OVER.",
+      "image": "/assets/Left Side Mobile.png",
+      "reversed": true,
+      "gradientVariant": "2"
+    },
+    {
+      "number": "03",
+      "title": "POWER UP YOUR RUN",
+      "desc": "GRAB BOOSTS SHIELDS AND BONUSES MID-RUNUSE THEM WISELY TO GO FURTHER AND SCORE HIGHER.",
+      "image": "/assets/Right Side 03.png"
+    },
+    {
+      "number": "04",
+      "title": "BEAT YOUR BEST",
+      "desc": "CHALLENGE YOURSELF TO RUN FARTHER EVERY TIME CLIMB THE LEADERBOARD AND PROVE YOU'RE THE FASTEST.",
+      "image": "/assets/leftimg.png",
+      "reversed": true,
+      "gradientVariant": "2"
+    }
+  ],
+  "characterSection": {
+    "heading": "HEY RUNNER!",
+    "subheading": "I'M SPEEDSTER AUSTIN.",
+    "text": "THE CITY'S ALWAYS BEEN MY TURF, BUT NOW IT'S YOURS TO CONQUER.\nTHE STREETS ARE FULL OF OBSTACLES, POWER-UPS,\nAND ENDLESS CHALLENGES. ARE YOU FAST ENOUGH TO BEAT THEM ALL?",
+    "modelImage": "/assets/3d model.png",
+    "signatureImage": "/assets/Signature.png",
+    "backCardImage": "/assets/backcard.png",
+    "topCardImage": "/assets/topcard.png",
+    "coinTopImage": "/assets/Coin_top.png",
+    "coinBottomImage": "/assets/Coin_bottom.png"
+  },
+  "runners": {
+    "title": "MEET THE RUNNERS",
+    "subtitle": "FROM STREET ARTISTS TO FUTURISTIC RACERS, UNLOCK A UNIQUE ROSTER OF RUNNERS READY TO TAKE OVER THE CITY.",
+    "items": [
+      {
+        "name": "AUSTIN",
+        "desc": "QUICK CONFIDENT AND ALWAYS ON THE MOVE",
+        "modelImage": "/assets/model1.png",
+        "modelScale": "45"
+      },
+      {
+        "name": "MIKEY P",
+        "desc": "STREET SMART LAID BACK AND ALWAYS IN CONTROL",
+        "modelImage": "/assets/model2.png",
+        "modelScale": "55"
+      },
+      {
+        "name": "CAROLINA",
+        "desc": "STRONG FEARLESS AND HARD TO SLOW DOWN",
+        "modelImage": "/assets/model3.png",
+        "modelScale": "45"
+      }
+    ]
+  },
+  "powerups": {
+    "title": "POWER UP YOUR RUN",
+    "subtitle": "ONE PICKUP CAN CHANGE EVERYTHING",
+    "items": [
+      {
+        "name": "SHIELD",
+        "desc": "SURVIVE A HIT AND KEEP RUNNING",
+        "image": "/assets/Shield_Animation 1.png"
+      },
+      {
+        "name": "KEYS",
+        "desc": "SECOND CHANCES WHEN IT MATTERS MOST",
+        "image": "/assets/Key 1.png"
+      },
+      {
+        "name": "BLASTER",
+        "desc": "CLEAR THE PATH AHEAD FAST",
+        "image": "/assets/Blaster_animation 1.png"
+      },
+      {
+        "name": "MAGNET",
+        "desc": "PULL COINS STRAIGHT TO YOU",
+        "image": "/assets/magnet 1.png"
+      }
+    ]
+  },
+  "explore": {
+    "title": "EXPLORE THE WORLD OF RUNNER RUNNER",
+    "subtitle": "8 DIFFERENT WORLDS WAITING TO BE DISCOVERED",
+    "buttonText": "EXPLORE"
+  },
+  "gameModes": {
+    "title": "GAME MODES",
+    "subtitle": "MORE THAN ONE WAY TO PLAY\nEACH MODE CHANGES HOW THE RUN FEELS",
+    "items": [
+      {
+        "title": "ENDLESS RUN",
+        "description": "RUN AS FAR AS YOU CAN WITHOUT\nSTOPPING ONE MISTAKE ENDS IT ALL",
+        "image": "/assets/vs mode 1.png"
+      },
+      {
+        "title": "VS MODE",
+        "description": "RACE AGAINST OTHERS IN REAL TIME\nONLY ONE RUNNER WINS",
+        "image": "/assets/vs mode 2.png"
+      },
+      {
+        "title": "RAID MODE",
+        "description": "FACE INTENSE OBSTACLE ATTACKS\nSURVIVE THE CHAOS AND KEEP MOVING",
+        "image": "/assets/vs mode 3.png"
+      }
+    ]
+  },
+  "specialEvents": {
+    "title": "SPECIAL EVENTS",
+    "subtitle": "LIMITED TIME CHALLENGES WITH BIGGER REWARDS.\nEVERY EVENT BRINGS SOMETHING NEW!",
+    "eventTitle": "CASH OUT EVENT IS LIVE",
+    "eventDescription": "COMPLETE TASKS & RUN DURING THE EVENT CLIMB THE LEADERBOARD.\nTOP RUNNERS EARN REAL REWARDS.",
+    "buttonText": "EXPLORE >",
+    "image": "/assets/image.png"
+  },
+  "finalSection": {
+    "slides": [
+      {
+        "id": "slide1",
+        "bg": "/assets/sectionbg14.png",
+        "type": "standard",
+        "title": "THE RUN STARTS NOW!",
+        "titleColor": "#48FF3F",
+        "subtitle": "EVERY RUN IS DIFFERENT EVERY SECOND COUNTS.",
+        "storeButtons": {
+          "googlePlay": "/assets/Google Store download button.png",
+          "appStore": "/assets/App Store download button.png"
+        }
+      },
+      {
+        "id": "slide2",
+        "bg": "/assets/sectionbg14-1.png",
+        "type": "characters",
+        "title": "THE RUN STARTS NOW!",
+        "titleColor": "#FFFB8F",
+        "subtitle": "EVERY RUN EVERY DODGE EVERY WIN ADDS UP\nTHANK YOU FOR RUNNING WITH US.",
+        "leftChar": "/assets/NOVA 2.png",
+        "rightChar": "/assets/Mara 2.png",
+        "logo": "/assets/Runner Runner 4K 1.png",
+        "buttonText": "JOIN THE RUN!",
+        "buttonColor": "#19557B"
+      }
+    ]
+  },
+  "testimonials": [
+    {
+      "rating": 5,
+      "text": "\"RUNNER RUNNER IS ABSOLUTELY ADDICTIVE! THE GAMEPLAY IS SMOOTH, THE CHARACTERS ARE AMAZING, AND EVERY RUN FEELS FRESH. I CAN'T STOP PLAYING!\"",
+      "name": "SARAH MITCHELL",
+      "role": "PRO PLAYER",
+      "icon": "🏃‍♀️"
+    },
+    {
+      "rating": 5,
+      "text": "\"BEST ENDLESS RUNNER I'VE PLAYED. THE POWER-UPS ARE CREATIVE, THE WORLDS ARE BEAUTIFUL, AND THE DIFFICULTY CURVE IS PERFECT. HIGHLY RECOMMENDED!\"",
+      "name": "MARCUS JOHNSON",
+      "role": "CASUAL GAMER",
+      "icon": "🎮"
+    },
+    {
+      "rating": 5,
+      "text": "\"MY VIEWERS LOVE WATCHING ME PLAY RUNNER RUNNER. THE FAST-PACED ACTION AND COMPETITIVE MODES MAKE FOR GREAT CONTENT. THIS GAME IS A GEM!\"",
+      "name": "EMMA CHEN",
+      "role": "STREAMER",
+      "icon": "📱"
+    },
+    {
+      "rating": 5,
+      "text": "\"THE MECHANICS ARE TIGHT AND RESPONSIVE. I'VE BEEN GRINDING FOR HIGH SCORES AND THE LEADERBOARD SYSTEM KEEPS ME MOTIVATED. LOVE IT!\"",
+      "name": "ALEX RODRIGUEZ",
+      "role": "SPEEDRUNNER",
+      "icon": "⚡"
+    },
+    {
+      "rating": 4,
+      "text": "\"FINALLY, A MOBILE GAME THAT RESPECTS MY TIME! NO PAY-TO-WIN NONSENSE, JUST PURE FUN. RUNNER RUNNER IS MY GO-TO GAME DURING BREAKS.\"",
+      "name": "JESSICA LEE",
+      "role": "MOBILE GAMER",
+      "icon": "⭐"
+    },
+    {
+      "rating": 4,
+      "text": "\"THE CHARACTER DESIGNS ARE INCREDIBLE, AND THE NEON AESTHETIC IS SO COOL. THIS GAME HAS SERIOUS PRODUCTION VALUE. DEVELOPERS DID AN AMAZING JOB!\"",
+      "name": "DAVID THOMPSON",
+      "role": "GAMING ENTHUSIAST",
+      "icon": "🎯"
+    }
+  ],
+  "cta": {
+    "subtitle": "WANT TO STAY IN TOUCH?",
+    "title": "FOLLOW US ON SOCIAL MEDIA",
+    "description": "STAY UP-TO-DATE WITH THE LATEST IN RUNNER RUNNER.",
+    "socialLinks": [
+      {
+        "label": "INSTAGRAM",
+        "icon": "/assets/socialiconsimg/Instagram.png",
+        "url": "#"
+      },
+      {
+        "label": "FACEBOOK",
+        "icon": "/assets/socialiconsimg/Faceebook.png",
+        "url": "#"
+      },
+      {
+        "label": "YOUTUBE",
+        "icon": "/assets/socialiconsimg/Youtube.png",
+        "url": "#"
+      },
+      {
+        "label": "X",
+        "icon": "/assets/socialiconsimg/X.png",
+        "url": "#"
+      },
+      {
+        "label": "THREAD",
+        "icon": "/assets/socialiconsimg/Threads.png",
+        "url": "#"
+      }
+    ]
+  },
+  "score": "15",
+  "articles": {
+    "title": "FEATURED ARTICLES",
+    "subtitle": "NEWS UPDATES AND STORIES FROM RUNNER RUNNER",
+    "viewAllText": "VIEW ALL ARTICLES"
+  },
+  "charactersPage": {
+    "hero": {
+      "title": "MEET THE RUNNERS",
+      "subtitle": "EVERY RUNNER TELLS A DIFFERENT STORY. WHO ARE YOU WHEN YOU RUN?",
+      "bgImage": "/assets/characterasssets/BG photo.png"
+    },
+    "sections": [
+      {
+        "id": "austin",
+        "characterName": "AUSTIN",
+        "characterTitle": "STREET STYLE / COMPETITIVE",
+        "mainQuote": "I RUN TO WIN. ALWAYS.",
+        "personality": [
+          "FAST ENERGY, COMPETITIVE MINDSET.",
+          "ALWAYS CHASING THE NEXT CHALLENGE."
+        ],
+        "characterImage": "/assets/characterasssets/boysecondsection.png",
+        "sectionBg": "/assets/characterasssets/section2bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false
+      },
+      {
+        "id": "samantha",
+        "characterName": "SAMANTHA",
+        "characterTitle": "HIGH ENERGY / PLAYFUL",
+        "mainQuote": "LET’S MAKE THIS RUN FUN.",
+        "personality": [
+          "BOLD, CURIOUS, AND FULL OF ENERGY.",
+          "EVERY RUN FEELS LIKE AN ADVENTURE."
+        ],
+        "characterImage": "/assets/characterasssets/girlthirdsection.png",
+        "sectionBg": "/assets/characterasssets/section3bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "blue"
+      },
+      {
+        "id": "anthony",
+        "characterName": "ANTHONY",
+        "characterTitle": "CLASSIC STYLE / FOCUSED",
+        "mainQuote": "STAY SHARP. STAY AHEAD.",
+        "personality": [
+          "CLASSIC STYLE WITH A CALM FOCUS.",
+          "PRECISION OVER CHAOS."
+        ],
+        "characterImage": "/assets/characterasssets/Boysection4.png",
+        "sectionBg": "/assets/characterasssets/section4bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "teal"
+      },
+      {
+        "id": "lizzy",
+        "characterName": "LIZZY",
+        "characterTitle": "VIBRANT / EXPRESSIVE",
+        "mainQuote": "CATCH ME IF YOU CAN!",
+        "personality": [
+          "BRIGHT PERSONALITY WITH FEARLESS CONFIDENCE.",
+          "IMPOSSIBLE TO IGNORE."
+        ],
+        "characterImage": "/assets/characterasssets/girlsection5.png",
+        "sectionBg": "/assets/characterasssets/section5bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "purple"
+      },
+      {
+        "id": "mikey",
+        "characterName": "MIKEY P",
+        "characterTitle": "CONFIDENT / SMOOTH RUNNER",
+        "mainQuote": "RELAX. I'VE GOT THIS.",
+        "personality": [
+          "STREET-SMART AND LAID-BACK.",
+          "COOL UNDER PRESSURE, ALWAYS IN CONTROL."
+        ],
+        "characterImage": "/assets/characterasssets/mansection6.png",
+        "sectionBg": "/assets/characterasssets/sectiont6bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "red"
+      },
+      {
+        "id": "zoey",
+        "characterName": "ZOEY",
+        "characterTitle": "MINIMALIST / FOCUSED",
+        "mainQuote": "FLOW WITH THE RUN.",
+        "personality": [
+          "CALM AND FOCUSED.",
+          "EVERY MOVEMENT IS CONTROLLED AND INTENTIONAL."
+        ],
+        "characterImage": "/assets/characterasssets/section7girl.png",
+        "sectionBg": "/assets/characterasssets/section7bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "magenta"
+      },
+      {
+        "id": "darnell",
+        "characterName": "DARNELL",
+        "characterTitle": "ENDURANCE STYLE / CHILL ENERGY",
+        "mainQuote": "KEEP MOVING. NO BREAKS.",
+        "personality": [
+          "SMOOTH AND STEADY.",
+          "BUILT FOR ENDURANCE AND CONSISTENCY."
+        ],
+        "characterImage": "/assets/characterasssets/section8boy.png",
+        "sectionBg": "/assets/characterasssets/section8bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "orange"
+      },
+      {
+        "id": "carolina",
+        "characterName": "CAROLINA",
+        "characterTitle": "BOLD STYLE / POWER PRESENCE",
+        "mainQuote": "LET'S TURN UP THE PACE.",
+        "personality": [
+          "STRONG & FEARLESS.",
+          "UNSTOPPABLE ONCE SHE GETS GOING."
+        ],
+        "characterImage": "/assets/characterasssets/section9girl.png",
+        "sectionBg": "/assets/characterasssets/section9bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "dark-red"
+      },
+      {
+        "id": "megha",
+        "characterName": "MEGHA",
+        "characterTitle": "ELEGANT STYLE / STRATEGIC",
+        "mainQuote": "ONE STEP AHEAD. ALWAYS.",
+        "personality": [
+          "SHARP INSTINCTS.",
+          "GRACEFUL CONFIDENCE."
+        ],
+        "characterImage": "/assets/characterasssets/section10girl.png",
+        "sectionBg": "/assets/characterasssets/section10bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "lime-green"
+      },
+      {
+        "id": "nova",
+        "characterName": "NOVA",
+        "characterTitle": "NEON STYLE / HIGH IMPACT",
+        "mainQuote": "YOU CAN'T MISS ME.",
+        "personality": [
+          "BOLD & BRIGHT.",
+          "DESIGNED TO STAND OUT FROM THE CROWD."
+        ],
+        "characterImage": "/assets/characterasssets/section11girl.png",
+        "sectionBg": "/assets/characterasssets/section11bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": true,
+        "variant": "neon-purple"
+      },
+      {
+        "id": "dwight",
+        "characterName": "DWIGHT",
+        "characterTitle": "STRONG PRESENCE / LEADER ENERGY",
+        "mainQuote": "STAY STRONG. KEEP RUNNING.",
+        "personality": [
+          "POWERFUL PRESENCE WITH FOCUSED DETERMINATION.",
+          "BUILT TO LEAD. DRIVEN TO WIN."
+        ],
+        "characterImage": "/assets/characterasssets/section12boy.png",
+        "sectionBg": "/assets/characterasssets/section12bg.png",
+        "cardBg": "/assets/characterasssets/Card bg.png",
+        "reversed": false,
+        "variant": "orange"
+      }
+    ],
+    "groupSection": {
+      "title": "WHO WILL YOU RUN AS?",
+      "subtitle": "EACH CHARACTER BRINGS A DIFFERENT ENERGY.",
+      "text": "CHOOSE YOUR IDENTITY AND START THE RACE.",
+      "image": "/assets/characterasssets/Full Cherecters 1.png",
+      "bg": "/assets/characterasssets/section13bg.png"
+    }
+  },
+  "contactPage": {
+    "hero": {
+      "title": "WE'D LOVE TO HEAR FROM YOU!",
+      "subtitle": "GOT A QUESTION, FEEDBACK, OR NEED HELP? WE'RE HERE FOR YOU!",
+      "buttonText": "CONTACT US",
+      "characterImage": "/assets/contactassets/contactsection1img.png"
+    },
+    "form": {
+      "labels": {
+        "name": "YOUR NAME",
+        "email": "EMAIL ADDRESS",
+        "subject": "SUBJECT",
+        "message": "MESSAGE",
+        "requiredText": "(REQUIRED)",
+        "subjectInfo": "(DROPDOWN OR TEXT FIELD)"
+      },
+      "placeholders": {
+        "name": "YOUR NAME",
+        "email": "YOU@EXAMPLE.COM",
+        "message": "ENTER MESSAGE..."
+      },
+      "buttonText": "SEND MESSAGE",
+      "subjectOptions": [
+        "GENERAL INQUIRY",
+        "SUPPORT",
+        "FEEDBACK"
+      ]
+    },
+    "infoBox": {
+      "title": "GET IN TOUCH",
+      "text": "PLEASE FILL OUT THE FORM BELOW, AND WE'LL GET BACK TO YOU AS SOON AS POSSIBLE. OUR TEAM IS HERE TO ASSIST WITH ANY INQUIRIES OR SUPPORT NEEDS!"
+    },
+    "support": {
+      "title": "CONTACT OUR SUPPORT TEAM",
+      "subtitle": "IF YOU NEED PERSONALIZED ASSISTANCE, YOU CAN REACH OUT TO OUR SUPPORT TEAM THROUGH ANY OF THE FOLLOWING METHODS",
+      "cards": [
+        {
+          "type": "email",
+          "icon": "/assets/contactassets/mail.png",
+          "title": "SUPPORT@RUNNERRUNNER.COM",
+          "desc": "AVAILABLE 24/7 VIA THE CHAT BUTTON AT THE BOTTOM-RIGHT OF THE PAGE."
+        },
+        {
+          "type": "phone",
+          "icon": "/assets/contactassets/phone.png",
+          "title": "+1 (555) 123-4567",
+          "desc": "PREFER TO SPEAK WITH SOMEONE? CALL US DURING OUR SUPPORT HOURS."
+        },
+        {
+          "type": "chat",
+          "icon": "/assets/contactassets/chat.png",
+          "title": "LIVE CHAT",
+          "desc": "AVAILABLE 24/7 VIA THE CHAT BUTTON AT THE BOTTOM-RIGHT OF THE PAGE."
+        }
+      ]
+    },
+    "faqSection": {
+      "title": "NEED HELP RIGHT NOW?",
+      "subtitle": "CHECK OUT THE FREQUENTLY ASKED QUESTIONS",
+      "tabs": [
+        "GAMEPLAY",
+        "EVENTS",
+        "GAME MODES",
+        "REWARDS"
+      ],
+      "allFaqs": {
+        "GAMEPLAY": [
+          {
+            "q": "IS THIS DYNAMIC?",
+            "a": "YOU CAN DOWNLOAD RUNNER RUNNER DIRECTLY FROM OUR WEBSITE OR FROM YOUR PLATFORM'S APP STORE. IT'S COMPLETELY FREE TO PLAY."
+          },
+          {
+            "q": "IS THERE CROSS-PLAY ENABLED?",
+            "a": "YES, PC, MOBILE, AND CONSOLE PLATFORMS ARE ALL FULLY SUPPORTED AND ENABLE CROSS-PLAY."
+          },
+          {
+            "q": "ARE THERE IN-APP PURCHASES?",
+            "a": "YES, OPTIONAL COSMETIC ITEMS ARE AVAILABLE FOR PURCHASE IN-GAME."
+          },
+          {
+            "q": "HOW DOES MULTIPLAYER WORK?",
+            "a": "YOU CAN COMPETE WITH OTHERS IN REAL-TIME MATCHES AND TOURNAMENTS."
+          },
+          {
+            "q": "CAN I PLAY OFFLINE?",
+            "a": "NO, RUNNER RUNNER REQUIRES AN INTERNET CONNECTION TO SYNC SCORES AND MATCH WITH PLAYERS."
+          }
+        ],
+        "EVENTS": [
+          {
+            "q": "WHEN DO SPECIAL EVENTS START?",
+            "a": "NEW EVENTS TYPICALLY START EVERY FIRST FRIDAY OF THE MONTH."
+          },
+          {
+            "q": "DO EVENT ITEMS RETURN?",
+            "a": "SOME EXCLUSIVE ITEMS MAY RETURN DURING ANNIVERSARY CELEBRATIONS."
+          },
+          {
+            "q": "HOW DO I PARTICIPATE IN TOURNAMENTS?",
+            "a": "YOU CAN SIGN UP FOR TOURNAMENTS THROUGH THE EVENTS TAB."
+          },
+          {
+            "q": "ARE THERE LEADERBOARD REWARDS?",
+            "a": "TOP 10% OF PLAYERS EACH SEASON EARN EXCLUSIVE TITLES AND BANNERS."
+          },
+          {
+            "q": "CAN I PLAY EVENTS OFFLINE?",
+            "a": "NO, EVENTS REQUiRE AN ACTIVE INTERNET CONNECTION."
+          }
+        ],
+        "GAME MODES": [
+          {
+            "q": "WHAT IS SURVIVAL MODE?",
+            "a": "SURVIVAL MODE CHALLENGES YOU TO LAST AS LONG AS POSSIBLE AGAINST ENDLESS WAVES."
+          },
+          {
+            "q": "CAN I PLAY WITH FRIENDS IN CO-OP?",
+            "a": "YES, CO-OP MODE SUPPORTS UP TO 4 PLAYERS IN A SINGLE SESSION."
+          },
+          {
+            "q": "ARE THERE RANKED MATCHES?",
+            "a": "COMPETITIVE RANKED PLAY IS AVAILABLE FOR PLAYERS LEVEL 10 AND ABOVE."
+          },
+          {
+            "q": "IS THERE A PRACTICE MODE?",
+            "a": "YES, YOU CAN TEST YOUR ABILITIES IN THE TRAINING RANGE OFFLINE."
+          },
+          {
+            "q": "HOW DO I UNLOCK NEW MODES?",
+            "a": "NEW GAME MODES ARE EXPERIENCED AS YOU PROGRESS AND LEVEL UP."
+          }
+        ],
+        "REWARDS": [
+          {
+            "q": "HOW DO I EARN COINS?",
+            "a": "COINS ARE EARNED BY COMPLETING MATCHES, DAILY CHALLENGES, AND LEVELING UP."
+          },
+          {
+            "q": "WHAT IS THE BATTLE PASS?",
+            "a": "THE BATTLE PASS OFFERS A TIERED REWARD SYSTEM WITH EXCLUSIVE COSMETICS."
+          },
+          {
+            "q": "HOW DO I CLAIM DAILY REWARDS?",
+            "a": "LOG IN EVERY DAY AND CLAIM YOUR REWARD FROM THE MAIN DASHBOARD."
+          },
+          {
+            "q": "CAN I GIFT REWARDS TO FRIENDS?",
+            "a": "NO, ITEM GIFTING IS CURRENTLY NOT SUPPORTED IN THE GAME."
+          },
+          {
+            "q": "DO REWARDS EXPIRE?",
+            "a": "UNCLAIMED EVENT REWARDS MAY EXPIRE SEVERAL DAYS AFTER THE EVENT ENDS."
+          }
+        ]
+      }
+    },
+    "socialSection": {
+      "title": "CONNECT WITH US ON SOCIAL MEDIA",
+      "description": "STAY UP-TO-DATE WITH THE LATEST NEWS, UPDATES, AND PROMOTIONS FROM RUNNER RUNNER BY FOLLOWING US ON SOCIAL MEDIA. JOIN THE CONVERSATION, SHARE YOUR EXPERIENCE, AND BE PART OF THE COMMUNITY!",
+      "icons": [
+        {
+          "platform": "X",
+          "image": "/assets/contactassets/x.png",
+          "url": "#"
+        },
+        {
+          "platform": "FACEBOOK",
+          "image": "/assets/contactassets/facebook.png",
+          "url": "#"
+        },
+        {
+          "platform": "TIKTOK",
+          "image": "/assets/contactassets/tiktok.png",
+          "url": "#"
+        },
+        {
+          "platform": "INSTAGRAM",
+          "image": "/assets/contactassets/instahram.png",
+          "url": "#"
+        },
+        {
+          "platform": "YOUTUBE",
+          "image": "/assets/contactassets/Youtube.png",
+          "url": "#"
+        }
+      ]
+    },
+    "bgSection": {
+      "bgColor": "#080D25",
+      "overlayImage": "/assets/contactassets/conatctbgsection.png",
+      "maskGroup": "/assets/contactassets/Mask group.png",
+      "girlImage": "/assets/contactassets/girlimage.png"
+    },
+    "icons": {
+      "questionLeft": "/assets/contactassets/questioniconleft.png",
+      "questionRight": "/assets/contactassets/questioniconright.png"
+    }
+  },
+  "powerplayPage": {
+    "hero": {
+      "title": "MASTER EVERY POWERUP",
+      "subtitle": "DISCOVER THE ABILITIES THAT WILL TAKE YOUR RUN TO THE NEXT LEVEL"
+    },
+    "sections": {
+      "survive": {
+        "title": "SURVIVE LONGER",
+        "subtitle": "WHEN THE PATH TURNS BRUTAL, THESE POWERS KEEP YOU MOVING."
+      },
+      "shield": {
+        "title": "SHIELD",
+        "subtitle": "ONE HIT. ZERO SLOWDOWN.",
+        "description": "ACTIVATE THE SHIELD TO ABSORB AN OBSTACLE WITHOUT BREAKING YOUR STREAK.",
+        "image": "/assets/powerplay assets/section1img.png"
+      },
+      "blaster": {
+        "title": "BLASTER",
+        "subtitle": "CLEAR THE WAY. KEEP THE SPEED.",
+        "description": "FIRE UP THE BLASTER AND DESTROY OBSTACLES IN YOUR WAY.",
+        "image": "/assets/powerplay assets/section2img.png"
+      },
+      "invisibility": {
+        "title": "INVISIBILITY",
+        "subtitle": "MAKE OBSTACLES DISAPPEAR.",
+        "description": "FOR A LIMITED TIME, OBSTACLES VANISH FROM YOUR PATH.",
+        "image": "/assets/powerplay assets/section3img.png"
+      },
+      "rewards": {
+        "title": "EARN REWARDS",
+        "subtitle": "THE FURTHER YOU RUN, THE MORE YOU EARN.",
+        "description": "COLLECT COINS AND UNLOCK EXCLUSIVE ITEMS.",
+        "image": "/assets/powerplay assets/section4img.png"
+      },
+      "magnet": {
+        "title": "MAGNET",
+        "subtitle": "PULL COINS FROM ANYWHERE.",
+        "description": "ACTIVATE THE MAGNET TO ATTRACT ALL COINS IN YOUR VICINITY.",
+        "image": "/assets/powerplay assets/section4img.png"
+      },
+      "score": {
+        "title": "2X & 4X",
+        "subtitle": "DOUBLE & QUADRUPLE YOUR SCORE.",
+        "description": "COLLECT THE 2X OR 4X POWER-UP AND WATCH YOUR SCORE MULTIPLY AS YOU RUN THROUGH THE TRACK. A QUICK WAY TO BOOST YOUR POINTS.",
+        "image": "/assets/powerplay assets/section5right.png"
+      },
+      "megaCoin": {
+        "title": "MEGA COIN",
+        "subtitle": "BIGGER PICKUPS. BIGGER REWARDS.",
+        "description": "GRAB MEGA COINS FOR AN INSTANT SCORE BOOST. ONE PICKUP, MASSIVE VALUE - PERFECT FOR CLIMBING THE LEADERBOARD FASTER.",
+        "image": "/assets/powerplay assets/section6img.png"
+      },
+      "bonusZone": {
+        "title": "BONUS ZONE",
+        "subtitle": "ENTER THE TREASURE ROOM.",
+        "description": "A SECRET AREA FILLED WITH COINS AND NO OBSTACLES.",
+        "image": "/assets/powerplay assets/bonuszone.png"
+      },
+      "jumper": {
+        "title": "Trampoline",
+        "subtitle": "LAUNCH INTO ADVANTAGE.",
+        "description": "HIT A JUMPER TO BOUNCE HIGH ABOVE THE TRACK AND ESCAPE TIGHT OBSTACLES. GAIN A BETTER VIEW, MORE BREATHING ROOM, AND A CHANCE TO GRAB REWARDS FROM ABOVE.",
+        "image": "/assets/powerplay assets/section7img.png"
+      },
+      "bonusRoad": {
+        "title": "BONUS ROAD",
+        "subtitle": "ENTER THE BONUS ROAD.",
+        "description": "FIND THE BONUS ROAD AND SHIFT INTO A HIGH-REWARD ROUTE FILLED WITH EXTRA COINS AND BIG SCORING OPPORTUNITIES.",
+        "image": "/assets/powerplay assets/section8img.png"
+      },
+      "choice": {
+        "title": "WHICH POWERUP WILL YOU CHOOSE?",
+        "subtitle": "THE RIGHT POWER AT THE RIGHT MOMENT CAN CHANGE EVERYTHING.",
+        "footer": "WHAT'S YOUR WINNING STRATEGY?"
+      }
+    }
+  },
+  "blogSlides": [
+    {
+      "title": "MASTERS THE",
+      "highlight": "STREETS",
+      "subtitle": "THOUSANDS OF PLAYERS ARE DASHING THROUGH THE CITY. HERE IS WHY THEY CANNOT STOP RUNNING.",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    },
+    {
+      "title": "JOIN THE",
+      "highlight": "CHASE",
+      "subtitle": "EXPERIENCE THE ADRENALINE OF THE URBAN JUNGLE WITH OUR GLOBAL COMMUNITY.",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    },
+    {
+      "title": "GEAR",
+      "highlight": "UP",
+      "subtitle": "COLLECT EXCLUSIVE REWARDS AND POWER-UPS TO DOMINATE THE LEADERBOARDS.",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    },
+    {
+      "title": "FEEL THE",
+      "highlight": "SPEED",
+      "subtitle": "THE ULTIMATE RUNNING CHALLENGE AWAITS. ARE YOU READY TO RUN?",
+      "bg": "/assets/blogassets/blogbgimg.png"
+    }
+  ],
+  "briefings": {
+    "title": "LATEST BRIEFINGS",
+    "items": []
+  },
+  "faqPage": {
+    "hero": {
+      "title": "Got Questions?",
+      "subtitle": "We have answers.",
+      "buttonText": "Contact Us"
+    },
+    "questions": [
+      {
+        "question": "HOW DO I DOWNLOAD RUNNER RUNNER?",
+        "answer": "YOU CAN DOWNLOAD RUNNER RUNNER DIRECTLY FROM OUR WEBSITE OR FROM YOUR PLATFORM'S APP STORE. IT'S COMPLETELY FREE TO PLAY, WITH OPTIONAL COSMETIC UPGRADES AVAILABLE IN-GAME."
+      },
+      {
+        "question": "WHAT PLATFORMS ARE SUPPORTED?",
+        "answer": "RUNNER RUNNER IS CURRENTLY AVAILABLE ON ANDROID AND IOS DEVICES. WE ARE ALSO WORKING ON A PC VERSION TO BE RELEASED SOON."
+      },
+      {
+        "question": "ARE THERE IN-APP PURCHASES?",
+        "answer": "YES, RUNNER RUNNER OFFERS OPTIONAL IN-APP PURCHASES FOR COSMETIC ITEMS LIKE CHARACTER SKINS, POWER-UPS, AND BATTLE PASSES. THESE DO NOT PROVIDE COMPETITIVE ADVANTAGES."
+      },
+      {
+        "question": "HOW DOES MULTIPLAYER WORK?",
+        "answer": "MULTIPLAYER IN RUNNER RUNNER ALLOWS YOU TO COMPETE AGAINST FRIENDS OR RANDOM PLAYERS WORLDWIDE IN REAL-TIME RACES. WINNING RACES EARNS YOU RANKING POINTS AND EXCLUSIVE REWARDS."
+      },
+      {
+        "question": "CAN I PLAY OFFLINE?",
+        "answer": "WHILE THE CORE MULTIPLAYER EXPERIENCE REQUIRES AN INTERNET CONNECTION, WE OFFER AN OFFLINE PRACTICE MODE WHERE YOU CAN HONE YOUR SKILLS ON VARIOUS TRACKS WITHOUT COMPETING AGAINST OTHERS."
+      }
+    ],
+    "ratings": {
+      "score": "4.8",
+      "totalReviews": "12,450+",
+      "breakdown": [
+        {
+          "stars": 5,
+          "percentage": 78
+        },
+        {
+          "stars": 4,
+          "percentage": 15
+        },
+        {
+          "stars": 3,
+          "percentage": 4
+        },
+        {
+          "stars": 2,
+          "percentage": 2
+        },
+        {
+          "stars": 1,
+          "percentage": 1
+        }
+      ]
+    }
+  },
+  "mapPage": {
+    "hero": {
+      "title": "Runner Runner",
+      "subtitle": "Explore Our Maps"
+    },
+    "horizontalScroll": [
+      {
+        "bg": "/assets/maps/horizontalscroll/1.png",
+        "leftOverlay": "/assets/maps/horizontalscroll/1left.png",
+        "rightOverlay": "/assets/maps/horizontalscroll/1right.png"
+      },
+      {
+        "bg": "/assets/maps/horizontalscroll/2.png",
+        "rightOverlay": "/assets/maps/horizontalscroll/2right.png"
+      },
+      {
+        "bg": "/assets/maps/horizontalscroll/3.png",
+        "topOverlay": "/assets/maps/horizontalscroll/3toptitle.png"
+      }
+    ],
+    "cta": {
+      "midImage": "/assets/uploads/1773378270738-562554535-section3midimg.png",
+      "title": "Where Will You run next?",
+      "subtitle1": "Each map offers a unique environment and new challenges.",
+      "subtitle2": "Choose your map and start the adventure!"
+    },
+    "cloudGroup": "/assets/maps/horizontalscroll/Group 38.png",
+    "maraImage": "/assets/maps/horizontalscroll/Mara 1.png",
+    "newBgImage": "/assets/maps/horizontalscroll/new.png",
+    "new2BgImage": "/assets/maps/horizontalscroll/new2.png",
+    "newWithoutCloud": "/assets/maps/horizontalscroll/newwithoutcloud.png",
+    "boyImage": "/assets/maps/horizontalscroll/boy.png",
+    "waterImage": "/assets/maps/horizontalscroll/Water 1.png",
+    "submarineImage": "/assets/maps/horizontalscroll/submarine.png",
+    "underwaterImage": "/assets/maps/horizontalscroll/underwater.png",
+    "underwater2Image": "/assets/maps/horizontalscroll/underwater2.png"
+  },
+  "footer": {
+    "logo": "/assets/Runnerlogo.png",
+    "tagline": "FAST PACED ENDLESS RUNNING ACROSS EVER CHANGING WORLDS. RUN, DODGE, COMPETE AND PUSH YOUR LIMITS.",
+    "socials": [
+      {
+        "platform": "facebook",
+        "url": "#"
+      },
+      {
+        "platform": "twitter",
+        "url": "#"
+      },
+      {
+        "platform": "instagram",
+        "url": "#"
+      },
+      {
+        "platform": "youtube",
+        "url": "#"
+      }
+    ],
+    "contactEmail": "SUPPORT@PLAYSPHERESTUDIOS.COM",
+    "copy": "© 2026 RUNNER RUNNER. ALL RIGHTS RESERVED."
+  },
+  "newsletter": {
+    "title": "DAILY INTEL DROP",
+    "subtitle": "GET THE LATEST BLOG & NEWS DELIVERED STRAIGHT TO YOUR INBOX."
+  },
+  "testimonialsPage": {
+    "hero": {
+      "title": "WHAT OUR <span>RUNNERS</span> ARE SAYING",
+      "subtitle": "THOUSANDS OF PLAYERS ARE DASHING THROUGH THE CITY. HERE IS WHY THEY CANNOT STOP RUNNING."
+    },
+    "stats": [
+      {
+        "icon": "/assets/Testimonial/11.png",
+        "value": "2M+",
+        "title": "GAMES PLAYED",
+        "desc": "RUNS COMPLETED BY PLAYERS AROUND THE WORLD"
+      },
+      {
+        "icon": "/assets/Testimonial/12.png",
+        "value": "370K+",
+        "title": "INSTALLS",
+        "subtitle": "RUNNERS WHO HAVE JOINED THE",
+        "desc": "RUNNER RUNNER"
+      },
+      {
+        "icon": "/assets/Testimonial/13.png",
+        "value": "$75K+",
+        "title": "PRIZES DISTRIBUTED",
+        "desc": "REAL REWARDS EARNED THROUGH SPECIAL EVENTS"
+      },
+      {
+        "icon": "/assets/Testimonial/14.png",
+        "value": "3K+",
+        "title": "GAMES DAILY",
+        "desc": "THE RUN NEVER STOPS"
+      }
+    ],
+    "shareStory": {
+      "title": "SHARE YOUR <span class=\"highlight\">STORY</span>",
+      "subtitle": "GOT AN EPIC RUN? TELL US ABOUT IT AND YOU MIGHT BE FEATURED ON THIS PAGE!"
+    }
+  },
+  "powerplayPageAssets": {
+    "hero": {
+      "bg": "/assets/powerplay assets/herobg.png",
+      "assets": [
+        "/assets/powerplay assets/1.png",
+        "/assets/powerplay assets/2.png",
+        "/assets/powerplay assets/3.png",
+        "/assets/powerplay assets/4.png"
+      ],
+      "runBtn": "/assets/powerplay assets/BTN 1.png"
+    }
+  }
+}

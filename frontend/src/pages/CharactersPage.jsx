@@ -6,11 +6,10 @@ import CharactersGroupSection from '../components/CharactersGroupSection';
 import FinalSection from '../components/FinalSection';
 import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
-import contentData from '../../content.json';
 import '../styles/characters.css';
 
 const CharactersPage = () => {
-    const [content, setContent] = useState(contentData);
+    const [content, setContent] = useState({});
 
     useEffect(() => {
         // Smooth scroll

@@ -5,10 +5,9 @@ import NewsletterSection from '../components/NewsletterSection';
 import '../styles/blog.css';
 import axios from 'axios';
 
-import contentData from '../../content.json';
 
 const Blog = () => {
-    const [content, setContent] = useState(contentData || { blogSlides: [], briefings: { title: 'LATEST BRIEFINGS', items: [] } });
+    const [content, setContent] = useState({ blogSlides: [], briefings: { title: 'LATEST BRIEFINGS', items: [] } });
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [loading, setLoading] = useState(false);

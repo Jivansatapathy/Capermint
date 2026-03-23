@@ -4,12 +4,10 @@ import axios from 'axios';
 import Footer from '../components/Footer';
 import '../styles/blogDetail.css';
 
-import contentData from '../../content.json';
 
 const BlogDetail = () => {
     const { id } = useParams();
-    const initialBlog = (contentData.briefings?.items || []).find(b => b.id === id);
-    const [blog, setBlog] = useState(initialBlog);
+    const [blog, setBlog] = useState(null);
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {

@@ -1,1 +1,56 @@
-[]
+[
+  {
+    "id": "1773395902726",
+    "email": "admin@test.com",
+    "password": "$2b$10$V0BuLoDdPe0Fnu2OCbXpdO7L0EHr8feEPh0kghr7EPg2k/NhdkL8q",
+    "verified": false
+  },
+  {
+    "id": "1773395968548",
+    "email": "newadmin@test.com",
+    "password": "$2b$10$3H008dyJSs4D1l7LgwhxnuLaIdM8q99xAbO2ElERzMGeSic30LEDG",
+    "verified": false
+  },
+  {
+    "id": "1773396092545",
+    "email": "newadmin2@test.com",
+    "password": "$2b$10$cqGC8hkzeLHsemVrIj1YB.YtSAK6o56qISc09EfbEdv3BlkEX4Faa",
+    "verified": false
+  },
+  {
+    "id": "1773396156942",
+    "email": "finaladmin@test.com",
+    "password": "$2b$10$PyQLK5W0/uMwirfr09YU4OE.0fuVuaEQ7LeZD/da9Dh7yNdZkUGAe",
+    "verified": false
+  },
+  {
+    "id": "1773396184203",
+    "email": "test@example.com",
+    "password": "$2b$10$aqTA.H7yBuzopO524LQS4e.E7pXccbSjS3na8.qeCmWN2B20u14/e",
+    "verified": false
+  },
+  {
+    "id": "1773396303336",
+    "email": "admin@runner.com",
+    "password": "$2b$10$KOZwbYiOiFjx28CZ2x.MvewjMG2wsyVcTSqnmQJ.HeRbpu/QoqCbi",
+    "verified": false
+  },
+  {
+    "id": "1773396933396",
+    "email": "admin5@test.com",
+    "password": "$2b$10$CuH1LTqAZnMr39ojGpyOiuyoSiniNYVI4aQA2uiGsIPXogvb3oTO.",
+    "verified": false
+  },
+  {
+    "id": "1773397284471",
+    "email": "admin6@test.com",
+    "password": "$2b$10$lYa7iD3y3brLy2cAHs.E/.zmZ376ipJalO8RJyTfkvAjUEc0pD7S6",
+    "verified": false
+  },
+  {
+    "id": "1773397679465",
+    "email": "freshtest@runner.com",
+    "password": "$2b$10$TcrnzEn6tetTsbZ1PFor5.tm.jagOD4KIQmXL3xcinyHVbjhNjEXu",
+    "verified": false
+  }
+]

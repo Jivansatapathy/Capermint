@@ -12,7 +12,6 @@ const FaqArrrow = ({ isOpen }) => (
     </svg>
 );
 
-import contentData from '../../content.json';
 
 const StarIcon = ({ fill = 'none', className = '' }) => (
     <svg 
@@ -70,7 +69,7 @@ const RatingsSummary = ({ ratings }) => {
 
 const Faq = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [content, setContent] = useState(contentData);
+    const [content, setContent] = useState({});
 
     useEffect(() => {
         window.scrollTo(0, 0);
