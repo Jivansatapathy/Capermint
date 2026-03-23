@@ -13,7 +13,7 @@ const BlogDetail = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/content')
+        axios.get('/api/content')
             .then(res => {
                 const item = (res.data.briefings?.items || []).find(b => b.id === id);
                 setBlog(item);

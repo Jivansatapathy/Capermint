@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-const API = 'http://localhost:3000/api/content';
-const UPLOAD_API = 'http://localhost:3000/api/upload';
+const API = '/api/content';
+const UPLOAD_API = '/api/upload';
 
 // ─── SVG ICONS ────────────────────────────────────────────
 const I = {
@@ -823,7 +823,7 @@ const GenericUploadField = ({ label, value, onUpload, toast }) => {
         try {
             const fd = new FormData();
             fd.append('image', file);
-            const res = await fetch('http://localhost:3000/api/upload-any', { 
+            const res = await fetch('/api/upload-any', { 
                 method: 'POST', 
                 headers: { ...getAuthHeader() },
                 body: fd 
@@ -857,7 +857,7 @@ function TestimonialResponsesPanel({ toast }) {
     const [loading, setLoading] = useState(true);
 
     const load = () => {
-        fetch('http://localhost:3000/api/get-testimonials', { headers: getAuthHeader() })
+        fetch('/api/get-testimonials', { headers: getAuthHeader() })
             .then(r => r.json())
             .then(d => { setList(d); setLoading(false); })
             .catch(() => setLoading(false));
@@ -867,7 +867,7 @@ function TestimonialResponsesPanel({ toast }) {
 
     const del = async (id) => {
         if(!confirm('Delete this testimonial submission?')) return;
-        await fetch(`http://localhost:3000/api/testimonials/${id}`, { 
+        await fetch(`/api/testimonials/${id}`, { 
             method: 'DELETE',
             headers: getAuthHeader()
         });
@@ -929,7 +929,7 @@ function ResponsesPanel({ toast }) {
     const [loading, setLoading] = useState(true);
 
     const load = () => {
-        fetch('http://localhost:3000/api/responses', { headers: getAuthHeader() })
+        fetch('/api/responses', { headers: getAuthHeader() })
             .then(r => r.json())
             .then(d => { setList(d); setLoading(false); })
             .catch(() => setLoading(false));
@@ -939,7 +939,7 @@ function ResponsesPanel({ toast }) {
 
     const del = async (id) => {
         if(!confirm('Delete this submission?')) return;
-        await fetch(`http://localhost:3000/api/responses/${id}`, { 
+        await fetch(`/api/responses/${id}`, { 
             method: 'DELETE',
             headers: getAuthHeader()
         });

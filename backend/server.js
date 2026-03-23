@@ -9,6 +9,7 @@ import multer from 'multer';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import mongoose from 'mongoose';
+import nodemailer from 'nodemailer';
 import { Content } from './models/Content.js';
 import { User } from './models/User.js';
 import { Response } from './models/Response.js';
@@ -21,11 +22,23 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/capermint';
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-for-dev-only';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('✅ Connected to MongoDB'))
     .catch(err => console.error('❌ MongoDB connection error:', err));
+
+// Configure Nodemailer Transporter
+const transporter = nodemailer.createTransport({
+    host: process.env.EMAIL_HOST,
+    port: process.env.EMAIL_PORT || 587,
+    secure: process.env.EMAIL_PORT == 465,
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
 
 // Ensure upload directories exist
 const ARTICLES_DIR = path.join(__dirname, '..', 'frontend', 'public', 'assets', 'articles');
@@ -53,7 +66,10 @@ const genericStorage = multer.diskStorage({
 });
 const uploadGeneric = multer({ storage: genericStorage });
 
-app.use(cors());
+app.use(cors({
+    origin: process.env.NODE_ENV === 'production' ? FRONTEND_URL : '*',
+    credentials: true
+}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'public')));
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
@@ -151,8 +167,30 @@ app.post('/api/contact', async (req, res) => {
     try {
         const submission = new Response({ ...req.body });
         await submission.save();
+
+        if (process.env.EMAIL_HOST && process.env.EMAIL_USER) {
+            try {
+                await transporter.sendMail({
+                    from: `"Capermint Website" <${process.env.EMAIL_USER}>`,
+                    to: process.env.EMAIL_ADMIN || process.env.EMAIL_USER,
+                    subject: `New Contact Form Submission: ${req.body.subject || 'General Inquiry'}`,
+                    html: `
+                        <h2>New Contact Form Submission</h2>
+                        <p><strong>Name:</strong> ${req.body.name}</p>
+                        <p><strong>Email:</strong> ${req.body.email}</p>
+                        <p><strong>Subject:</strong> ${req.body.subject}</p>
+                        <p><strong>Message:</strong></p>
+                        <p>${req.body.message}</p>
+                    `
+                });
+            } catch (emailError) {
+                console.error('Failed to send email:', emailError);
+            }
+        }
+
         res.send('Submission saved');
     } catch (e) {
+        console.error('Form submission error:', e);
         res.status(500).send('Error saving submission');
     }
 });

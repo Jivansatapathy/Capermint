@@ -14,7 +14,7 @@ const Blog = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        axios.get('http://localhost:3000/api/content')
+        axios.get('/api/content')
             .then(res => {
                 setContent({
                     blogSlides: res.data.blogSlides || [],

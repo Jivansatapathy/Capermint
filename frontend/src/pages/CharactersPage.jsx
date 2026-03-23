@@ -22,7 +22,7 @@ const CharactersPage = () => {
         requestAnimationFrame(raf);
 
         // Fetch content from backend
-        axios.get('http://localhost:3000/api/content')
+        axios.get('/api/content')
             .then(res => setContent(res.data))
             .catch(() => {
                 // Fallback to local data
