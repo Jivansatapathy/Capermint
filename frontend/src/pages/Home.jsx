@@ -18,10 +18,8 @@ import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
 import '../styles/home.css';
 
-import fallbackContent from '../fallbackContent.json';
-
 const Home = () => {
-    const [content, setContent] = useState(fallbackContent);
+    const [content, setContent] = useState({});
 
     useEffect(() => {
         // Smooth scroll
@@ -40,7 +38,7 @@ const Home = () => {
                 }
             })
             .catch(() => {
-                console.warn("Backend offline, using fallback content.");
+                console.warn("Backend offline.");
             });
 
         return () => lenis.destroy();
