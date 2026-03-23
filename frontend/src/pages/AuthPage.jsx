@@ -32,7 +32,7 @@ const AuthPage = ({ onLogin }) => {
         const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
         
         try {
-            const res = await axios.post(`http://localhost:3000${endpoint}`, { email, password });
+            const res = await axios.post(`${import.meta.env.VITE_API_URL}${endpoint}`, { email, password });
             
             if (isLogin) {
                 localStorage.setItem('adminToken', res.data.token);

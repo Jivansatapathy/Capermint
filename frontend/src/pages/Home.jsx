@@ -32,7 +32,7 @@ const Home = () => {
         requestAnimationFrame(raf);
 
         // Try to fetch content from backend; silently use defaults if unavailable
-        axios.get('http://localhost:3000/api/content')
+        axios.get(`${import.meta.env.VITE_API_URL}/api/content`)
             .then(res => setContent(res.data))
             .catch(() => {
                 // Backend is locally offline; using content.json as fallback

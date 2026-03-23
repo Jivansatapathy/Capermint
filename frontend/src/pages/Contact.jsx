@@ -119,7 +119,7 @@ const Contact = () => {
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/content')
+        fetch(`${import.meta.env.VITE_API_URL}/api/content`)
             .then(res => res.json())
             .then(data => { 
                 if (data.contactPage) {
@@ -152,7 +152,7 @@ const Contact = () => {
         e.preventDefault();
         setStatus('SENDING...');
         try {
-            const res = await fetch('http://localhost:3000/api/contact', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)

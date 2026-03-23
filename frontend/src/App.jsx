@@ -25,7 +25,7 @@ function App() {
         const token = localStorage.getItem('adminToken');
         const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
         
-        axios.get('http://localhost:3000/api/content', config)
+        axios.get(`${import.meta.env.VITE_API_URL}/api/content`, config)
             .then(res => {
                 if (res.data && Object.keys(res.data).length > 0) {
                     setContent(res.data);

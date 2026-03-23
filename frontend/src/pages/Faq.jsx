@@ -76,7 +76,7 @@ const Faq = () => {
         window.scrollTo(0, 0);
         const fetchContent = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/api/content');
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/content`);
                 setContent(res.data);
             } catch (err) {
                 console.error("Error fetching FAQ content:", err);

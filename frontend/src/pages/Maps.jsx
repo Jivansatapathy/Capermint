@@ -36,7 +36,7 @@ const Maps = () => {
     const cta = mp.cta || {};
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/content')
+        fetch(`${import.meta.env.VITE_API_URL}/api/content`)
             .then(res => res.json())
             .then(data => {
                 setContent(data);
