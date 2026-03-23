@@ -90,6 +90,22 @@ const authenticateToken = (req, res, next) => {
 // ── GET content ─────────────────────────────────────────────
 app.get('/api/content', async (req, res) => {
     try {
+        // Hidden Debug Mode
+        if (req.query.debug === 'true') {
+            const dbStatus = mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected';
+            const contentCount = await Content.countDocuments();
+            return res.json({
+                debug: true,
+                database: dbStatus,
+                contentCount,
+                env: {
+                    NODE_ENV: process.env.NODE_ENV,
+                    MONGODB_URI: process.env.MONGODB_URI ? 'SET (Hidden)' : 'NOT SET (Using Default)',
+                    PORT: process.env.PORT
+                }
+            });
+        }
+
         const contentItems = await Content.find();
         const contentMap = {};
         contentItems.forEach(item => {
