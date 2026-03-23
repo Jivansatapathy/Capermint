@@ -102,6 +102,27 @@ app.get('/api/content', async (req, res) => {
     }
 });
 
+// ── DEBUG endpoint ──────────────────────────────────────────
+app.get('/api/debug', async (req, res) => {
+    try {
+        const dbStatus = mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected';
+        const contentCount = await Content.countDocuments();
+        
+        res.json({
+            status: 'Backend is Running',
+            database: dbStatus,
+            contentCount,
+            env: {
+                NODE_ENV: process.env.NODE_ENV,
+                MONGODB_URI: process.env.MONGODB_URI ? 'SET (Hidden)' : 'NOT SET (Using Default)',
+                PORT: process.env.PORT
+            }
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 // ── AUTH ENDPOINTS ──────────────────────────────────────────
 app.post('/api/auth/register', async (req, res) => {
     try {
