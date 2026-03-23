@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ nav, navbar }) => {
-    const nb = navbar || {
-        logo: "/assets/Runnerlogo.png",
-        googlePlay: "/assets/Google Store download button.png",
-        appStore: "/assets/App Store download button.png"
-    };
+    const nb = navbar || {};
     const [isVisible, setIsVisible] = useState(true);
     const [lastScrollY, setLastScrollY] = useState(0);
 

@@ -10,12 +10,7 @@ const PowerplayMagnetSection = ({ content }) => {
     const textRef = useRef();
     const imageRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.magnet || {
-        title: "MAGNET",
-        subtitle: "EVERY COIN COMES TO YOU.",
-        description: "ACTIVATE THE MAGNET TO PULL NEARBY COINS STRAIGHT INTO YOUR PATH. NO MISSED REWARDS - JUST SMOOTH COLLECTION WHILE YOU STAY FOCUSED ON THE RUN.",
-        image: "/assets/powerplay assets/section4img.png"
-    };
+    const data = content?.powerplayPage?.sections?.magnet || {};
 
     useGSAP(() => {
         // Text animation

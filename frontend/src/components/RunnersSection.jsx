@@ -5,11 +5,12 @@ const RunnersSection = ({ content }) => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
+        if (!sectionRef.current) return;
+
         const ctx = gsap.context(() => {
-            const cards = gsap.utils.toArray('.runner-card', sectionRef.current);
+            const cards = gsap.utils.toArray('.runner-card');
 
             cards.forEach(card => {
-                const model = card.querySelector('.runner-model');
                 const bg = card.querySelector('.runner-card-bg');
                 const info = card.querySelector('.runner-info');
 
@@ -21,7 +22,6 @@ const RunnersSection = ({ content }) => {
                     const xPercent = (x / rect.width - 0.5);
                     const yPercent = (y / rect.height - 0.5);
 
-                    // Unified 3D Tilt for the whole card (No expansion)
                     gsap.to(card, {
                         rotateY: xPercent * 25,
                         rotateX: -yPercent * 25,
@@ -32,7 +32,6 @@ const RunnersSection = ({ content }) => {
                         overwrite: 'auto'
                     });
 
-                    // Subtle Parallax for the background
                     if (bg) {
                         gsap.to(bg, {
                             x: -xPercent * 15,
@@ -43,7 +42,6 @@ const RunnersSection = ({ content }) => {
                         });
                     }
 
-                    // Parallax for the info text
                     if (info) {
                         gsap.to(info, {
                             x: xPercent * 8,
@@ -56,8 +54,7 @@ const RunnersSection = ({ content }) => {
                 };
 
                 const onMouseLeave = () => {
-                    // Force kill any active tweens 
-                    gsap.killTweensOf([card, bg, model, info].filter(Boolean));
+                    gsap.killTweensOf([card, bg, info].filter(Boolean));
 
                     gsap.to(card, {
                         rotateY: 0,
@@ -110,7 +107,7 @@ const RunnersSection = ({ content }) => {
                     <div key={index} className="runner-card-wrapper">
                         <div className="runner-card">
                             <div className="runner-card-bg">
-                                <img src={runner.cardBg || "/assets/cardmask.png"} alt="Card Background" />
+                                <img src={runner.cardBg || null} alt="Card Background" />
                             </div>
                             <div
                                 className="runner-model"
@@ -120,7 +117,7 @@ const RunnersSection = ({ content }) => {
                                     top: runner.modelBottom ? 'auto' : undefined
                                 }}
                             >
-                                <img src={runner.modelImage} alt={runner.name} />
+                                <img src={runner.modelImage || null} alt={runner.name} />
                             </div>
                             <div className="runner-info">
                                 <h3 className="runner-name">{runner.name}</h3>

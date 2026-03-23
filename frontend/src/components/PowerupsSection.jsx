@@ -91,10 +91,10 @@ const PowerupsSection = ({ content }) => {
                     {items.map((powerup, index) => (
                         <div key={index} className="powerup-card">
                             <div className="powerup-card-bg">
-                                <img src={powerup.cardBg || "/assets/card bg2.png"} alt="Card Background" />
+                                <img src={powerup.cardBg || null} alt="Card Background" />
                             </div>
                             <div className="powerup-image-wrapper">
-                                <img src={powerup.image} alt={powerup.name} />
+                                <img src={powerup.image || null} alt={powerup.name} />
                             </div>
                             <div className="powerup-info">
                                 <h3 className="powerup-name">{powerup.name}</h3>

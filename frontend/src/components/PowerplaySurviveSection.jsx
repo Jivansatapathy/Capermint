@@ -9,10 +9,7 @@ const PowerplaySurviveSection = ({ content }) => {
     const sectionRef = useRef();
     const contentRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.survive || {
-        title: "SURVIVE LONGER",
-        subtitle: "WHEN THE PATH TURNS BRUTAL, THESE POWERS KEEP YOU MOVING."
-    };
+    const data = content?.powerplayPage?.sections?.survive || {};
 
     useGSAP(() => {
         gsap.from(contentRef.current.children, {

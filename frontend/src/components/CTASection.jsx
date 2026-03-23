@@ -2,19 +2,13 @@ import React from 'react';
 
 const CTASection = ({ content }) => {
     const rawData = content?.cta;
-    const defaultSocialLinks = [
-        { label: "INSTAGRAM", icon: "/assets/socialiconsimg/Instagram.png", url: "#" },
-        { label: "FACEBOOK", icon: "/assets/socialiconsimg/Faceebook.png", url: "#" },
-        { label: "YOUTUBE", icon: "/assets/socialiconsimg/Youtube.png", url: "#" },
-        { label: "X", icon: "/assets/socialiconsimg/X.png", url: "#" },
-        { label: "THREAD", icon: "/assets/socialiconsimg/Threads.png", url: "#" }
-    ];
+    const defaultSocialLinks = [];
 
     const data = {
-        subtitle: rawData?.subtitle || "WANT TO STAY IN TOUCH?",
-        title: rawData?.title || "FOLLOW US ON SOCIAL MEDIA",
-        description: rawData?.description || "STAY UP-TO-DATE WITH THE LATEST IN RUNNER RUNNER.",
-        image: rawData?.image || "/assets/ctaimage.png",
+        subtitle: rawData?.subtitle || "",
+        title: rawData?.title || "",
+        description: rawData?.description || "",
+        image: rawData?.image || null,
         socialLinks: rawData?.socialLinks || defaultSocialLinks
     };
 
@@ -22,7 +16,7 @@ const CTASection = ({ content }) => {
         <section className="cta-section">
             <div className="cta-container">
                 <div className="cta-image-wrapper">
-                    <img src={data.image || "/assets/ctaimage.png"} alt="Runner Runner Characters" className="cta-image" />
+                    <img src={data.image || null} alt="Runner Runner Characters" className="cta-image" />
                 </div>
 
                 <div className="cta-content">
@@ -34,7 +28,7 @@ const CTASection = ({ content }) => {
                         {data.socialLinks.map((link, idx) => (
                             <a key={idx} href={link.url} className="social-link" aria-label={link.label}>
                                 <div className="social-icon">
-                                    <img src={link.icon} alt={link.label} className="social-img" />
+                                    <img src={link.icon || null} alt={link.label} className="social-img" />
                                 </div>
                                 <span>{link.label}</span>
                             </a>

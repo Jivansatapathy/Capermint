@@ -18,8 +18,10 @@ import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
 import '../styles/home.css';
 
+import fallbackContent from '../fallbackContent.json';
+
 const Home = () => {
-    const [content, setContent] = useState({});
+    const [content, setContent] = useState(fallbackContent);
 
     useEffect(() => {
         // Smooth scroll
@@ -32,9 +34,13 @@ const Home = () => {
 
         // Try to fetch content from backend; silently use defaults if unavailable
         axios.get('/api/content')
-            .then(res => setContent(res.data))
+            .then(res => {
+                if (res.data && Object.keys(res.data).length > 0) {
+                    setContent(res.data);
+                }
+            })
             .catch(() => {
-                // Backend is locally offline; using content.json as fallback
+                console.warn("Backend offline, using fallback content.");
             });
 
         return () => lenis.destroy();

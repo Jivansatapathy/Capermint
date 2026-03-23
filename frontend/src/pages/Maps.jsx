@@ -22,14 +22,7 @@ const Maps = () => {
     const fourthTrackRef = useRef(null);
     const [content, setContent] = useState({});
 
-    const mp = content.mapPage || {
-        hero: { title: "RUNNER RUNNER", subtitle: "EXPLORE OUR MAPS" },
-        horizontalScroll: [],
-        cta: {
-            title: "WHERE WILL YOU RUN NEXT?",
-            midImage: "/assets/maps/section3midimg.png"
-        }
-    };
+    const mp = content.mapPage || {};
     const hero = mp.hero || {};
     const scrollData = mp.horizontalScroll || [];
     const cta = mp.cta || {};

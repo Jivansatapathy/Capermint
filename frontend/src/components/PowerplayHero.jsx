@@ -2,22 +2,14 @@ import React from 'react';
 import '../styles/powerplay.css';
 
 const PowerplayHero = ({ content }) => {
-    const hero = content?.powerplayPage?.hero || {
-        title: "POWER UP YOUR RUN.",
-        subtitle: "CHANGE THE GAME."
-    };
+    const hero = content?.powerplayPage?.hero || {};
     
     const rawAssets = content?.powerplayPageAssets?.hero;
-    const defaultAssets = [
-        "/assets/powerplay assets/1.png",
-        "/assets/powerplay assets/2.png",
-        "/assets/powerplay assets/3.png",
-        "/assets/powerplay assets/4.png"
-    ];
+    const defaultAssets = [];
     
     const assets = {
         assets: rawAssets?.assets || defaultAssets,
-        runBtn: rawAssets?.runBtn || "/assets/powerplay assets/BTN 1.png"
+        runBtn: rawAssets?.runBtn || ""
     };
 
     return (

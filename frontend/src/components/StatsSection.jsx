@@ -8,45 +8,7 @@ const StatsSection = ({ content }) => {
     const sectionRef = useRef(null);
 
     const rawItems = content?.stats?.items;
-    const defaultItems = [
-        {
-            target: 2,
-            suffix: 'M+',
-            title: "GAMES PLAYED",
-            subtitle: "RUNS COMPLETED BY PLAYERS\nAROUND THE WORLD.",
-            colorClass: 'color-cream',
-            bgClass: 'bg-yellow',
-            titleColorClass: 'color-brown'
-        },
-        {
-            target: 370,
-            suffix: 'K+',
-            title: "INSTALLS",
-            subtitle: "RUNNERS WHO HAVE JOINED\nTHE RUNNER RUNNER SO FAR.",
-            colorClass: 'color-light-green',
-            bgClass: 'bg-green',
-            titleColorClass: 'color-dark-green'
-        },
-        {
-            target: 75,
-            prefix: '$',
-            suffix: 'K+',
-            title: "PRIZES DISTRIBUTED",
-            subtitle: "REAL REWARDS EARNED THROUGH\nSPECIAL EVENTS",
-            colorClass: 'color-light-purple',
-            bgClass: 'bg-pink',
-            titleColorClass: 'color-purple'
-        },
-        {
-            target: 3,
-            suffix: 'K+',
-            title: "GAMES PLAYED EVERY DAY",
-            subtitle: "THE RUN NEVER STOPS",
-            colorClass: 'color-light-blue',
-            bgClass: 'bg-blue',
-            titleColorClass: 'color-dark-blue'
-        }
-    ];
+    const defaultItems = [];
 
     const statsItems = (rawItems || defaultItems).map(item => ({
         ...item,

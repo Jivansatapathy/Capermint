@@ -2,27 +2,11 @@ import React from 'react';
 
 const GameModesSection = ({ content }) => {
     const rawData = content?.gameModes;
-    const defaultItems = [
-        {
-            title: "ENDLESS RUN",
-            description: "RUN AS FAR AS YOU CAN WITHOUT\nSTOPPING ONE MISTAKE ENDS IT ALL",
-            image: "/assets/vs mode 1.png"
-        },
-        {
-            title: "VS MODE",
-            description: "RACE AGAINST OTHERS IN REAL TIME\nONLY ONE RUNNER WINS",
-            image: "/assets/vs mode 2.png"
-        },
-        {
-            title: "RAID MODE",
-            description: "FACE INTENSE OBSTACLE ATTACKS\nSURVIVE THE CHAOS AND KEEP MOVING",
-            image: "/assets/vs mode 3.png"
-        }
-    ];
+    const defaultItems = [];
 
     const data = {
-        title: rawData?.title || "GAME MODES",
-        subtitle: rawData?.subtitle || "MORE THAN ONE WAY TO PLAY\nEACH MODE CHANGES HOW THE RUN FEELS",
+        title: rawData?.title || "",
+        subtitle: rawData?.subtitle || "",
         items: (rawData?.items || defaultItems).map(item => ({
             ...item,
             description: item.description || ""

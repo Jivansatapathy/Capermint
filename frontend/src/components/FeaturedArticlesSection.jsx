@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FeaturedArticlesSection = ({ content }) => {
     // Shared data source with the Blog page
-    const briefingsData = content?.briefings || {
-        title: "LATEST BRIEFINGS",
-        items: []
-    };
+    const briefingsData = content?.briefings || {};
 
     // Use a subset or all items for the featured section
     const displayItems = (briefingsData.items || []).slice(0, 3);
@@ -14,8 +11,8 @@ const FeaturedArticlesSection = ({ content }) => {
     return (
         <section className="articles-section">
             <div className="articles-header">
-                <h2 className="articles-heading">{briefingsData.title || "FEATURED ARTICLES"}</h2>
-                <p className="articles-subheading">{content?.articles?.subheading || "NEWS UPDATES AND STORIES FROM RUNNER RUNNER"}</p>
+                <h2 className="articles-heading">{briefingsData.title || ""}</h2>
+                <p className="articles-subheading">{content?.articles?.subheading || ""}</p>
             </div>
 
             <div className="articles-container">
@@ -39,7 +36,7 @@ const FeaturedArticlesSection = ({ content }) => {
 
             <div className="articles-footer">
                 <Link to="/blog">
-                    <button className="view-all-btn">{content?.articles?.viewAllText || "VIEW ALL ARTICLES"}</button>
+                    <button className="view-all-btn">{content?.articles?.viewAllText || ""}</button>
                 </Link>
             </div>
         </section>

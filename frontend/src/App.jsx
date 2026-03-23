@@ -15,10 +15,11 @@ import Maps from './pages/Maps';
 import AuthPage from './pages/AuthPage';
 
 
-const defaultNav = ['HOME', 'CHARACTERS', 'POWERUPS', 'MAPS', 'SUPPORT'];
+const defaultNav = [];
 
 function App() {
     const [content, setContent] = useState({ nav: defaultNav });
+    const [backendOffline, setBackendOffline] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem('adminToken');
@@ -28,10 +29,11 @@ function App() {
             .then(res => {
                 if (res.data && Object.keys(res.data).length > 0) {
                     setContent(res.data);
+                    setBackendOffline(false);
                 }
             })
             .catch(() => {
-                // Backend is locally offline or unauthorized
+                setBackendOffline(true);
             });
     }, []);
 
@@ -42,8 +44,27 @@ function App() {
         return children;
     };
 
+    const BackendNotice = () => (
+        <div style={{
+            background: '#ff4444',
+            color: 'white',
+            padding: '10px',
+            textAlign: 'center',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            zIndex: 9999,
+            fontWeight: 'bold',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.3)'
+        }}>
+            ⚠️ ATTENTION: BACKEND SERVER IS NOT STARTED! USING LOCAL OFFLINE DATA.
+        </div>
+    );
+
     return (
         <BrowserRouter>
+            {backendOffline && <BackendNotice />}
             <Routes>
                 <Route path="/auth" element={<AuthPage />} />
                 <Route path="/admin" element={<ProtectedRoute><AdminPage /></ProtectedRoute>} />

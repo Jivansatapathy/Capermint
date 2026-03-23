@@ -10,12 +10,7 @@ const PowerplayBlasterSection = ({ content }) => {
     const textRef = useRef();
     const imageRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.blaster || {
-        title: "BLASTER",
-        subtitle: "CLEAR THE WAY. KEEP THE SPEED.",
-        description: "FIRE UP THE BLASTER AND DESTROY OBSTACLES IN YOUR WAY. TURN DANGER INTO DEBRIS AND KEEP RUNNING AT FULL SPEED WITHOUT SLOWING DOWN.",
-        image: "/assets/powerplay assets/section2img.png"
-    };
+    const data = content?.powerplayPage?.sections?.blaster || {};
 
     useGSAP(() => {
         // Text animation

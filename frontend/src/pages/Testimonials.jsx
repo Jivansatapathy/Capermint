@@ -7,43 +7,18 @@ import '../styles/testimonials.css';
 
 
 const Testimonials = () => {
-    const content = {};
-    const stats = content?.testimonialsPage?.stats || [
-        {
-            icon: "/assets/Testimonial/11.png",
-            value: "2M+",
-            title: "GAMES PLAYED",
-            desc: "RUNS COMPLETED BY PLAYERS AROUND THE WORLD"
-        },
-        {
-            icon: "/assets/Testimonial/12.png",
-            value: "370K+",
-            title: "INSTALLS",
-            subtitle: "RUNNERS WHO HAVE JOINED THE",
-            desc: "RUNNER RUNNER"
-        },
-        {
-            icon: "/assets/Testimonial/13.png",
-            value: "$75K+",
-            title: "PRIZES DISTRIBUTED",
-            desc: "REAL REWARDS EARNED THROUGH SPECIAL EVENTS"
-        },
-        {
-            icon: "/assets/Testimonial/14.png",
-            value: "3K+",
-            title: "GAMES DAILY",
-            desc: "THE RUN NEVER STOPS"
-        }
-    ];
+    const [content, setContent] = useState({});
+    const stats = content?.testimonialsPage?.stats || [];
 
-    const hero = content?.testimonialsPage?.hero || { 
-        title: "WHAT OUR RUNNERS SAY", 
-        subtitle: "REAL FEEDBACK FROM REAL PLAYERS" 
-    };
+    const hero = content?.testimonialsPage?.hero || {};
 
     const containerRef = useRef(null);
 
     useEffect(() => {
+        axios.get('/api/content')
+            .then(res => setContent(res.data))
+            .catch(() => { });
+
         gsap.registerPlugin(ScrollTrigger);
         const ctx = gsap.context(() => {
             // Hero Animation

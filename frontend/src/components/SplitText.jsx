@@ -40,16 +40,26 @@ const SplitText = ({
     // Manually split the text into spans if splitType is chars
     // (Simplifying for 'chars' as requested by the user's primary use case)
     if (splitType === 'chars') {
-        const chars = text.split('').map((char) => {
-            const span = document.createElement('span');
-            span.innerText = char === ' ' ? '\u00A0' : char; // Handle spaces
-            span.style.display = 'inline-block';
-            span.className = 'split-char';
-            return span;
-        });
-
+        const lines = text.split('<br />');
         el.innerHTML = '';
-        chars.forEach(span => el.appendChild(span));
+        const allChars = [];
+
+        lines.forEach((line, lineIdx) => {
+            const lineChars = line.split('').map((char) => {
+                const span = document.createElement('span');
+                span.innerText = char === ' ' ? '\u00A0' : char; // Handle spaces
+                span.style.display = 'inline-block';
+                span.className = 'split-char';
+                return span;
+            });
+
+            lineChars.forEach(span => el.appendChild(span));
+            allChars.push(...lineChars);
+
+            if (lineIdx < lines.length - 1) {
+                el.appendChild(document.createElement('br'));
+            }
+        });
 
         const marginValue = parseFloat(rootMargin) || -100;
         const marginUnit = rootMargin.includes('px') ? 'px' : '%';
@@ -58,7 +68,7 @@ const SplitText = ({
         const start = `${startPos}${marginValue >= 0 ? '+' : ''}${marginValue}${marginUnit}`;
 
         const tween = gsap.fromTo(
-          chars,
+          allChars,
           { ...from },
           {
             ...to,

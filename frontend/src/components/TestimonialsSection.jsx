@@ -75,55 +75,9 @@ const TestimonialsSection = ({ content }) => {
         }
     };
 
-    const testimonials = content?.testimonials || [
-        {
-            rating: 5,
-            text: `"RUNNER RUNNER IS ABSOLUTELY ADDICTIVE! THE GAMEPLAY IS SMOOTH, THE CHARACTERS ARE AMAZING, AND EVERY RUN FEELS FRESH. I CAN'T STOP PLAYING!"`,
-            name: "SARAH MITCHELL",
-            role: "PRO PLAYER",
-            avatar: "/assets/Testimonial/avatars/sarah.png"
-        },
-        {
-            rating: 5,
-            text: `"BEST ENDLESS RUNNER I'VE PLAYED. THE POWER-UPS ARE CREATIVE, THE WORLDS ARE BEAUTIFUL, AND THE DIFFICULTY CURVE IS PERFECT. HIGHLY RECOMMENDED!"`,
-            name: "MARCUS JOHNSON",
-            role: "CASUAL GAMER",
-            avatar: "/assets/Testimonial/avatars/marcus.png"
-        },
-        {
-            rating: 5,
-            text: `"MY VIEWERS LOVE WATCHING ME PLAY RUNNER RUNNER. THE FAST-PACED ACTION AND COMPETITIVE MODES MAKE FOR GREAT CONTENT. THIS GAME IS A GEM!"`,
-            name: "EMMA CHEN",
-            role: "STREAMER",
-            avatar: "/assets/Testimonial/avatars/emma.png"
-        },
-        {
-            rating: 5,
-            text: `"THE MECHANICS ARE TIGHT AND RESPONSIVE. I'VE BEEN GRINDING FOR HIGH SCORES AND THE LEADERBOARD SYSTEM KEEPS ME MOTIVATED. LOVE IT!"`,
-            name: "ALEX RODRIGUEZ",
-            role: "SPEEDRUNNER",
-            avatar: "/assets/Testimonial/avatars/alex.png"
-        },
-        {
-            rating: 4,
-            text: `"FINALLY, A MOBILE GAME THAT RESPECTS MY TIME! NO PAY-TO-WIN NONSENSE, JUST PURE FUN. RUNNER RUNNER IS MY GO-TO GAME DURING BREAKS."`,
-            name: "JESSICA LEE",
-            role: "MOBILE GAMER",
-            avatar: "/assets/Testimonial/avatars/jessica.png"
-        },
-        {
-            rating: 4,
-            text: `"THE CHARACTER DESIGNS ARE INCREDIBLE, AND THE NEON AESTHETIC IS SO COOL. THIS GAME HAS SERIOUS PRODUCTION VALUE. DEVELOPERS DID AN AMAZING JOB!"`,
-            name: "DAVID THOMPSON",
-            role: "GAMING ENTHUSIAST",
-            avatar: "/assets/Testimonial/avatars/david.png"
-        }
-    ];
+    const testimonials = content?.testimonials || [];
 
-    const shareStory = content?.testimonialsPage?.shareStory || {
-        title: "SHARE YOUR <span class=\"highlight\">STORY</span>",
-        subtitle: "GOT AN EPIC RUN? TELL US ABOUT IT AND YOU MIGHT BE FEATURED ON THIS PAGE!"
-    };
+    const shareStory = content?.testimonialsPage?.shareStory || {};
 
     return (
         <section className="testimonials-section" ref={sectionRef}>

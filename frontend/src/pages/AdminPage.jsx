@@ -310,7 +310,7 @@ function HeroPanel({ data, update, toast }) {
 
 // ─── STATS PANEL ──────────────────────────────────────────
 function StatsPanel({ data, update }) {
-    const stats = data.stats || { items: [] };
+    const stats = data.stats || {};
     const setItem = (i, key, val) => {
         const items = [...stats.items];
         items[i] = { ...items[i], [key]: val };
@@ -387,7 +387,7 @@ function CommunityPanel({ data, update, toast }) {
 
 // ─── FINAL SECTION PANEL ──────────────────────────────────
 function FinalSectionPanel({ data, update, toast }) {
-    const fs = data.finalSection || { slides: [] };
+    const fs = data.finalSection || {};
     const setSlide = (i, key, val) => {
         const slides = [...fs.slides];
         slides[i] = { ...slides[i], [key]: val };
@@ -647,7 +647,7 @@ function ArticlesPanel({ data, update, toast }) {
     const [form, setForm] = useState({ title: '', date: '', desc: '', file: null });
     const [uploading, setUploading] = useState(false);
 
-    const articles = data.articles || { title: '', subtitle: '', items: [] };
+    const articles = data.articles || {};
 
     const deleteArticle = id => update('articles', { ...articles, items: articles.items.filter(a => a.id !== id) });
 
@@ -734,7 +734,7 @@ function ArticlesPanel({ data, update, toast }) {
 
 // ─── RUNNERS PANEL ────────────────────────────────────────
 function RunnersPanel({ data, update }) {
-    const runners = data.runners || { title: '', subtitle: '', items: [] };
+    const runners = data.runners || {};
     const setItem = (i, key, val) => {
         const items = [...runners.items];
         items[i] = { ...items[i], [key]: val };
@@ -765,7 +765,7 @@ function RunnersPanel({ data, update }) {
 
 // ─── POWERUPS PANEL ───────────────────────────────────────
 function PowerupsPanel({ data, update }) {
-    const powerups = data.powerups || { title: '', subtitle: '', items: [] };
+    const powerups = data.powerups || {};
     const setItem = (i, key, val) => {
         const items = [...powerups.items];
         items[i] = { ...items[i], [key]: val };
@@ -904,7 +904,7 @@ function TestimonialResponsesPanel({ toast }) {
 
 function TestimonialsPagePanel({ data, update, section, toast }) {
     const tp = data.testimonialsPage || {};
-    const hero = tp.hero || { title: '', subtitle: '' };
+    const hero = tp.hero || {};
 
     if (section === 'tp_responses') return <TestimonialResponsesPanel toast={toast} />;
 
@@ -1042,13 +1042,11 @@ function MapPanel({ data, update, section, toast }) {
 
 function ContactPanel({ data, update, section, toast }) {
     const cp = data.contactPage || {};
-    // ... existing logic ...
-    if (section === 'contactResponses') return <ResponsesPanel toast={toast} />;
-
     const hero = cp.hero || {};
     const info = cp.infoBox || {};
-    const support = cp.support || { cards: [] };
+    const support = cp.support || {};
     const bg = cp.bgSection || {};
+    if (section === 'contactResponses') return <ResponsesPanel toast={toast} />;
 
     const updateCP = (key, val) => update('contactPage', { ...cp, [key]: val });
 
@@ -1167,7 +1165,7 @@ function ContactPanel({ data, update, section, toast }) {
     }
 
     if (section === 'contactFaq') {
-        const faq = cp.faqSection || { title: '', subtitle: '', tabs: [], allFaqs: {} };
+        const faq = cp.faqSection || {};
         const upFaq = (key, val) => updateCP('faqSection', { ...faq, [key]: val });
         const upTabFaqs = (tab, nextFaqs) => upFaq('allFaqs', { ...faq.allFaqs, [tab]: nextFaqs });
 
@@ -1214,7 +1212,7 @@ function ContactPanel({ data, update, section, toast }) {
     }
 
     if (section === 'contactSocials') {
-        const social = cp.socialSection || { title: '', description: '', icons: [] };
+        const social = cp.socialSection || {};
         const upSocial = (key, val) => updateCP('socialSection', { ...social, [key]: val });
         const updateIcon = (i, key, val) => {
             const next = [...social.icons];
@@ -1347,7 +1345,7 @@ function FaqPanel({ data, update, section, toast }) {
             );
 
         case 'faqRatings':
-            const ratings = faq.ratings || { breakdown: [] };
+            const ratings = faq.ratings || {};
             return (
                 <div className="adm-panel anim-fade">
                     <h2 className="adm-h2">Ratings Summary</h2>
@@ -1579,7 +1577,7 @@ function BriefingsPanel({ data, update, toast }) {
     const [uploading, setUploading] = useState(false);
     const [editingContent, setEditingContent] = useState(null);
 
-    const briefings = data.briefings || { title: 'LATEST BRIEFINGS', items: [] };
+    const briefings = data.briefings || {};
 
     const deleteBriefing = id => update('briefings', { ...briefings, items: (briefings.items || []).filter(b => b.id !== id) });
 
@@ -1858,3 +1856,4 @@ export default function AdminPage() {
         </>
     );
 }
+

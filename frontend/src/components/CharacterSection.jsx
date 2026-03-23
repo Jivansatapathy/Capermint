@@ -11,15 +11,15 @@ const CharacterSection = ({ content }) => {
 
     const rawData = content?.characterSection;
     const data = {
-        heading: rawData?.heading || "HEY RUNNER!",
-        subheading: rawData?.subheading || "I'M SPEEDSTER AUSTIN.",
-        text: rawData?.text || "THE CITY'S ALWAYS BEEN MY TURF, BUT NOW IT'S YOURS TO CONQUER.\nTHE STREETS ARE FULL OF OBSTACLES, POWER-UPS,\nAND ENDLESS CHALLENGES. ARE YOU FAST ENOUGH TO BEAT THEM ALL?",
-        modelImage: rawData?.modelImage || "/assets/3d model.png",
-        signatureImage: rawData?.signatureImage || "/assets/Signature.png",
-        backCardImage: rawData?.backCardImage || "/assets/backcard.png",
-        topCardImage: rawData?.topCardImage || "/assets/topcard.png",
-        coinTopImage: rawData?.coinTopImage || "/assets/Coin_top.png",
-        coinBottomImage: rawData?.coinBottomImage || "/assets/Coin_bottom.png"
+        heading: rawData?.heading || "",
+        subheading: rawData?.subheading || "",
+        text: rawData?.text || "",
+        modelImage: rawData?.modelImage || null,
+        signatureImage: rawData?.signatureImage || null,
+        backCardImage: rawData?.backCardImage || null,
+        topCardImage: rawData?.topCardImage || null,
+        coinTopImage: rawData?.coinTopImage || null,
+        coinBottomImage: rawData?.coinBottomImage || null
     };
 
     useEffect(() => {

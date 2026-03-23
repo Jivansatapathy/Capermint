@@ -1,11 +1,7 @@
 import React from 'react';
 
 const CharactersHero = ({ content }) => {
-    const hero = content?.charactersPage?.hero || {
-        title: "MEET THE RUNNERS",
-        subtitle: "EVERY RUNNER TELLS A DIFFERENT STORY. WHO ARE YOU WHEN YOU RUN?",
-        bgImage: "/assets/characterasssets/BG photo.png"
-    };
+    const hero = content?.charactersPage?.hero || {};
 
     return (
         <section className="char-hero" style={{ backgroundImage: `url('${hero.bgImage}')` }}>

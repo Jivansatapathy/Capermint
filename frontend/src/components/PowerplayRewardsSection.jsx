@@ -9,10 +9,7 @@ const PowerplayRewardsSection = ({ content }) => {
     const sectionRef = useRef();
     const contentRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.rewards || {
-        title: "STACK REWARDS",
-        subtitle: "TURN EVERY RUN INTO A REWARD RUSH."
-    };
+    const data = content?.powerplayPage?.sections?.rewards || {};
 
     useGSAP(() => {
         gsap.from(contentRef.current.children, {

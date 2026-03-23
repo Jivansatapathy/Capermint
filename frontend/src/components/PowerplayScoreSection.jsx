@@ -10,12 +10,7 @@ const PowerplayScoreSection = ({ content }) => {
     const imageRef = useRef();
     const textRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.score || {
-        title: "2X & 4X",
-        subtitle: "DOUBLE & QUADRUPLE YOUR SCORE.",
-        description: "COLLECT THE 2X OR 4X POWER-UP AND WATCH YOUR SCORE MULTIPLY AS YOU RUN THROUGH THE TRACK. A QUICK WAY TO BOOST YOUR POINTS.",
-        image: "/assets/powerplay assets/section5right.png"
-    };
+    const data = content?.powerplayPage?.sections?.score || {};
 
     useGSAP(() => {
         // Image animation

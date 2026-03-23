@@ -10,12 +10,7 @@ const PowerplayJumperSection = ({ content }) => {
     const imageRef = useRef();
     const textRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.jumper || {
-        title: "JUMPER",
-        subtitle: "LAUNCH INTO ADVANTAGE.",
-        description: "HIT A JUMPER TO BOUNCE HIGH ABOVE THE TRACK AND ESCAPE TIGHT OBSTACLES. GAIN A BETTER VIEW, MORE BREATHING ROOM, AND A CHANCE TO GRAB REWARDS FROM ABOVE.",
-        image: "/assets/powerplay assets/section7img.png"
-    };
+    const data = content?.powerplayPage?.sections?.jumper || {};
 
     useGSAP(() => {
         // Image animation

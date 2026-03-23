@@ -17,7 +17,7 @@ const Blog = () => {
             .then(res => {
                 setContent({
                     blogSlides: res.data.blogSlides || [],
-                    briefings: res.data.briefings || { title: 'LATEST BRIEFINGS', items: [] }
+                    briefings: res.data.briefings || {}
                 });
                 setLoading(false);
             })
@@ -46,12 +46,7 @@ const Blog = () => {
 
     if (loading) return <div className="blog-page"><div className="loading">Loading...</div></div>;
 
-    const activeSlide = slides[currentSlide] || {
-        title: "MASTERS THE",
-        highlight: "STREETS",
-        subtitle: "THOUSANDS OF PLAYERS ARE DASHING THROUGH THE CITY.",
-        bg: "/assets/blogassets/blogbgimg.png"
-    };
+    const activeSlide = slides[currentSlide] || {};
 
     return (
         <main className="blog-page">

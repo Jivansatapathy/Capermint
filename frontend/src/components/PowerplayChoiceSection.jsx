@@ -11,20 +11,12 @@ const PowerplayChoiceSection = ({ content }) => {
     const contentRef = useRef();
 
     const rawData = content?.powerplayPage?.sections?.choice;
-    const defaultIcons = {
-        potion: "/assets/powerplay assets/section9farleftimg.png",
-        img2x: "/assets/powerplay assets/section9img2x.png",
-        shield: "/assets/powerplay assets/section9imgshield.png",
-        boy: "/assets/powerplay assets/section9imgboy.png",
-        magnet: "/assets/powerplay assets/section9imgmagnet.png",
-        img4x: "/assets/powerplay assets/section9img4x.png",
-        blaster: "/assets/powerplay assets/section9imgblaster.png"
-    };
+    const defaultIcons = {};
 
     const data = {
-        title: rawData?.title || "WHICH POWERUP WILL YOU CHOOSE?",
-        subtitle: rawData?.subtitle || "THE RIGHT POWER AT THE RIGHT MOMENT CAN CHANGE EVERYTHING.",
-        footer: rawData?.footer || "WHAT'S YOUR WINNING STRATEGY?",
+        title: rawData?.title || "",
+        subtitle: rawData?.subtitle || "",
+        footer: rawData?.footer || "",
         icons: { ...defaultIcons, ...rawData?.icons }
     };
 

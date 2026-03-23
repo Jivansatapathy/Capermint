@@ -10,12 +10,7 @@ const PowerplayBonusRoadSection = ({ content }) => {
     const textRef = useRef();
     const imageRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.bonusRoad || {
-        title: "BONUS ROAD",
-        subtitle: "ENTER THE BONUS ROAD.",
-        description: "FIND THE BONUS ROAD AND SHIFT INTO A HIGH-REWARD ROUTE FILLED WITH EXTRA COINS AND BIG SCORING OPPORTUNITIES. IT'S YOUR CHANCE TO TURN A GREAT RUN INTO A RECORD-BREAKING ONE.",
-        image: "/assets/powerplay assets/section8img.png"
-    };
+    const data = content?.powerplayPage?.sections?.bonusRoad || {};
 
     useGSAP(() => {
         // Text animation

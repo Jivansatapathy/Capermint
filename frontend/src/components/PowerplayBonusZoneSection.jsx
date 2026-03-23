@@ -9,9 +9,7 @@ const PowerplayBonusZoneSection = ({ content }) => {
     const sectionRef = useRef();
     const contentRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.bonusZone || {
-        title: "BONUS ZONE"
-    };
+    const data = content?.powerplayPage?.sections?.bonusZone || {};
 
     useGSAP(() => {
         gsap.from(contentRef.current, {

@@ -6,30 +6,7 @@ import FinalSection from '../components/FinalSection';
 import '../styles/contact.css';
 
 
-const defaultContent = {
-    hero: {
-        title: "WE'D LOVE TO HEAR FROM YOU!",
-        subtitle: "GOT A QUESTION, FEEDBACK, OR NEED HELP? WE'RE HERE FOR YOU!",
-        buttonText: "CONTACT US",
-        characterImage: "/assets/contactassets/contactsection1img.png"
-    },
-    infoBox: {
-        title: "GET IN TOUCH",
-        text: "PLEASE FILL OUT THE FORM BELOW, AND WE'LL GET BACK TO YOU AS SOON AS POSSIBLE. OUR TEAM IS HERE TO ASSIST WITH ANY INQUIRIES OR SUPPORT NEEDS!"
-    },
-    support: {
-        title: "CONTACT OUR SUPPORT TEAM",
-        subtitle: "IF YOU NEED PERSONALIZED ASSISTANCE, YOU CAN REACH OUT TO OUR SUPPORT TEAM THROUGH ANY OF THE FOLLOWING METHODS",
-        cards: [
-            { type: 'email', icon: '/assets/contactassets/mail.png', title: 'SUPPORT@RUNNERRUNNER.COM', desc: 'AVAILABLE 24/7 VIA THE CHAT BUTTON AT THE BOTTOM-RIGHT OF THE PAGE.' },
-            { type: 'phone', icon: '/assets/contactassets/phone.png', title: '+1 (555) 123-4567', desc: 'PREFER TO SPEAK WITH SOMEONE? CALL US DURING OUR SUPPORT HOURS.' },
-            { type: 'chat', icon: '/assets/contactassets/chat.png', title: 'LIVE CHAT', desc: 'AVAILABLE 24/7 VIA THE CHAT BUTTON AT THE BOTTOM-RIGHT OF THE PAGE.' },
-        ]
-    },
-    bgSection: {
-        overlayImage: "/assets/contactassets/conatctbgsection.png"
-    }
-};
+const defaultContent = {};
 
 const Contact = () => {
     const [cp, setCp] = useState(defaultContent);
@@ -131,12 +108,12 @@ const Contact = () => {
             .catch(() => { }); // use defaults if backend offline
     }, []);
 
-    const hero = cp.hero || defaultContent.hero;
+    const hero = cp.hero || {};
     const form = cp.form || { labels: {}, placeholders: {}, subjectOptions: [] };
-    const infoBox = cp.infoBox || defaultContent.infoBox;
-    const support = cp.support || defaultContent.support;
-    const faqSection = cp.faqSection || { tabs: [], allFaqs: {} };
-    const socialSection = cp.socialSection || { icons: [] };
+    const infoBox = cp.infoBox || {};
+    const support = cp.support || {};
+    const faqSection = cp.faqSection || {};
+    const socialSection = cp.socialSection || {};
     const bg = cp.bgSection || {};
     const icons = cp.icons || {};
 
@@ -192,20 +169,20 @@ const Contact = () => {
                         <form className="contact-form-box" onSubmit={handleSubmit}>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label>{form.labels?.name || "RUNNER NAME"} <span>{form.labels?.requiredText || "(REQUIRED)"}</span></label>
+                                    <label>{form.labels?.name || ""} <span>{form.labels?.requiredText || ""}</span></label>
                                     <input 
                                         type="text" 
-                                        placeholder={form.placeholders?.name || "YOUR NAME"} 
+                                        placeholder={form.placeholders?.name || ""} 
                                         required 
                                         value={formData.name}
                                         onChange={e => setFormData({...formData, name: e.target.value})}
                                     />
                                 </div>
                                 <div className="form-group">
-                                    <label>{form.labels?.email || "EMAIL ADDRESS"} <span>{form.labels?.requiredText || "(REQUIRED)"}</span></label>
+                                    <label>{form.labels?.email || ""} <span>{form.labels?.requiredText || ""}</span></label>
                                     <input 
                                         type="email" 
-                                        placeholder={form.placeholders?.email || "YOU@EXAMPLE.COM"} 
+                                        placeholder={form.placeholders?.email || ""} 
                                         required 
                                         value={formData.email}
                                         onChange={e => setFormData({...formData, email: e.target.value})}
@@ -213,7 +190,7 @@ const Contact = () => {
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label>{form.labels?.subject || "SUBJECT"} <span>{form.labels?.subjectInfo || "(DROPDOWN OR TEXT FIELD)"}</span></label>
+                                <label>{form.labels?.subject || ""} <span>{form.labels?.subjectInfo || ""}</span></label>
                                 <div className="select-wrapper">
                                     <select 
                                         value={formData.subject}
@@ -226,16 +203,16 @@ const Contact = () => {
                                 </div>
                             </div>
                             <div className="form-group">
-                                <label>{form.labels?.message || "MESSAGE"} <span>{form.labels?.requiredText || "(REQUIRED)"}</span></label>
+                                <label>{form.labels?.message || ""} <span>{form.labels?.requiredText || ""}</span></label>
                                 <textarea 
-                                    placeholder={form.placeholders?.message || "ENTER MESSAGE..."} 
+                                    placeholder={form.placeholders?.message || ""} 
                                     required
                                     value={formData.message}
                                     onChange={e => setFormData({...formData, message: e.target.value})}
                                 ></textarea>
                             </div>
                             <button type="submit" className="form-submit-btn" disabled={status === 'SENDING...'}>
-                                {status || form.buttonText || "SEND MESSAGE"}
+                                {status || form.buttonText || ""}
                             </button>
                         </form>
                     </div>
@@ -282,7 +259,7 @@ const Contact = () => {
                     ></div>
                     <div className="contact-bg-overlay-content-wrapper">
                         <div className="contact-bg-overlay-centered-img">
-                            <img src={bg.maskGroup || "/assets/contactassets/Mask group.png"} alt="Mask Group" className="contact-mask-base-img" />
+                            <img src={bg.maskGroup || ""} alt="Mask Group" className="contact-mask-base-img" />
                             <div className="contact-mask-content-layout">
                                 <div className="contact-mask-left">
                                     {tabs.map(tab => (
@@ -303,12 +280,12 @@ const Contact = () => {
 
                                 <div className="contact-mask-right">
                                     <div className="cmask-faq-header-wrapper">
-                                        <img src={icons.questionLeft || "/assets/contactassets/questioniconleft.png"} alt="Question Left" className="cmask-q-icon-left" />
+                                        <img src={icons.questionLeft || ""} alt="Question Left" className="cmask-q-icon-left" />
                                         <div className="cmask-faq-title-group">
-                                            <h3 className="cmask-faq-title">{faqSection.title || "NEED HELP RIGHT NOW?"}</h3>
-                                            <p className="cmask-faq-subtitle">{faqSection.subtitle || "CHECK OUT THE FREQUENTLY ASKED QUESTIONS"}</p>
+                                            <h3 className="cmask-faq-title">{faqSection.title || ""}</h3>
+                                            <p className="cmask-faq-subtitle">{faqSection.subtitle || ""}</p>
                                         </div>
-                                        <img src={icons.questionRight || "/assets/contactassets/questioniconright.png"} alt="Question Right" className="cmask-q-icon-right" />
+                                        <img src={icons.questionRight || ""} alt="Question Right" className="cmask-q-icon-right" />
                                     </div>
                                     <div className="cmask-faq-box">
                                         {faqs.map((faq, i) => (
@@ -327,16 +304,16 @@ const Contact = () => {
                                     </div>
                                 </div>
                             </div>
-                            <img src={bg.girlImage || "/assets/contactassets/girlimage.png"} alt="Girl Character" className="contact-mask-girl-img" />
+                            <img src={bg.girlImage || ""} alt="Girl Character" className="contact-mask-girl-img" />
                         </div>
                         <div className="contact-social-section">
-                            <h2 className="contact-social-title">{socialSection.title || "CONNECT WITH US ON SOCIAL MEDIA"}</h2>
+                            <h2 className="contact-social-title">{socialSection.title || ""}</h2>
                             <p className="contact-social-desc">
                                 {socialSection.description}
                             </p>
                             <div className="contact-social-icons">
                                 {(socialSection.icons || []).map((s, idx) => (
-                                    <a key={idx} href={s.url || "#"} className="social-icon-box" target="_blank" rel="noopener noreferrer">
+                                    <a key={idx} href={s.url || ""} className="social-icon-box" target="_blank" rel="noopener noreferrer">
                                         <img src={s.image} alt={s.platform} />
                                     </a>
                                 ))}

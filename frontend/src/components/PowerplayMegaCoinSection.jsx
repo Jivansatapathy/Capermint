@@ -10,12 +10,7 @@ const PowerplayMegaCoinSection = ({ content }) => {
     const textRef = useRef();
     const imageRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.megaCoin || {
-        title: "MEGA COIN",
-        subtitle: "BIGGER PICKUPS. BIGGER REWARDS.",
-        description: "GRAB MEGA COINS FOR AN INSTANT SCORE BOOST. ONE PICKUP, MASSIVE VALUE - PERFECT FOR CLIMBING THE LEADERBOARD FASTER.",
-        image: "/assets/powerplay assets/section6img.png"
-    };
+    const data = content?.powerplayPage?.sections?.megaCoin || {};
 
     useGSAP(() => {
         // Text animation

@@ -11,12 +11,12 @@ const Section10 = ({ content }) => {
 
     const rawData = content?.specialEvents;
     const data = {
-        title: rawData?.title || "SPECIAL EVENTS",
-        subtitle: rawData?.subtitle || "LIMITED TIME CHALLENGES WITH BIGGER REWARDS.\nEVERY EVENT BRINGS SOMETHING NEW!",
-        eventTitle: rawData?.eventTitle || "CASH OUT EVENT IS LIVE",
-        eventDescription: rawData?.eventDescription || "COMPLETE TASKS & RUN DURING THE EVENT CLIMB THE LEADERBOARD.\nTOP RUNNERS EARN REAL REWARDS.",
-        buttonText: rawData?.buttonText || "EXPLORE >",
-        image: rawData?.image || "/assets/image.png"
+        title: rawData?.title || "",
+        subtitle: rawData?.subtitle || "",
+        eventTitle: rawData?.eventTitle || "",
+        eventDescription: rawData?.eventDescription || "",
+        buttonText: rawData?.buttonText || "",
+        image: rawData?.image || null
     };
 
     useEffect(() => {

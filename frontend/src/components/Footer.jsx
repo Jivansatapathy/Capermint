@@ -2,16 +2,11 @@ import React from 'react';
 
 const Footer = ({ content }) => {
     const data = content?.footer || {
-        logo: "/assets/Runnerlogo.png",
-        tagline: "FAST PACED ENDLESS RUNNING ACROSS EVER CHANGING WORLDS. RUN, DODGE, COMPETE AND PUSH YOUR LIMITS.",
-        socials: [
-            { platform: "facebook", url: "#" },
-            { platform: "twitter", url: "#" },
-            { platform: "instagram", url: "#" },
-            { platform: "youtube", url: "#" }
-        ],
-        contactEmail: "SUPPORT@PLAYSPHERESTUDIOS.COM",
-        copy: "© 2026 RUNNER RUNNER. ALL RIGHTS RESERVED."
+        logo: null,
+        tagline: "",
+        socials: [],
+        contactEmail: "",
+        copy: ""
     };
 
     const getSocialIcon = (platform) => {

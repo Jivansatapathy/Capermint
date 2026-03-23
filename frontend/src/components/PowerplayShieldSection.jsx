@@ -10,12 +10,7 @@ const PowerplayShieldSection = ({ content }) => {
     const imageRef = useRef();
     const textRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.shield || {
-        title: "SHIELD",
-        subtitle: "ONE HIT. ZERO SLOWDOWN.",
-        description: "ACTIVATE THE SHIELD TO ABSORB AN OBSTACLE WITHOUT BREAKING YOUR STREAK. KEEP YOUR MOMENTUM ALIVE AND STAY LOCKED IN ON YOUR HIGH SCORE.",
-        image: "/assets/powerplay assets/section1img.png"
-    };
+    const data = content?.powerplayPage?.sections?.shield || {};
 
     useGSAP(() => {
         // Image animation

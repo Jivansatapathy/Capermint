@@ -1,13 +1,7 @@
 import React from 'react';
 
 const CharactersGroupSection = ({ data }) => {
-    const group = data || {
-        title: "WHO WILL YOU RUN AS?",
-        subtitle: "EACH CHARACTER BRINGS A DIFFERENT ENERGY.",
-        text: "CHOOSE YOUR IDENTITY AND START THE RACE.",
-        image: "/assets/characterasssets/Full Cherecters 1.png",
-        bg: "/assets/characterasssets/section13bg.png"
-    };
+    const group = data || {};
 
     return (
         <section className="char-section-group" style={{ backgroundImage: `url('${group.bg}')` }}>

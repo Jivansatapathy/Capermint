@@ -2,10 +2,7 @@ import React from 'react';
 import '../styles/newsletterSection.css';
 
 const NewsletterSection = ({ content }) => {
-    const data = content?.newsletter || {
-        title: "DAILY INTEL DROP",
-        subtitle: "GET THE LATEST BLOG & NEWS DELIVERED STRAIGHT TO YOUR INBOX."
-    };
+    const data = content?.newsletter || {};
 
     return (
         <section className="newsletter-container">

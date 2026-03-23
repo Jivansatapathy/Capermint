@@ -10,12 +10,7 @@ const PowerplayInvisibilitySection = ({ content }) => {
     const imageRef = useRef();
     const textRef = useRef();
 
-    const data = content?.powerplayPage?.sections?.invisibility || {
-        title: "INVISIBILITY",
-        subtitle: "MAKE OBSTACLES DISAPPEAR.",
-        description: "FOR A LIMITED TIME, OBSTACLES VANISH FROM YOUR PATH - GIVING YOU A CLEAR LANE TO RUN AT FULL SPEED. WHEN THE TRACK FEELS IMPOSSIBLE, TURN IT EFFORTLESS.",
-        image: "/assets/powerplay assets/section3img.png"
-    };
+    const data = content?.powerplayPage?.sections?.invisibility || {};
 
     useGSAP(() => {
         // Image animation
