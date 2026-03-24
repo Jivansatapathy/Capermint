@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Footer from '../components/Footer';
 import TestimonialsSection from '../components/TestimonialsSection';
 import '../styles/testimonials.css';
+import { API_URL } from '../api_config';
+
 
 
 const Testimonials = () => {
@@ -15,7 +17,7 @@ const Testimonials = () => {
     const containerRef = useRef(null);
 
     useEffect(() => {
-        axios.get('/api/content')
+        axios.get(API_URL)
             .then(res => setContent(res.data))
             .catch(() => { });
 

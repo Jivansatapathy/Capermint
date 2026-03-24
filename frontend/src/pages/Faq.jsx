@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import '../styles/faq.css';
+import { API_URL } from '../api_config';
+
 
 const FaqArrrow = ({ isOpen }) => (
     <svg 
@@ -75,7 +77,7 @@ const Faq = () => {
         window.scrollTo(0, 0);
         const fetchContent = async () => {
             try {
-                const res = await axios.get('/api/content');
+                const res = await axios.get(API_URL);
                 setContent(res.data);
             } catch (err) {
                 console.error("Error fetching FAQ content:", err);

@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
-const API = '/api/content';
-const UPLOAD_API = '/api/upload';
+import { API_URL as API, UPLOAD_API } from '../api_config';
 
 // ─── SVG ICONS ────────────────────────────────────────────
 const I = {
@@ -823,7 +821,7 @@ const GenericUploadField = ({ label, value, onUpload, toast }) => {
         try {
             const fd = new FormData();
             fd.append('image', file);
-            const res = await fetch('/api/upload-any', { 
+            const res = await fetch(API_BASE + "/api/upload-any", { 
                 method: 'POST', 
                 headers: { ...getAuthHeader() },
                 body: fd 
@@ -929,7 +927,7 @@ function ResponsesPanel({ toast }) {
     const [loading, setLoading] = useState(true);
 
     const load = () => {
-        fetch('/api/responses', { headers: getAuthHeader() })
+        fetch(API_BASE + "/api/responses", { headers: getAuthHeader() })
             .then(r => r.json())
             .then(d => { setList(d); setLoading(false); })
             .catch(() => setLoading(false));

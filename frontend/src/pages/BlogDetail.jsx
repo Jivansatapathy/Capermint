@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Footer from '../components/Footer';
 import '../styles/blogDetail.css';
+import { API_URL } from '../api_config';
+
 
 
 const BlogDetail = () => {
@@ -11,7 +13,7 @@ const BlogDetail = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        axios.get('/api/content')
+        axios.get(API_URL)
             .then(res => {
                 const item = (res.data.briefings?.items || []).find(b => b.id === id);
                 setBlog(item);

@@ -4,6 +4,8 @@ import FinalSection from '../components/FinalSection';
 import '../styles/maps.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { API_URL } from '../api_config';
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,7 +30,7 @@ const Maps = () => {
     const cta = mp.cta || {};
 
     useEffect(() => {
-        fetch('/api/content')
+        fetch(API_URL)
             .then(res => res.json())
             .then(data => {
                 setContent(data);

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/auth.css';
+import { AUTH_API } from '../api_config';
+
 
 const AuthPage = ({ onLogin }) => {
     const [isLogin, setIsLogin] = useState(true);
@@ -29,7 +31,7 @@ const AuthPage = ({ onLogin }) => {
         setLoading(true);
         setError('');
 
-        const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
+        const endpoint = isLogin ? AUTH_API + "/login" : AUTH_API + "/register";
         
         try {
             const res = await axios.post(`${endpoint}`, { email, password });

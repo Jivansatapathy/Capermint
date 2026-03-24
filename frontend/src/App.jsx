@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from './api_config';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import AdminPage from './pages/AdminPage';
@@ -25,7 +26,7 @@ function App() {
         const token = localStorage.getItem('adminToken');
         const config = token ? { headers: { Authorization: `Bearer ${token}` } } : {};
         
-        axios.get('/api/content', config)
+        axios.get(API_URL, config)
             .then(res => {
                 if (res.data && Object.keys(res.data).length > 0) {
                     setContent(res.data);

@@ -17,6 +17,8 @@ import PowerplayChoiceSection from '../components/PowerplayChoiceSection';
 import FinalSection from '../components/FinalSection';
 import Lenis from '@studio-freight/lenis';
 import '../styles/powerplay.css';
+import { API_URL } from '../api_config';
+
 
 const Powerplay = () => {
     const [content, setContent] = useState({});
@@ -31,7 +33,7 @@ const Powerplay = () => {
         requestAnimationFrame(raf);
 
         // Fetch content from backend
-        axios.get('/api/content')
+        axios.get(API_URL)
             .then(res => setContent(res.data))
             .catch(() => {
                 // Fallback to local data

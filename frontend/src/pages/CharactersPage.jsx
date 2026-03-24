@@ -7,6 +7,8 @@ import FinalSection from '../components/FinalSection';
 import Footer from '../components/Footer';
 import Lenis from '@studio-freight/lenis';
 import '../styles/characters.css';
+import { API_URL } from '../api_config';
+
 
 const CharactersPage = () => {
     const [content, setContent] = useState({});
@@ -21,7 +23,7 @@ const CharactersPage = () => {
         requestAnimationFrame(raf);
 
         // Fetch content from backend
-        axios.get('/api/content')
+        axios.get(API_URL)
             .then(res => setContent(res.data))
             .catch(() => {
                 // Fallback to local data

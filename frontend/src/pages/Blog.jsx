@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import NewsletterSection from '../components/NewsletterSection';
 import '../styles/blog.css';
 import axios from 'axios';
+import { API_URL } from '../api_config';
+
 
 
 const Blog = () => {
@@ -13,7 +15,7 @@ const Blog = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        axios.get('/api/content')
+        axios.get(API_URL)
             .then(res => {
                 setContent({
                     blogSlides: res.data.blogSlides || [],

@@ -19,6 +19,8 @@ import Lenis from '@studio-freight/lenis';
 import '../styles/home.css';
 
 import fallbackContent from '../fallbackContent.json';
+import { API_URL } from '../api_config';
+
 
 const Home = () => {
     const [content, setContent] = useState(fallbackContent);
@@ -33,7 +35,7 @@ const Home = () => {
         requestAnimationFrame(raf);
 
         // Try to fetch content from backend; silently use defaults if unavailable
-        axios.get('/api/content')
+        axios.get(API_URL)
             .then(res => {
                 if (res.data && Object.keys(res.data).length > 0) {
                     setContent(res.data);

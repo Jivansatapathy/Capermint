@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { API_URL, CONTACT_API } from '../api_config';
 import Footer from '../components/Footer';
 import FinalSection from '../components/FinalSection';
 import '../styles/contact.css';
@@ -95,7 +96,7 @@ const Contact = () => {
     }, []);
 
     useEffect(() => {
-        fetch('/api/content')
+        fetch(API_URL)
             .then(res => res.json())
             .then(data => { 
                 if (data.contactPage) {
@@ -128,7 +129,7 @@ const Contact = () => {
         e.preventDefault();
         setStatus('SENDING...');
         try {
-            const res = await fetch('/api/contact', {
+            const res = await fetch(CONTACT_API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
